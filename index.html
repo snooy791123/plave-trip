@@ -2,633 +2,1003 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>首爾 旅遊與美食帖</title>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Shippori+Mincho:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Seoul 2026 | 首爾夏日潮流紀行</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root { 
-  --ink: #1a1a2e; 
-  --paper: #f8f9fa; 
-  --paper2: #eef2f5; 
-  --primary: #6c5ce7; 
-  --accent: #00cec9; 
-  --secondary: #fd79a8; 
-  --timeline-line: rgba(108, 92, 231, 0.25);
-  --f-display: 'Noto Sans KR', sans-serif;
-  --f-serif: 'Nanum Myeongjo', serif;
-  --f-sans: 'Noto Sans TC', sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--f-sans); background-color: var(--paper); color: var(--ink); min-height: 100vh; overflow-x: hidden; line-height: 1.6; }
-body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.05) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(0, 206, 201, 0.05) 0%, transparent 20%); pointer-events: none; z-index: -1; opacity: 0.05; }
-
-.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 80px; text-align: center; overflow: hidden; background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #00cec9 100%), var(--paper2); }
-.hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,0.02) 39px, rgba(0,0,0,0.02) 40px); pointer-events: none; }
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero-eyebrow { font-family: var(--f-serif); font-size: 0.85rem; letter-spacing: 0.35em; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
-.hero-title { font-family: var(--f-display); font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 900; line-height: 1.1; color: var(--ink); letter-spacing: -0.02em; display: inline-block; }
-.hero-title span { color: var(--primary); }
-.hero-sub { font-family: var(--f-serif); font-size: clamp(1rem, 3vw, 1.3rem); color: var(--secondary); margin-top: 18px; letter-spacing: 0.1em; font-style: italic; }
-.hero-dates { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 10px 28px; border: 1.5px solid var(--accent); border-radius: 2px; font-family: var(--f-serif); font-size: 1rem; letter-spacing: 0.2em; color: var(--accent); background: rgba(0,0,0,0.03); }
-
-.scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.65rem; letter-spacing: 0.25em; color: rgba(0,0,0,0.3); animation: bobble 2s ease-in-out infinite; pointer-events: none; }
-@keyframes bobble { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-
-.nav-wrap { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1.5px solid rgba(0,0,0,0.08); }
-.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding: 0 16px; }
-.nav-inner::-webkit-scrollbar { display: none; }
-.nav-item { flex-shrink: 0; padding: 15px 18px; font-family: var(--f-display); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(0,0,0,0.4); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; cursor: pointer; user-select: none; }
-.nav-item:hover { color: rgba(0,0,0,0.8); border-bottom-color: rgba(0,0,0,0.1); }
-.nav-item.active { color: var(--primary); border-bottom-color: var(--primary); }
-.day-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
-
-.main { max-width: 1000px; margin: 0 auto; padding: 48px 20px 120px; }
-.day-section { margin-bottom: 100px; scroll-margin-top: 60px; }
-.day-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px dashed rgba(0,0,0,0.1); flex-wrap: wrap; }
-.day-badge { flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 900; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-.day-badge .dn { font-size: 1.4rem; line-height: 1; }
-.day-badge .dl { font-size: 0.5rem; letter-spacing: 0.1em; margin-top: 2px; }
-.day-meta { flex: 1; min-width: 200px; }
-.day-title { font-family: var(--f-display); font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 6px; }
-.day-subtitle { font-family: var(--f-serif); font-size: 0.87rem; color: rgba(0,0,0,0.5); line-height: 1.65; }
-
-.timeline-wrap { position: relative; margin: 30px 0 40px; padding: 25px 20px 25px 30px; background: white; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 8px 30px rgba(0,0,0,0.03); overflow: hidden; }
-.timeline-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(circle at 100% 0%, rgba(0,0,0,0.02) 0%, transparent 50%), radial-gradient(circle at 0% 100%, rgba(0,0,0,0.02) 0%, transparent 50%); }
-.timeline-header { position: relative; z-index: 1; font-family: var(--f-display); font-size: 1.1rem; font-weight: 900; color: var(--ink); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
-.timeline-list { position: relative; z-index: 1; padding-left: 10px; }
-.timeline-item { position: relative; padding-left: 36px; margin-bottom: 26px; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.timeline-item.in-view { opacity: 1; transform: translateX(0); }
-.timeline-item::before { content: ''; position: absolute; left: 15px; top: 32px; bottom: -30px; width: 2px; background: var(--timeline-line); border-radius: 2px; }
-.timeline-item:last-child::before { display: none; }
-.timeline-icon { position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: white; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,0.08); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.timeline-item:hover .timeline-icon { transform: scale(1.15); border-color: var(--primary); }
-.timeline-content { background: var(--paper); padding: 16px 20px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
-.timeline-item:hover .timeline-content { transform: translateY(-3px); background: white; box-shadow: 0 6px 20px rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
-.timeline-time { font-family: 'JetBrains Mono', monospace, sans-serif; font-size: 0.8rem; color: var(--primary); margin-bottom: 6px; font-weight: 700; letter-spacing: 0.05em; }
-.timeline-text { font-family: var(--f-sans); font-weight: 700; color: var(--ink); font-size: 0.95rem; margin-bottom: 8px; line-height: 1.5; }
-.timeline-map-btn { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: rgba(0,0,0,0.04); color: var(--ink); border-radius: 4px; font-size: 0.72rem; text-decoration: none; font-weight: bold; font-family: var(--f-display); transition: background 0.2s, color 0.2s; }
-.timeline-map-btn:hover { background: var(--ink); color: white; }
-
-.restaurant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-.card { background: white; border-radius: 6px; padding: 24px 22px 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); position: relative; display: flex; flex-direction: column; isolation: isolate; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease; }
-.card.in-view { opacity: 1; transform: translateY(0); }
-.card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.08); transform: translateY(-4px); z-index: 10; }
-.card::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(var(--tape-angle,-2deg)); width: 60px; height: 18px; background: var(--tape-color, rgba(0,0,0,0.1)); border-radius: 1px; z-index: 3; pointer-events: none; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-.card-header-left { flex: 1; padding-right: 10px; }
-.card-area { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
-.card-name { font-family: var(--f-display); font-size: 1.15rem; font-weight: 900; line-height: 1.35; color: var(--ink); margin-bottom: 4px; }
-.card-type { font-family: var(--f-serif); font-size: 0.75rem; color: rgba(0,0,0,0.5); }
-.card-score { background: rgba(0,0,0,0.02); border-radius: 20px; padding: 4px 10px; font-family: var(--f-display); font-size: 0.8rem; font-weight: 900; color: var(--ink); display: flex; align-items: center; gap: 4px; border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
-.card-score .s { color: #f39c12; font-size: 0.7rem; }
-.card-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(0,0,0,0.7); margin-bottom: 16px; font-family: var(--f-serif); flex: 1; }
-.card-recommend { background: rgba(0,0,0,0.02); border-left: 3px solid var(--rc-color, var(--primary)); padding: 10px 14px; margin-bottom: 18px; border-radius: 0 4px 4px 0; font-size: 0.8rem; line-height: 1.5; color: var(--ink); }
-.rc-title { font-family: var(--f-display); font-size: 0.7rem; font-weight: 900; color: var(--rc-color, var(--primary)); margin-bottom: 4px; letter-spacing: 0.05em; }
-.btn-map { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px; background: var(--paper2); color: var(--ink); border: 1px solid rgba(0,0,0,0.08); border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: var(--f-display); text-decoration: none; transition: all 0.2s; width: 100%; cursor: pointer; }
-.btn-map:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-
-footer { text-align: center; padding: 36px 20px 56px; font-family: var(--f-serif); color: rgba(0,0,0,0.4); font-size: 0.87rem; border-top: 1px dashed rgba(0,0,0,0.1); }
-footer strong { display: block; font-family: var(--f-display); font-size: 1.05rem; font-weight: 700; color: rgba(0,0,0,0.7); margin-bottom: 5px; }
-#btt { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; background: var(--ink); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(12px); transition: all 0.3s; z-index: 300; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-#btt.show { opacity: 1; transform: translateY(0); }
-#btt:hover { background: var(--primary); transform: translateY(-3px); }
-@media (max-width: 600px) { .hero-title { font-size: 3.5rem; } .restaurant-grid { grid-template-columns: 1fr; } .timeline-wrap { padding: 20px 15px; } }
-</style>
-</head>
-<body>
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-eyebrow">✈ DISCOVER SEOUL: THE ASTERUM JOURNEY</p>
-    <h1 class="hero-title">首<span>爾</span><br>旅行與美食帖</h1>
-    <p class="hero-sub">서울: 아이돌과 함께하는 꿈의 여정</p>
-    <div class="hero-dates"><i class="fas fa-calendar-days"></i> 未定</div>
-  </div>
-  <div class="scroll-hint"><span>SCROLL</span><i class="fas fa-chevron-down"></i></div>
-</section>
-<nav class="nav-wrap"><div class="nav-inner" id="navInner"></div></nav>
-<main class="main" id="mainEl"></main>
-<footer>
-  <strong>祝您有一趟美味、平安的旅程 ✈️</strong>
-  保持彈性才是最棒的旅行方式 · 즐거운 여행 되세요
-</footer>
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-/* ═══ DATA (GENERATED BY GEMINI) ═══ */
-const DAY_COLORS = {};
-const DAYS = [
-  {
-    "id": "day1",
-    "num": "01",
-    "date": "第一天",
-    "title": "抵達首爾與應援朝聖",
-    "subtitle": "安全舒適的汗蒸幕體驗與弘大PLAVE粉絲咖啡廳巡禮",
-    "itinerary": [
-      {
-        "time": "08:00 - 09:30",
-        "text": "抵達仁川機場，搭乘機場快線前往東大門",
-        "icon": "✈️",
-        "map": "Incheon International Airport"
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#1b2a30', 
+        paper: '#fcfbf9', 
+        paperDark: '#f2efe9',
+        ocean: '#2c5d88', 
+        mint: '#629a7c', 
+        sand: '#ca9662',
+        coral: '#d1757f', 
+        sky: '#82b1c4', 
+        glass: 'rgba(255, 255, 255, 0.65)',
+        glassBorder: 'rgba(255, 255, 255, 0.5)',
       },
-      {
-        "time": "09:30 - 13:00",
-        "text": "Sparex 汗蒸幕 (東大門店) - 提供大型行李寄放，環境安全舒適，洗去搭機疲憊",
-        "icon": "🧖‍♀️",
-        "map": "Sparex Dongdaemun"
+      fontFamily: {
+        sans: ['Noto Sans TC', 'sans-serif'],
+        heading: ['Zen Maru Gothic', 'sans-serif'],
+        serif: ['Shippori Mincho', 'serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
-      {
-        "time": "13:00 - 14:00",
-        "text": "東大門享用元祖一隻雞，補充體力",
-        "icon": "🍲",
-        "map": "Jinokhwa Halmae Original Chicken"
-      },
-      {
-        "time": "14:30 - 18:00",
-        "text": "前往弘大商圈，探訪 PLAVE 粉絲應援咖啡廳 (如 Cafe Murmur 等常辦應援的店家)",
-        "icon": "☕",
-        "map": "Hongdae Street"
-      },
-      {
-        "time": "18:00 - 20:30",
-        "text": "AK Plaza 弘大店逛街，尋找動漫與偶像周邊商品",
-        "icon": "🛍️",
-        "map": "AK Plaza Hongdae"
-      },
-      {
-        "time": "20:30 - 22:00",
-        "text": "弘大享用晚餐與宵夜，體驗年輕活力的首爾夜晚",
-        "icon": "🍗",
-        "map": "Hongdae"
+      boxShadow: {
+        'glass': '0 8px 32px 0 rgba(44, 93, 136, 0.08)',
+        'float': '0 12px 40px -8px rgba(27, 42, 48, 0.15)',
+        'inner-light': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.8)',
       }
+    }
+  }
+}
+</script>
+
+<style>
+  :root { -webkit-tap-highlight-color: transparent; }
+  * { box-sizing: border-box; }
+  
+  body { 
+    background: linear-gradient(135deg, #fcfbf9 0%, #e6eef2 50%, #f4eee5 100%);
+    background-attachment: fixed;
+    color: #1b2a30; 
+    overflow-x: hidden; 
+    min-height: 100vh; 
+    overscroll-behavior-y: none;
+  }
+  
+  body::before { 
+    content:''; position:fixed; inset:0; 
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0,0 1 0 0 0,0 0 1 0 0,0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"); 
+    pointer-events:none; z-index:-1; 
+  }
+  
+  .view-section { display:none; animation:fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(15px); }
+  .view-section.active { display:block; }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+  
+  .custom-scroll::-webkit-scrollbar { width: 0px; display: none; }
+  .custom-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+  .no-scroll::-webkit-scrollbar { display:none; }
+  .no-scroll { -ms-overflow-style:none; scrollbar-width:none; }
+  
+  .timeline-dot::before { content:''; position:absolute; left:1.1rem; top:2.5rem; bottom:-1rem; width:2px; border-left:2px dashed rgba(44, 93, 136, 0.25); }
+  .timeline-item:last-child .timeline-dot::before { display:none; }
+  
+  input[type=checkbox] { accent-color: #629a7c; cursor:pointer; width: 1.25rem; height: 1.25rem; border-radius: 4px; border: 1px solid rgba(44,93,136,0.3); transition: all 0.2s;}
+  .checked-label span { text-decoration:line-through; opacity:0.35; }
+  
+  .active-sidebar { background: rgba(255,255,255,0.8) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,1) !important; color: #1b2a30 !important; font-weight: 700; transform: translateX(4px); }
+  .active-mobile { background: #1b2a30 !important; color: #fff !important; box-shadow: 0 4px 12px rgba(27,42,48,0.3) !important; transform: translateY(-4px); }
+  .active-mobile i { color: #fff !important; }
+  
+  .filter-active { background: #1b2a30 !important; color: white !important; box-shadow: 0 4px 10px rgba(27,42,48,0.2); border-color: #1b2a30 !important;}
+  
+  .pb-safe { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+  textarea:focus, input:focus { outline:none; box-shadow: 0 0 0 3px rgba(130, 177, 196, 0.3); border-color: #82b1c4 !important; }
+  
+  #toast { position:fixed; bottom: 6.5rem; left:50%; transform:translateX(-50%) translateY(20px) scale(0.95); background: rgba(27,42,48,0.95); backdrop-filter: blur(8px); color:white; padding: 0.8rem 1.5rem; border-radius: 99px; font-size: 0.85rem; font-weight:700; opacity:0; transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index:9999; pointer-events:none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(0) scale(1); }
+
+  .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 8px 32px 0 rgba(44, 93, 136, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.8); }
+
+  body.theme-rainy { background: linear-gradient(135deg, #bccad0 0%, #9cb2bd 50%, #829aa5 100%); }
+  body.theme-rainy::before { opacity: 0.8; }
+  body.theme-rainy .glass-card { background: rgba(255, 255, 255, 0.45); border: 1px solid rgba(255, 255, 255, 0.3); }
+</style>
+</head>
+
+<body class="flex flex-col md:flex-row">
+
+<div id="toast"></div>
+
+<header class="md:hidden glass-card px-5 py-3.5 flex justify-between items-center sticky top-0 z-40 rounded-b-3xl mb-4 mx-2 mt-2 shadow-sm">
+  <div class="font-heading font-black text-xl text-ink tracking-tight">Seoul <span class="text-ocean">2026</span></div>
+  <button onclick="openMobileSearch()" class="w-9 h-9 flex items-center justify-center rounded-full bg-white/60 text-ink/70 hover:text-ink transition shadow-sm border border-white">
+    <i class="fas fa-search"></i>
+  </button>
+</header>
+
+<nav id="sidebar" class="hidden md:flex w-72 glass-card h-screen overflow-y-auto custom-scroll flex-shrink-0 flex-col p-6 sticky top-0 border-r border-white/60 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+  <div class="mb-8 pl-2">
+    <h1 class="font-heading font-black text-3xl text-ink leading-tight tracking-tight">Seoul<br><span class="text-ocean text-lg font-bold">夏日潮流紀行</span></h1>
+    <div class="inline-block mt-3 px-3 py-1 bg-ink text-white rounded-full font-mono text-xs font-bold shadow-sm">2026.06.19 - 06.22</div>
+  </div>
+  
+  <div class="relative mb-6">
+    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-ink/40 text-sm"></i>
+    <input id="quickSearch" type="text" placeholder="搜尋地點、聖水、美食..." class="w-full pl-10 pr-4 py-3 text-sm bg-white/60 backdrop-blur-md border border-white shadow-inner-light rounded-2xl font-sans outline-none focus:bg-white transition placeholder:text-ink/40" oninput="handleSearch(this.value)">
+  </div>
+
+  <div class="space-y-1 font-heading text-sm font-medium text-ink/70">
+    <div class="text-[10px] tracking-widest text-ink/40 mb-2 mt-4 font-sans uppercase font-bold pl-2">Dashboard</div>
+    <button class="nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 active-sidebar" data-target="view-overview">
+      <div class="w-7 h-7 rounded-full bg-sand/20 flex items-center justify-center"><i class="fas fa-compass text-sand text-xs"></i></div> 總覽與環境資訊
+    </button>
+    <button class="nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 text-ink/60" data-target="view-checklist">
+      <div class="w-7 h-7 rounded-full bg-coral/20 flex items-center justify-center"><i class="fas fa-suitcase-rolling text-coral text-xs"></i></div> 行前準備清單
+    </button>
+    <button class="nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 text-ink/60" data-target="view-tools">
+      <div class="w-7 h-7 rounded-full bg-sky/20 flex items-center justify-center"><i class="fas fa-toolbox text-sky text-xs"></i></div> 實用百寶箱
+    </button>
+    <button class="nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 text-ink/60" data-target="view-wishlist">
+      <div class="w-7 h-7 rounded-full bg-coral/20 flex items-center justify-center"><i class="fas fa-heart text-coral text-xs"></i></div> 我的收藏清單
+    </button>
+    <button class="nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 text-ink/60" data-target="view-phrases">
+      <div class="w-7 h-7 rounded-full bg-mint/20 flex items-center justify-center"><i class="fas fa-language text-mint text-xs"></i></div> 韓文急救小卡 (50句)
+    </button>
+    
+    <div class="text-[10px] tracking-widest text-ink/40 mb-2 mt-8 font-sans uppercase font-bold pl-2">Itinerary</div>
+    <div id="sidebar-days" class="space-y-1"></div>
+  </div>
+</nav>
+
+<main class="flex-1 overflow-y-auto custom-scroll p-4 pb-32 md:p-8 lg:p-12" id="mainContent">
+  
+  <section id="view-overview" class="view-section active max-w-5xl mx-auto">
+    <div class="mb-10 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <h2 class="font-heading font-black text-4xl md:text-5xl text-ink tracking-tight mb-2">Trip Overview</h2>
+        <p class="text-ink/60 text-sm md:text-base font-medium">即時首爾氣象、韓元匯率與地圖捷徑，一手掌握。</p>
+      </div>
+      <div class="glass-card px-5 py-3 rounded-2xl inline-flex items-center gap-4 border border-white">
+        <div class="text-xs font-bold text-ink/50 uppercase tracking-widest">Countdown</div>
+        <div id="countdown-display" class="font-mono font-black text-2xl text-ocean tracking-tight">--</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+      <a href="https://map.naver.com/" target="_blank" class="glass-card flex flex-col items-center justify-center p-4 rounded-3xl hover:bg-white/80 transition group border border-white">
+        <div class="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center text-mint mb-2 group-hover:scale-110 group-hover:bg-mint group-hover:text-white transition duration-300 shadow-sm"><i class="fas fa-map-marked-alt text-lg"></i></div>
+        <div class="text-xs font-bold text-ink mt-1">Naver Map 網頁版</div>
+      </a>
+      <a href="https://www.google.com/maps" target="_blank" class="glass-card flex flex-col items-center justify-center p-4 rounded-3xl hover:bg-white/80 transition group border border-white">
+        <div class="w-12 h-12 rounded-full bg-coral/10 flex items-center justify-center text-coral mb-2 group-hover:scale-110 group-hover:bg-coral group-hover:text-white transition duration-300 shadow-sm"><i class="fab fa-google text-lg"></i></div>
+        <div class="text-xs font-bold text-ink mt-1">Google Map 備案</div>
+      </a>
+      <a href="https://www.seoulmetro.co.kr/ch/index.do" target="_blank" class="glass-card flex flex-col items-center justify-center p-4 rounded-3xl hover:bg-white/80 transition group border border-white">
+        <div class="w-12 h-12 rounded-full bg-sky/10 flex items-center justify-center text-sky mb-2 group-hover:scale-110 group-hover:bg-sky group-hover:text-white transition duration-300 shadow-sm"><i class="fas fa-subway text-lg"></i></div>
+        <div class="text-xs font-bold text-ink mt-1">首爾地鐵路線圖</div>
+      </a>
+      <a href="https://papago.naver.com/" target="_blank" class="glass-card flex flex-col items-center justify-center p-4 rounded-3xl hover:bg-white/80 transition group border border-white">
+        <div class="w-12 h-12 rounded-full bg-sand/10 flex items-center justify-center text-sand mb-2 group-hover:scale-110 group-hover:bg-sand group-hover:text-white transition duration-300 shadow-sm"><i class="fas fa-language text-lg"></i></div>
+        <div class="text-xs font-bold text-ink mt-1">Naver Papago 翻譯</div>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="glass-card rounded-3xl p-6 lg:col-span-2 border border-white flex flex-col">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-ocean/10 flex items-center justify-center text-ocean"><i class="fas fa-cloud-sun text-lg"></i></div>
+            <div>
+              <h3 class="font-heading font-black text-lg text-ink">即時環境與氣象預報</h3>
+              <p class="text-[10px] font-bold text-ink/40 mt-0.5">數據來源：Open-Meteo API (首爾特別市)</p>
+            </div>
+          </div>
+          <div class="flex gap-3 bg-white/50 backdrop-blur-sm px-4 py-2.5 rounded-2xl border border-white/60 shadow-inner-light overflow-x-auto no-scroll">
+            <div class="flex items-center gap-2 pr-3 border-r border-ink/10 flex-shrink-0">
+              <i class="fas fa-umbrella text-sky text-sm"></i>
+              <div>
+                <div class="text-[9px] text-ink/50 font-bold uppercase">Rain Prob</div>
+                <div id="rain-prob" class="font-mono font-bold text-sm text-ink leading-none mt-0.5">--%</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 pr-3 border-r border-ink/10 flex-shrink-0">
+              <i class="fas fa-sun text-coral text-sm animate-pulse"></i>
+              <div>
+                <div class="text-[9px] text-ink/50 font-bold uppercase">UV Index</div>
+                <div id="uv-index" class="font-mono font-bold text-sm text-ink leading-none mt-0.5">--</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <i class="fas fa-sunset text-sand text-sm"></i>
+              <div>
+                <div class="text-[9px] text-ink/50 font-bold uppercase">Sunset</div>
+                <div id="sunset-time" class="font-mono font-bold text-sm text-ink leading-none mt-0.5">--:--</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative w-full flex-1 min-h-[250px]" style="height:250px;">
+          <canvas id="weatherChart"></canvas>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl p-6 border border-white">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center text-mint"><i class="fas fa-info-circle text-lg"></i></div>
+          <h3 class="font-heading font-black text-lg text-ink">韓國雙地圖備案指引</h3>
+        </div>
+        <div class="space-y-3 text-xs font-medium text-ink/80">
+          <div class="p-3 bg-white/40 rounded-xl border border-white/50 leading-relaxed">
+            🗺️ <strong>現地首選 Naver Map</strong>：在韓國現場找路、步行導航、搭乘公共運輸時，請優先點擊綠色 Naver 按鈕進行精準定位。
+          </div>
+          <div class="p-3 bg-white/40 rounded-xl border border-white/50 leading-relaxed">
+            🌍 <strong>事前備用 Google Map</strong>：在台灣規劃行程、看評論或現場發生圖資失聯時，可點擊紅色 Google 按鈕作為第二導航備案。
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl p-6 border border-white">
+        <div class="flex justify-between items-start mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sand/10 flex items-center justify-center text-sand"><i class="fas fa-won-sign text-lg"></i></div>
+            <h3 class="font-heading font-black text-lg text-ink">匯率即時算</h3>
+          </div>
+          <span id="rateUpdate" class="text-[10px] font-bold text-ink/40 bg-white/50 px-2 py-1 rounded-lg border border-white">更新中...</span>
+        </div>
+        <div class="space-y-4">
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 font-mono font-black text-ink/30">₩</span>
+            <input type="number" id="krwInput" value="50000" class="w-full bg-white/70 border border-white/80 shadow-inner-light rounded-2xl pl-8 pr-4 py-3 font-mono font-bold text-xl text-ink outline-none transition">
+          </div>
+          <div class="flex justify-center text-ink/20"><i class="fas fa-arrow-down"></i></div>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 font-mono font-black text-ocean/40">NT$</span>
+            <div id="twdOutput" class="w-full bg-ocean/10 border border-ocean/20 rounded-2xl pl-12 pr-4 py-3 font-mono font-black text-2xl text-ocean">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-checklist" class="view-section max-w-4xl mx-auto">
+    <div class="mb-8">
+      <h2 class="font-heading font-black text-4xl text-ink mb-2">首爾行前準備清單</h2>
+      <p class="text-ink/60 font-medium">點擊項目標記完成，進度將自動儲存於您的瀏覽器中。</p>
+    </div>
+    <div class="glass-card rounded-3xl p-5 mb-8 border border-white shadow-sm flex items-center gap-5">
+      <div class="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center text-mint flex-shrink-0"><i class="fas fa-tasks text-xl"></i></div>
+      <div class="flex-1">
+        <div class="flex justify-between text-sm font-black mb-2">
+          <span class="text-ink">清單進度</span>
+          <span id="progress-text" class="text-mint font-mono">0%</span>
+        </div>
+        <div class="w-full bg-black/5 rounded-full h-2.5 overflow-hidden shadow-inner">
+          <div id="progress-bar" class="bg-mint h-full rounded-full transition-all duration-700 ease-out w-0 relative overflow-hidden"></div>
+        </div>
+      </div>
+    </div>
+    <div id="checklist-container" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+  </section>
+
+  <section id="view-tools" class="view-section max-w-5xl mx-auto">
+    <div class="mb-8">
+      <h2 class="font-heading font-black text-4xl text-ink tracking-tight mb-2">實用百寶箱 🧰</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="glass-card rounded-3xl p-5 border border-white">
+        <h3 class="font-heading font-black text-ink mb-3"><i class="fas fa-hotel text-ocean mr-2"></i>住宿資訊</h3>
+        <div class="bg-white/50 rounded-xl px-4 py-3 relative border border-white">
+          <div class="font-black text-ink text-sm">Nouvelle Hotel and Spa Seoul Jongro</div>
+          <div class="text-ink/60 text-xs mt-1 font-bold">6/19 入住 - 6/22 退房 (共 3 晚)</div>
+          <button onclick="copyText('Nouvelle Hotel and Spa Seoul Jongro')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="glass-card rounded-3xl p-5 border border-white">
+        <h3 class="font-heading font-black text-ink mb-3"><i class="fas fa-edit text-sand mr-2"></i>自由隨手記</h3>
+        <textarea id="note1" rows="3" placeholder="記下退稅、即時美妝代購清單..." class="w-full bg-white/50 rounded-xl text-sm text-ink font-sans font-bold border border-white p-4 leading-relaxed outline-none" oninput="saveNote('note1', this.value)"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-wishlist" class="view-section max-w-5xl mx-auto">
+    <div class="mb-8">
+      <h2 class="font-heading font-black text-4xl text-ink mb-2 tracking-tight">我的收藏清單 ❤️</h2>
+    </div>
+    <div id="wishlist-empty" class="text-center py-20 text-ink/30 glass-card rounded-3xl border border-white">
+      <div class="text-6xl mb-4 opacity-50">💌</div>
+      <p class="font-heading font-bold text-lg">還沒有收藏任何地標</p>
+    </div>
+    <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </section>
+
+  <section id="view-phrases" class="view-section max-w-5xl mx-auto">
+    <div class="mb-8">
+      <h2 class="font-heading font-black text-4xl text-ink mb-2 tracking-tight">急救韓文小卡 🗣️</h2>
+      <p class="text-ink/60 font-medium mb-4">精選 50 句自由行急需對話。點擊右上方喇叭，手機自動為你朗讀標準韓語發音！</p>
+      <div class="flex gap-2 overflow-x-auto no-scroll mb-6 pb-2 px-1" id="phrase-category-filters">
+        <button onclick="filterPhrases('all')" class="phrase-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部句型</button>
+        <button onclick="filterPhrases('日常問候')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">日常問候</button>
+        <button onclick="filterPhrases('交通問路')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">交通問路</button>
+        <button onclick="filterPhrases('飯店住宿')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">飯店住宿</button>
+        <button onclick="filterPhrases('餐廳點餐')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">餐廳點餐</button>
+        <button onclick="filterPhrases('購物退稅')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">購物退稅</button>
+      </div>
+    </div>
+    <div id="phrases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </section>
+
+  <section id="view-day" class="view-section max-w-5xl mx-auto">
+    <div id="day-header" class="mb-8 pb-6 border-b border-ink/10 flex flex-col md:flex-row gap-6 items-start md:items-center"></div>
+
+    <div class="flex gap-2 mb-8 bg-white/40 p-1.5 rounded-full w-fit border border-white/60 shadow-inner-light backdrop-blur-sm">
+      <button id="tab-itinerary" onclick="switchDayTab('itinerary')" class="px-5 py-2 text-sm font-heading font-bold rounded-full bg-white shadow-sm text-ink transition">📍 行程時間軸</button>
+      <button id="tab-places" onclick="switchDayTab('places')" class="px-5 py-2 text-sm font-heading font-bold rounded-full text-ink/60 hover:text-ink transition">🍜 今日詳細探索 (精選20選)</button>
+    </div>
+
+    <div id="day-tab-itinerary" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1">
+        <div class="glass-card rounded-3xl p-6 border border-white sticky top-4">
+          <h3 class="font-heading font-black text-xl text-ink mb-6"><i class="fas fa-route text-ocean mr-2"></i>精華時間軸</h3>
+          <div id="day-timeline" class="space-y-6"></div>
+        </div>
+      </div>
+      <div class="lg:col-span-2 space-y-6">
+        <div class="glass-card rounded-3xl p-6 border border-white">
+          <h3 class="font-heading font-black text-xl text-ink mb-4"><i class="fas fa-lightbulb text-sand mr-2"></i>今日行前叮嚀</h3>
+          <div id="day-tips" class="space-y-3 text-sm text-ink/80 font-medium"></div>
+        </div>
+        <div class="glass-card rounded-3xl p-6 border border-white">
+          <h3 class="font-heading font-black text-xl text-ink mb-4"><i class="fas fa-note-sticky text-coral mr-2"></i>今日隨筆備忘</h3>
+          <textarea id="day-note" rows="4" placeholder="今天想特別注意的店鋪或特定事項記錄..." class="w-full bg-white/50 rounded-2xl p-4 text-sm border border-white shadow-inner-light font-sans font-bold leading-relaxed outline-none" oninput="saveDayNote(this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div id="day-tab-places" class="hidden">
+      <div class="flex gap-2 mb-6 px-1">
+        <button onclick="setPlaceTypeFilter('all')" class="place-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部型態</button>
+        <button onclick="setPlaceTypeFilter('food')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🍜 質感美食</button>
+        <button onclick="setPlaceTypeFilter('shop')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🛍️ 潮流選物</button>
+      </div>
+      <div id="day-places" class="grid grid-cols-1 sm:grid-cols-2 gap-5"></div>
+    </div>
+  </section>
+
+  <section id="view-search" class="view-section max-w-5xl mx-auto">
+    <div class="mb-8">
+      <h2 class="font-heading font-black text-4xl text-ink tracking-tight">搜尋結果</h2>
+      <div class="mt-4 relative md:hidden">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-ink/40 text-sm"></i>
+        <input id="mobileQuickSearch" type="text" placeholder="搜尋地點、聖水、美妝..." class="w-full pl-10 pr-4 py-3 text-sm bg-white/60 backdrop-blur-md border border-white shadow-inner-light rounded-2xl font-sans outline-none focus:bg-white transition placeholder:text-ink/40" oninput="handleSearch(this.value, 'mobile')">
+      </div>
+      <p class="text-ink/60 font-bold mt-4 bg-white/40 inline-block px-3 py-1 rounded-lg border border-white" id="search-count"></p>
+    </div>
+    <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </section>
+</main>
+
+<nav id="mobile-nav" class="md:hidden fixed bottom-4 left-4 right-4 bg-white/90 backdrop-blur-xl border border-white/60 z-50 flex overflow-x-auto no-scroll px-3 py-2 items-center gap-2 rounded-[2rem] shadow-[0_8px_30px_rgb(27,42,48,0.12)] snap-x snap-mandatory pb-safe-adjust">
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all active-mobile" data-target="view-overview">
+    <i class="fas fa-compass text-lg"></i> <span class="text-sm tracking-wide">總覽</span>
+  </button>
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-checklist">
+    <i class="fas fa-suitcase-rolling text-lg"></i> <span class="text-sm tracking-wide">清單</span>
+  </button>
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-tools">
+    <i class="fas fa-toolbox text-lg"></i> <span class="text-sm tracking-wide">百寶箱</span>
+  </button>
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-wishlist">
+    <i class="fas fa-heart text-coral text-lg"></i> <span class="text-sm tracking-wide">收藏</span>
+  </button>
+  
+  <div class="w-px h-8 bg-ink/10 flex-shrink-0 mx-1"></div>
+  <div id="mobile-day-btns" class="flex gap-2"></div>
+</nav>
+
+<script>
+// ===================== DATA =====================
+const DAYS_DATA = [
+  { id:'day1', num:'01', date:'6月19日', color:'ocean', hex:'#2c5d88',
+    title:'抵達首爾與經典潮玩探索',
+    intro:'降落仁川後迅速啟動首爾潮流美學之旅。首日聚焦延南洞、弘大與合井商圈的特色獨立店、應援概念店，完美混搭米其林星級美食。',
+    tips:['🚇 搭乘機場快線 AREX 直達車至弘大入口站只需45分鐘','🪙 首爾街頭小店普遍接受 WOWPASS 支付','🛍️ 退稅級距通常為3萬韓元起跳，結帳請隨身攜帶護照'],
+    itinerary:[
+      {time:'05:00', text:'仁川國際機場 (抵達辦理入境)', icon:'🛫', q:'인천국제공항'},
+      {time:'06:30', text:'Transit Lounge Yongsan', icon:'🛋️', q:'용산역'},
+      {time:'11:00', text:'乙密臺 (傳統冷麵經典老字號)', icon:'🍜', q:'을밀대 본점'},
+      {time:'12:00', text:'噗哩應援咖啡廳 (期間限定美學展示空間)', icon:'☕', q:'마포구 카페'},
+      {time:'13:00', text:'合井辣炒年糕joy', icon:'🍡', q:'합정역 떡볶이'},
+      {time:'14:00', text:'ASTERUM 433-10 (極致視覺企劃空間)', icon:'🌌', q:'마포구 독막로'},
+      {time:'15:00', text:'屋同食 (米其林推薦經典清湯豬肉湯飯)', icon:'🍲', q:'옥동식'},
+      {time:'16:00', text:'弘大街頭炸玉米點心時光', icon:'🌽', q:'홍대거리'},
+      {time:'17:00', text:'Nouvelle Hotel and Spa Seoul Jongro (入住辦理)', icon:'🏨', q:'누벨호텔'}
     ],
-    "places": [
-      {
-        "name": "陳玉華老奶奶元祖一隻雞",
-        "area": "東大門",
-        "rating": 4.8,
-        "type": "韓式鍋物",
-        "desc": "首爾必吃的經典美食，雞肉鮮嫩，湯頭濃郁，適合剛下飛機暖胃。",
-        "recommend": "一隻雞、年糕、手擀麵",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "橋村炸雞 東大門1號店",
-        "area": "東大門",
-        "rating": 4.6,
-        "type": "韓式炸雞",
-        "desc": "韓國最知名的連鎖炸雞品牌，蜂蜜口味是絕對的經典。",
-        "recommend": "蜂蜜無骨炸雞、半半炸雞",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "弘益醬蟹",
-        "area": "弘大",
-        "rating": 4.5,
-        "type": "海鮮料理",
-        "desc": "高性價比的醬蟹吃到飽，蟹肉飽滿鮮甜，被稱為白飯小偷。",
-        "recommend": "醬油螃蟹、辣味醬蟹",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "神仙雪濃湯 弘大店",
-        "area": "弘大",
-        "rating": 4.4,
-        "type": "韓式湯品",
-        "desc": "24小時營業，牛骨熬製的乳白色湯頭香醇順口，韓劇常見美食。",
-        "recommend": "雪濃湯、泡菜",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "2deg"
-      },
-      {
-        "name": "豬腳小姐 Myth Jokbal",
-        "area": "弘大",
-        "rating": 4.7,
-        "type": "韓式豬腳",
-        "desc": "弘大超人氣排隊名店，蒜味豬腳軟嫩Q彈，附贈的生菜沙拉解膩完美。",
-        "recommend": "蒜味豬腳套餐",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "-3deg"
-      },
-      {
-        "name": "Cafe Layered 延南店",
-        "area": "弘大",
-        "rating": 4.6,
-        "type": "咖啡廳",
-        "desc": "英式鄉村風的超美咖啡廳，司康與蛋糕不僅好吃更是拍照打卡聖地。",
-        "recommend": "各式司康、紅絲絨蛋糕",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "3deg"
-      },
-      {
-        "name": "延南洞豬肉湯飯",
-        "area": "弘大",
-        "rating": 4.5,
-        "type": "韓式湯飯",
-        "desc": "隱藏在延南洞巷弄內的道地美味，湯頭清爽不膩口。",
-        "recommend": "豬肉湯飯、白切肉",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "Peony 草莓蛋糕",
-        "area": "弘大",
-        "rating": 4.8,
-        "type": "甜點蛋糕",
-        "desc": "弘大最著名的草莓蛋糕專賣店，鮮奶油清爽不甜膩。",
-        "recommend": "草莓鮮奶油蛋糕、草莓冰沙",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "BHC炸雞 弘大店",
-        "area": "弘大",
-        "rating": 4.6,
-        "type": "韓式炸雞",
-        "desc": "全智賢代言的知名炸雞，起司起司(Bburinkle)口味是必點神作。",
-        "recommend": "Bburinkle起司炸雞、起司球",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "申李道家 韓屋咖啡廳",
-        "area": "弘大",
-        "rating": 4.7,
-        "type": "咖啡廳",
-        "desc": "在熱鬧的弘大商圈中保留的傳統韓屋咖啡廳，中庭還有營火設計。",
-        "recommend": "黑芝麻拿鐵、烤棉花糖",
-        "tape": "rgba(108, 92, 231, 0.6)",
-        "angle": "2deg"
-      }
+    places:[
+      {name:'乙密臺 本店', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾數一數二的經典平壤冷麵老字號，湯頭清甜回甘、手工現蕎麥麵條極具嚼勁。', recommend:'平壤水冷麵、酥脆綠豆煎餅'},
+      {name:'屋同食 Okdongsik', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'米其林必比登連續多年強烈推薦！清澈的高湯搭配極薄的頂級黑豬肉片。', recommend:'常創豬肉湯飯 (Dwaeji-gukbap)'},
+      {name:'合井辣炒年糕joy', area:'合井站', tags:'街頭小吃', type:'food', desc:'位於潮流商圈巷底的經典辣炒年糕，甜辣調味適中。', recommend:'經典年糕加手工炸物拼盤'},
+      {name:'咖啡廳 延南洞 561', area:'延南洞', tags:'質感咖啡', type:'food', desc:'老屋改建的工業風咖啡館，手沖單品咖啡層次豐富。', recommend:'衣索比亞手沖、招牌肉桂捲'},
+      {name:'小夏鹽田 延南', area:'延南洞', tags:'人氣烘焙', type:'food', desc:'以鹽田為視覺主題的人氣麵包店，空氣中充滿濃郁海鹽與奶油香氣。', recommend:'經典海鹽可頌、松露鹽可頌'},
+      {name:'Flippers 弘大', area:'弘大', tags:'舒芙蕾鬆餅', type:'food', desc:'入口即化的人氣舒芙蕾鬆餅，口感蓬鬆濕潤。', recommend:'草莓千層舒芙蕾'},
+      {name:'申美京辣炒雞排', area:'弘大', tags:'經典鐵板燒', type:'food', desc:'在巨大鑄鐵盤上大火翻炒的春川辣炒雞排，搭配大量牽絲起司。', recommend:'起司雙重辣炒雞排'},
+      {name:'豚壽百 弘大直營店', area:'弘大', tags:'釜山湯飯', type:'food', desc:'24小時營業的傳統豬肉湯飯，大骨熬煮出的乳白色湯頭極為濃郁。', recommend:'特級豬肉湯飯套餐'},
+      {name:'朝鮮火爐烤肉', area:'弘大/合井', tags:'韓式燒肉', type:'food', desc:'許多老首爾人口中的頂級韓牛燒肉老店，肉質軟嫩多汁。', recommend:'特選韓牛里肌肉'},
+      {name:'延南豬腳 1987', area:'延南洞', tags:'在地宵夜', type:'food', desc:'外皮Q彈有光澤、肉質軟嫩無腥味的排隊名店。', recommend:'半半豬腳 (原味與香辣)'},
+      {name:'Café Layered 延南店', area:'延南洞', tags:'美學英式甜點', type:'food', desc:'充滿歐洲鄉村復古感的高顏值司康與蛋糕專賣店。', recommend:'伯爵茶司康、紅絲絨蛋糕'},
+      {name:'ASTERUM 433-10', area:'麻浦區', tags:'空間企劃', type:'shop', desc:'結合了多媒體聲光與極致極簡主義的視覺概念企劃空間。', recommend:'多媒體美學展示區展覽'},
+      {name:'Object 弘大旗艦店', area:'西橋洞', tags:'文創選物', type:'shop', desc:'整棟樓聚集了無數首爾在地獨立插畫家、手工藝創作者的文創天堂。', recommend:'獨立設計手工帆布包'},
+      {name:'ADER error 弘大空間', area:'西橋洞', tags:'潮流時裝', type:'shop', desc:'韓國頂級解構主義潮流品牌，其店面本身就是一個藝術展間。', recommend:'解構主義剪裁衛衣'},
+      {name:'Musinsa Standard 弘大', area:'弘大', tags:'現代基本款', type:'shop', desc:'大名鼎鼎的服飾電商實體概念店，剪裁俐落、都會風格強烈。', recommend:'修身寬褲、重磅短T'},
+      {name:'Butter 弘大店', area:'弘大', tags:'生活雜貨', type:'shop', desc:'色彩繽紛、充滿幽默設計感的小物與生活設計雜貨。', recommend:'療癒系角色造型物品'},
+      {name:'Retro Kitty 延南', area:'延南洞', tags:'懷舊古著', type:'shop', desc:'主打歐美與日系美式懷舊風格的古著衣物選品店。', recommend:'復古刺繡夾克'},
+      {name:'Visual Aid 選品店', area:'合井', tags:'高端服飾選物', type:'shop', desc:'精選國內外獨立設計師服飾與小眾香氛，陳列極具現代幾何美感。', recommend:'小眾品牌香氛蠟燭'},
+      {name:'Teterot Salon', area:'弘大', tags:'改良韓服', type:'shop', desc:'將傳統韓服元素融入現代日常服裝剪裁的品味服飾店。', recommend:'現代改良式亞麻韓服'},
+      {name:'Market A 弘大店', area:'弘大', tags:'平價快時尚', type:'shop', desc:'首爾本土年輕人愛逛的服飾選物店，依顏色整齊排列。', recommend:'正韓剪裁西裝外套'}
     ]
   },
-  {
-    "id": "day2",
-    "num": "02",
-    "date": "第二天",
-    "title": "潮流前線與漢江浪漫",
-    "subtitle": "汝矣島現代百貨快閃店與江南星光大道",
-    "itinerary": [
-      {
-        "time": "10:00 - 14:00",
-        "text": "The Hyundai Seoul (汝矣島現代百貨) - 韓國目前最夯百貨，常有偶像或VTuber快閃店",
-        "icon": "🏬",
-        "map": "The Hyundai Seoul"
-      },
-      {
-        "time": "14:30 - 17:00",
-        "text": "江南 K-Star Road 韓流明星大道與 COEX Mall 星空圖書館",
-        "icon": "⭐",
-        "map": "Starfield COEX Mall"
-      },
-      {
-        "time": "17:30 - 19:30",
-        "text": "江南區享用高級韓式烤肉或特色料理",
-        "icon": "🥩",
-        "map": "Gangnam"
-      },
-      {
-        "time": "20:00 - 21:30",
-        "text": "盤浦大橋月光彩虹噴泉，享受如同 PLAVE 直播中浪漫的漢江夜景",
-        "icon": "🌉",
-        "map": "Banpo Bridge Rainbow Fountain"
-      }
+  { id:'day2', num:'02', date:'6月20日', color:'mint', hex:'#629a7c',
+    title:'聖水洞美學選物與樂天購物一整天',
+    intro:'深入目前首爾最核心的工業風美學聚落「聖水洞」，拜訪指標性設計品牌、巨型科技美妝旗艦店，傍晚轉往蠶室地標樂天世界塔。',
+    tips:['👟 聖水洞選物店極度分散，強烈建議穿著最好走的走路鞋','🛒 樂天超市買齊伴手禮後可當場在退稅專用櫃檯辦理退稅'],
+    itinerary:[
+      {time:'08:00', text:'飯店出發享用晨間散步', icon:'🚶', q:'누벨호텔'},
+      {time:'09:00', text:'Hwangdo Bajirak Kalguksu (大盆鮮美蛤蜊刀削麵)', icon:'🍜', q:'황도바지락칼국수'},
+      {time:'10:00', text:'樂天超級市場 世界塔店 (伴手禮大採購)', icon:'🛒', q:'롯데마트 월드타워점'},
+      {time:'11:00', text:'STAND OIL 聖水旗艦店 (極簡美學人氣包包)', icon:'👜', q:'스탠드오일 성수'},
+      {time:'12:00', text:'Miffy Store 聖水限定美學特展快閃', icon:'🐰', q:'성수동 미피'},
+      {time:'13:00', text:'29cm.home 質感品味生活美學概念選物', icon:'🏡', q:'29CM SEONGSU'},
+      {time:'14:00', text:'Olive Young N Seongsu (未來概念頂級旗艦店)', icon:'🧴', q:'올리브영 성수'},
+      {time:'15:00', text:'返回 Nouvelle Hotel 放置戰利品與休息', icon:'🏨', q:'누벨호텔'}
     ],
-    "places": [
-      {
-        "name": "Eggslut 汝矣島店",
-        "area": "汝矣島",
-        "rating": 4.5,
-        "type": "早午餐",
-        "desc": "來自洛杉磯的超人氣雞蛋漢堡，在現代百貨內，滑嫩炒蛋令人驚豔。",
-        "recommend": "Fairfax 漢堡、松露薯餅",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "鄭家麵館 (정인면옥)",
-        "area": "汝矣島",
-        "rating": 4.4,
-        "type": "韓式麵食",
-        "desc": "米其林必比登推薦的平壤冷麵，湯頭清淡高雅，非常適合解膩。",
-        "recommend": "平壤冷麵、綠豆煎餅",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "Blue Bottle 汝矣島店",
-        "area": "汝矣島",
-        "rating": 4.6,
-        "type": "咖啡廳",
-        "desc": "位於The Hyundai Seoul內，極簡風格的藍瓶咖啡，逛街休息好去處。",
-        "recommend": "冰滴咖啡、紐奧良冰咖啡",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "河東館 江南店",
-        "area": "江南",
-        "rating": 4.7,
-        "type": "韓式湯品",
-        "desc": "超過80年歷史的牛骨湯老店，湯頭清澈卻富含層次，韓國政商名流最愛。",
-        "recommend": "特級牛骨湯",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "2deg"
-      },
-      {
-        "name": "Maple Tree House 江南店",
-        "area": "江南",
-        "rating": 4.8,
-        "type": "韓式烤肉",
-        "desc": "裝潢極具質感的頂級烤肉店，專人代烤服務，肉質鮮美多汁。",
-        "recommend": "濟州島黑豬肉、韓牛肋眼",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "-3deg"
-      },
-      {
-        "name": "Shake Shack 江南店",
-        "area": "江南",
-        "rating": 4.5,
-        "type": "美式漢堡",
-        "desc": "韓國第一家Shake Shack，經典的美式風味與濃郁奶昔是絕配。",
-        "recommend": "ShackBurger、香草奶昔",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "3deg"
-      },
-      {
-        "name": "Nudake Haus Dosan",
-        "area": "江南",
-        "rating": 4.6,
-        "type": "藝術甜點",
-        "desc": "Gentle Monster旗下的藝術甜點店，黑色火山抹茶蛋糕視覺與味覺雙重享受。",
-        "recommend": "Peak 抹茶黑可頌蛋糕",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "倫敦貝果博物館 島山店",
-        "area": "江南",
-        "rating": 4.9,
-        "type": "烘焙坊",
-        "desc": "首爾目前最難排隊的貝果店之一，英倫復古風裝潢與極致Q彈的貝果。",
-        "recommend": "青蔥奶油貝果、馬鈴薯起司貝果",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "熊薄意 (곰바위)",
-        "area": "江南",
-        "rating": 4.5,
-        "type": "韓式烤腸",
-        "desc": "米其林推薦的高級烤腸專門店，處理得非常乾淨，越嚼越香。",
-        "recommend": "烤牛大腸、烤牛胃",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "中央解酒湯",
-        "area": "江南",
-        "rating": 4.6,
-        "type": "韓式湯品",
-        "desc": "江南區著名的解酒湯，牛血與豐富內臟熬煮，香辣過癮。",
-        "recommend": "牛內臟解酒湯",
-        "tape": "rgba(0, 206, 201, 0.6)",
-        "angle": "2deg"
-      }
+    places:[
+      {name:'STAND OIL 聖水旗艦店', area:'聖水洞', tags:'潮流包款', type:'shop', desc:'極簡、實用且充滿現代幾何美感的設計包款，空間陳列極美。', recommend:'經典微亮面腋下包'},
+      {name:'Olive Young N Seongsu', area:'聖水洞', tags:'美妝旗艦', type:'shop', desc:'全新超大型次世代旗艦店，品牌最齊全、附設高科技肌膚檢測。', recommend:'熱門小眾護膚精華'},
+      {name:'29cm.home', area:'聖水洞', tags:'美學概念店', type:'shop', desc:'設計選物網 29CM 的實體美學展示空間，定期更換展示主題。', recommend:'品味家居香氛'},
+      {name:'Tamburins 聖水旗艦店', area:'聖水洞', tags:'小眾香氛', type:'shop', desc:'以清水模與地下展間形式呈現的高端香氛品牌。', recommend:'貝殼護手霜'},
+      {name:'LCDC SEOUL', area:'聖水洞', tags:'複合美學園區', type:'shop', desc:'由多間精緻小眾獨立品牌與設計選物組成的巨型空間。', recommend:'獨立品牌文具、香氛'},
+      {name:'Fwee Agit 聖水旗艦店', area:'聖水洞', tags:'潮流彩妝', type:'shop', desc:'在社群爆紅的彩妝空間，設有獨特的色彩調配體驗吧。', recommend:'布丁唇頰兩用膏'},
+      {name:'Matin Kim 聖水概念店', area:'聖水洞', tags:'潮流時裝', type:'shop', desc:'將前衛街頭元素與日常穿搭完美融合的韓國本土高人氣品牌。', recommend:'經典金屬鐵牌錢包'},
+      {name:'Point of View', area:'聖水洞', tags:'頂級復古文具', type:'shop', desc:'三層樓空間主打歐洲學者的奢華書房風，販售工藝級文具。', recommend:'復古刻印黃銅書籤'},
+      {name:'Amuse 聖水快閃店', area:'聖水洞', tags:'純素彩妝', type:'shop', desc:'主打純素美學的透明感彩妝品牌，空間視覺清新通透。', recommend:'果凍果凍水光唇釉'},
+      {name:'Empty Seoul', area:'聖水洞', tags:'前衛買手店', type:'shop', desc:'佔地廣闊的先鋒服飾空間，收集全球實驗性獨立設計師品牌。', recommend:'實驗性剪裁連帽衫'},
+      {name:'Hwangdo Bajirak Kalguksu', area:'松坡區', tags:'蛤蜊刀削麵', type:'food', desc:'滿滿大盆蛤蜊鮮甜海鮮高湯，搭配手工現揉黃金刀削麵。', recommend:'鮮美蛤蜊刀削麵'},
+      {name:'祖傳三代馬鈴薯排骨湯', area:'聖水洞', tags:'24H老店', type:'food', desc:'白鐘元強烈推薦！燉煮到骨肉分離的豬脊骨高湯。', recommend:'馬鈴薯排骨湯'},
+      {name:'Onedegree Celsius', area:'聖水洞', tags:'質感茶屋', type:'food', desc:'主打東方禪意與現代極簡融合的極靜謐原木風茶空間。', recommend:'精選宇治烘焙茶'},
+      {name:'Onion 聖水店', area:'聖水洞', tags:'工業舊工廠', type:'food', desc:'由舊金屬工廠保留原始廢墟風貌改建的經典代表作。', recommend:'經典雪山黃金麵包'},
+      {name:'Rain Report Croissant', area:'聖水洞', tags:'降雨概念空間', type:'food', desc:'以「365天都在下雨」為主題的暗黑系科技感咖啡廳。', recommend:'黑松露黑色可頌'},
+      {name:'大成排骨', area:'聖水洞', tags:'炭火烤肉', type:'food', desc:'聖水烤肉一條街上人氣最旺的老字號傳統炭火烤肉店。', recommend:'招牌正宗炭火辣烤豬排'},
+      {name:'Center Coffee', area:'聖水/首爾林', tags:'精品手沖', type:'food', desc:'位於首爾林旁的精品咖啡館，主打單一產區極致手沖。', recommend:'藝術家季節單品手沖'},
+      {name:'Camel Coffee 7號店', area:'聖水洞', tags:'復古咖啡', type:'food', desc:'充滿主理人復古手繪線條與皮沙發質感的極受歡迎空間。', recommend:'招牌焦糖 Camel Cream'},
+      {name:'小文湯飯', area:'聖水洞', tags:'家常料理', type:'food', desc:'口味清淡爽口、使用全韓國產優質大米製作的溫熱雪濃湯。', recommend:'極品清燉牛腩湯飯'},
+      {name:'Litte&Much', area:'蠶室', tags:'法式甜點', type:'food', desc:'外觀晶瑩剔透宛如高級珠寶工藝品的頂級慕斯蛋糕名店。', recommend:'白巧克力蜜桃慕斯ケーキ'}
     ]
   },
-  {
-    "id": "day3",
-    "num": "03",
-    "date": "第三天",
-    "title": "三周年紀念與文創巡禮",
-    "subtitle": "聖水洞文青街區與明洞地下街周邊大採購",
-    "itinerary": [
-      {
-        "time": "10:00 - 13:00",
-        "text": "聖水洞 (Seongsu) 咖啡廳巡禮與文創小店探索，感受首爾布魯克林氛圍",
-        "icon": "☕",
-        "map": "Seongsu-dong"
-      },
-      {
-        "time": "13:30 - 16:30",
-        "text": "明洞地下街與唱片行，尋找 PLAVE 三周年紀念專輯與官方伴手禮",
-        "icon": "💿",
-        "map": "Myeongdong Underground Shopping Center"
-      },
-      {
-        "time": "16:30 - 18:30",
-        "text": "明洞商圈免稅店美妝採購與品嚐特色小吃",
-        "icon": "💄",
-        "map": "Myeongdong Shopping Street"
-      },
-      {
-        "time": "19:00 - 20:00",
-        "text": "帶著滿滿的戰利品與美好回憶，前往機場搭機返家",
-        "icon": "✈️",
-        "map": "Incheon International Airport"
-      }
+  { id:'day3', num:'03', date:'6月21日', color:'sand', hex:'#ca9662',
+    title:'延南洞設計銀飾與懷舊玩具挖寶',
+    intro:'聚焦弘大、延南洞深處。走訪深受首爾本地穿搭博主青睞的獨立設計銀飾、流行鞋履空間與精緻懷舊動漫玩具基地。',
+    tips:['📸 延南洞巷弄隱藏著許多獨特視覺系的四格照相館，非常適合拍照紀念'],
+    itinerary:[
+      {time:'08:00', text:'飯店悠閒醒來與街區散步', icon:'☕', q:'누벨호텔'},
+      {time:'09:00', text:'scudo (質感前衛獨立設計銀飾空間)', icon:'💍', q:'스쿠도'},
+      {time:'10:00', text:'Chaakan Shoes (高CP值人氣流行鞋履空間)', icon:'👠', q:'착한구두'},
+      {time:'11:00', text:'DUCKY WORLD (懷舊美式動漫可愛周邊)', icon:'🧸', q:'더키월드'},
+      {time:'12:00', text:'哥賴路演 / 弘大藝術街頭潮流大巡禮', icon:'🎸', q:'홍대거리'}
     ],
-    "places": [
-      {
-        "name": "Onion 聖水店",
-        "area": "聖水洞",
-        "rating": 4.7,
-        "type": "烘焙咖啡廳",
-        "desc": "廢棄工廠改建的工業風指標性咖啡廳，雪山麵包是招牌必點。",
-        "recommend": "Pandoro 雪山麵包、拿鐵",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "傳聞中的聖水馬鈴薯排骨湯",
-        "area": "聖水洞",
-        "rating": 4.8,
-        "type": "韓式鍋物",
-        "desc": "白種元老師推薦的在地名店，排骨燉得極致軟爛，入口即化。",
-        "recommend": "馬鈴薯排骨湯",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "大林倉庫",
-        "area": "聖水洞",
-        "rating": 4.6,
-        "type": "藝廊咖啡廳",
-        "desc": "結合藝術展覽與餐飲的超大型紅磚倉庫空間，充滿文藝氣息。",
-        "recommend": "手沖咖啡、義大利麵",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "祖傳三代豬肉湯飯",
-        "area": "聖水洞",
-        "rating": 4.5,
-        "type": "韓式湯飯",
-        "desc": "在地人喜愛的老字號湯飯，濃郁的豬骨湯頭配上韭菜極為暖胃。",
-        "recommend": "豬肉湯飯、血腸",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "2deg"
-      },
-      {
-        "name": "明洞餃子 本店",
-        "area": "明洞",
-        "rating": 4.7,
-        "type": "韓式麵食",
-        "desc": "連續多年獲得米其林必比登推薦，刀削麵與皮薄餡多的蒸餃是絕配。",
-        "recommend": "刀削麵、蒸餃",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "-3deg"
-      },
-      {
-        "name": "王妃家 明洞總店",
-        "area": "明洞",
-        "rating": 4.6,
-        "type": "韓式烤肉",
-        "desc": "提供高品質韓牛與調味排骨，午間套餐性價比極高，小菜豐富。",
-        "recommend": "調味牛排骨、豬肉定食",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "3deg"
-      },
-      {
-        "name": "Isaac Toast 明洞店",
-        "area": "明洞",
-        "rating": 4.5,
-        "type": "街頭小吃",
-        "desc": "韓國國民三明治，奶油煎烤的吐司夾著特製醬汁與豐富配料。",
-        "recommend": "烤肉吉士吐司、火腿奶酪吐司",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "-2deg"
-      },
-      {
-        "name": "雪冰 明洞店",
-        "area": "明洞",
-        "rating": 4.6,
-        "type": "冰品甜點",
-        "desc": "韓國最具代表性的刨冰品牌，黃豆粉麻糬冰與哈密瓜冰必吃。",
-        "recommend": "黃豆粉麻糬雪冰",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "1deg"
-      },
-      {
-        "name": "Bover Lounge",
-        "area": "明洞",
-        "rating": 4.4,
-        "type": "西式餐酒館",
-        "desc": "位於明洞State Tower內，挑高華麗的法式優雅空間，適合享用下午茶。",
-        "recommend": "法式下午茶套餐、馬卡龍",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "-1deg"
-      },
-      {
-        "name": "Osulloc 抹茶館 明洞店",
-        "area": "明洞",
-        "rating": 4.7,
-        "type": "甜點茶飲",
-        "desc": "來自濟州島的高級綠茶品牌，抹茶控絕對不能錯過的甜點天堂。",
-        "recommend": "抹茶蛋糕捲、抹茶拿鐵",
-        "tape": "rgba(253, 121, 168, 0.6)",
-        "angle": "2deg"
-      }
+    places:[
+      {name:'scudo', area:'弘大/延南', tags:'設計銀飾', type:'shop', desc:'充滿中性、前衛工業風及解構線條美感的純銀飾品店。', recommend:'幾何流線戒指'},
+      {name:'Chaakan Shoes', area:'弘大店', tags:'流行女鞋', type:'shop', desc:'以高水準穿著舒適度、平價著稱的韓國必訪流行鞋履空間。', recommend:'韓系軟皮樂福鞋'},
+      {name:'DUCKY WORLD', area:'弘大', tags:'角色周邊', type:'shop', desc:'專營各式懷舊動漫、拍立得周邊與卡夾的療癒系巨型基地。', recommend:'Y2K 拍立得相簿卡夾'},
+      {name:'Tinto 選物店', area:'延南洞', tags:'器皿雜貨', type:'shop', desc:'小巧精緻的獨立工作室，專門收集歐洲復古玻璃杯。', recommend:'手工潑墨馬克杯'},
+      {name:'Kakao Friends 弘大店', area:'弘大站', tags:'巨型IP空間', type:'shop', desc:'高達三層樓的標誌性角色空間，頂樓附設景觀主題咖啡。', recommend:'春植造型周邊'},
+      {name:'Chuu 弘大旗艦店', area:'弘大', tags:'潮流服飾', type:'shop', desc:'主打繽紛多色、視覺張力極強的少女俏皮設計服飾。', recommend:'招牌-5公斤視覺修身褲'},
+      {name:'ALAND 弘大總店', area:'弘大', tags:'設計師買手店', type:'shop', desc:'韓國大名鼎鼎的潮流買手店，集結數百個本土新銳街頭品牌。', recommend:'設計師印花衛衣'},
+      {name:'Wonder Place 弘大', area:'弘大', tags:'街頭時裝', type:'shop', desc:'主打街頭、滑板文化與美式休閒混搭的正韓服飾選品空間。', recommend:'工裝風防風外套'},
+      {name:'Swoon 延南', area:'延南洞', tags:'法式復古', type:'shop', desc:'溫柔風精緻服飾店，色調以莫蘭迪色為主，面料親膚。', recommend:'優雅針織鏤空上衣'},
+      {name:'Paper Doll Mate Atelier', area:'延南洞', tags:'插畫文具', type:'shop', desc:'充滿粉嫩夢幻色彩的獨立插畫工作室，復古少女畫風。', recommend:'手繪感收納袋'},
+      {name:'延南洞 烤百葉 1987', area:'延南洞', tags:'傳統烤腸', type:'food', desc:'弘大年輕人最愛的傳統炭火烤牛腸名店，表皮焦香焦脆。', recommend:'綜合豪華烤牛腸拼盤'},
+      {name:'SF Sbaghetti', area:'延南洞', tags:'美式義麵', type:'food', desc:'復古美式公路風格的義大利麵館，手工自製醬汁極其濃厚。', recommend:'肉丸番茄義大利麵'},
+      {name:'Pizza Up', area:'弘大', tags:'客製化披薩', type:'food', desc:'全自助點單，可從數十種頂級起司、肉品配料中自由組合。', recommend:'獨家松露野菇披薩'},
+      {name:'豬肉商會 弘大總店', area:'弘大', tags:'烤肉吃到飽', type:'food', desc:'提供極高水準的手切新鮮厚片豬五花與牛五花。', recommend:'豪華無限量烤肉套餐'},
+      {name:'Perlen 延南', area:'延南洞', tags:'現代黑灰幾何', type:'food', desc:'極具建築幾何設計感的灰色冷調咖啡館，氛圍極靜謐。', recommend:'冷萃精品黑咖啡'},
+      {name:'風川鰻魚 弘大店', area:'弘大', tags:'炭烤活鰻', type:'food', desc:'頂級炭火現點現烤的新鮮活鰻魚，肉質豐腴充滿膠原蛋白。', recommend:'正宗炭烤活鰻魚'},
+      {name:'J’s Recipe', area:'延南洞', tags:'天然酵母', type:'food', desc:'堅持不添加人工香精、低溫發酵的歐式天然烘焙坊。', recommend:'無花果裸麥麵包'},
+      {name:'Myth 豬腳 弘大總店', area:'弘大', tags:'蒜味豬腳', type:'food', desc:'老字號排隊店！在厚切Q彈的豬腳上淋上獨門香甜大蒜泥。', recommend:'招牌蒜味大蒜豬腳'},
+      {name:'Thanks Nature Cafe', area:'弘大', tags:'綿羊中庭', type:'food', desc:'著名的療癒景觀咖啡，中庭有兩隻受到悉心照料的綿羊。', recommend:'冰淇淋格子鬆餅'},
+      {name:'美夏年糕', area:'弘大', tags:'創意韓式', type:'food', desc:'將傳統辣炒年糕盛裝在極具西式質感的器皿中，覆蓋炙燒起司。', recommend:'炙燒起司玫瑰炒年糕'}
+    ]
+  },
+  { id:'day4', num:'04', date:'6月22日', color:'coral', hex:'#d1757f',
+    title:'經典住宿留影與美好歸途',
+    intro:'最後一天保留全面彈性，在 Nouvelle Hotel 享受精品頂級 Spa 洗禮，完美結束四天高強度的時尚美學探索，整裝返台。',
+    tips:['✈️ 請提早3小時抵達仁川機場，以便預留充足時間辦理行李託運與退稅核銷'],
+    itinerary:[
+      {time:'08:00', text:'Nouvelle Hotel and Spa 悠閒退房與打包戰利品，整裝前往有機場接駁處', icon:'🏨', q:'누벨호텔'}
+    ],
+    places:[
+      {name:'Nouvelle Hotel and Spa', area:'鐘路區', tags:'高端精品酒店', type:'shop', desc:'融合都會摩登極簡設計與 Spa 療程理念的頂級空間。', recommend:'精緻雙人房景觀 Spa'},
+      {name:'土俗村參雞湯', area:'景福宮周邊', tags:'宮廷滋補', type:'food', desc:'鄰近鐘路，全首爾最出名的傳統人參雞湯，加入了松子熬煮。', recommend:'元祖山參烏骨雞湯'},
+      {name:'Cafe Onion 安國店', area:'安國洞', tags:'韓屋美學', type:'food', desc:'全木造大型傳統韓屋改建的殿堂級咖啡廳，視覺張力一流。', recommend:'招牌草莓派'},
+      {name:'Jongro Jin Halmoni', area:'鐘路區', tags:'一隻雞始祖', type:'food', desc:'傳承數十年的蒜味清雞湯，肉質極度鮮嫩，最後必加手工麵。', recommend:'始祖東大門一隻雞'},
+      {name:'吾燈 鐘路店', area:'鐘路區', tags:'精緻韓定食', type:'food', desc:'一次品嚐高達十幾種陶瓷小碟盛裝的韓式家常小菜與烤魚。', recommend:'招牌山菜御膳定食'},
+      {name:'木火港川', area:'安國洞', tags:'手工麻糬', type:'food', desc:'堅持使用古法每日現敲打的Q彈黃豆粉黑糖麻糬。', recommend:'黃豆粉現敲麻糬'},
+      {name:'鐘路 炭火烤肉街', area:'鐘路區', tags:'直火街頭', type:'food', desc:'最接地氣的露天直火烤豬五花巷弄，充滿首爾老派煙火氣。', recommend:'手切厚片直火烤五五花'},
+      {name:'廣藏市場 順熙家', area:'廣藏市場', tags:'綠豆煎餅', type:'food', desc:'市場內最火紅的綠豆餅，現磨豆漿在油鍋中炸至外皮酥脆。', recommend:'招牌現磨綠豆煎餅'},
+      {name:'昌華堂 惠化店', area:'大學路', tags:'手工煎餃', type:'food', desc:'經典韓劇拍攝地，手工捏製的巨型薄皮煎餃，內餡多汁。', recommend:'綜合手工煎餃拼盤'},
+      {name:'咖啡 瑟雍', area:'鐘路區', tags:'黑白極簡', type:'food', desc:'以「黑與白」為絕對視覺主題的現代美學獨立咖啡廳。', recommend:'暗黑極緻黑拿鐵'},
+      {name:'Granhand 鐘路店', area:'鐘路區', tags:'小眾香氛', type:'shop', desc:'主打自然、麻質標籤與手作現場印字敲印的高質感香氛空間。', recommend:'經典香氛噴霧 Marine'},
+      {name:'Mimi Market', area:'鐘路區', tags:'古董選物', type:'shop', desc:'店主從歐洲親自帶回的早期玻璃器皿、限量海報與藝術擺飾。', recommend:'復古雕花玻璃餐具'},
+      {name:'Lululemon 鐘路概念店', area:'鐘路區', tags:'健康美學', type:'shop', desc:'空間明亮大器，除了商品外，常舉辦城市運動美學工作坊。', recommend:'都會剪裁修身運動褲'},
+      {name:'Ofr. Seoul', area:'西村周邊', tags:'巴黎獨立書選', type:'shop', desc:'來自巴黎的獨立藝術書店首爾分店，充滿當代攝影集與帆布袋。', recommend:'巴黎限定經典字樣帆布袋'},
+      {name:'Ibaen Studio', area:'鐘路', tags:'手工西服配件', type:'shop', desc:'展售大師現場手工縫製的高級領帶、黃銅袖扣與精緻正裝。', recommend:'純銅工藝雕刻袖扣'},
+      {name:'Tamburins 三清洞店', area:'三清洞', tags:'香氛藝術', type:'shop', desc:'整棟純白建築搭配巨型寫實現代人偶裝置藝術，美感驚人。', recommend:'經典香氛護手霜'},
+      {name:'Gentle Monster 鐘路', area:'鐘路區', tags:'前衛墨鏡', type:'shop', desc:'前衛墨鏡鼻祖，一樓通常有巨大的擬真仿生機械裝置藝術。', recommend:'現代全金屬細框眼鏡'},
+      {name:'Minhwa Studio', area:'鐘路', tags:'民畫藝術', type:'shop', desc:'當代插畫家將傳統線條重新解構翻玩後的韓式藝術掛軸。', recommend:'翻玩設計款民畫明信片'},
+      {name:'Sloane Seoul', area:'鐘路', tags:'皮革植鞣', type:'shop', desc:'主打全手工植鞣皮革、越用越有光澤的極簡幾何皮件。', recommend:'極簡幾何線條皮夾'},
+      {name:'仁川機場 樂天免稅總店', area:'仁川機場', tags:'免稅終點站', type:'shop', desc:'離開前最後的國際精品、一線高端保養品與伴手禮打包核心。', recommend:'機場限定頂級紅蔘高'}
     ]
   }
 ];
 
-/* ═══ RENDER LOGIC ═══ */
-function buildMapUrl(q) { return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`; }
-const mainEl = document.getElementById('mainEl');
-const navInner = document.getElementById('navInner');
+const CHECKLIST_DATA = [
+  { category:'📋 核心證件與金融', items:['護照正本 (效期大於6個月)','WOWPASS 實體卡片 / 海外高回饋信用卡','K-ETA 或者是紙本線上入國申告書','機票與 Nouvelle Hotel 住宿憑證截圖'] },
+  { category:'⚡ 電子與電壓配備', items:['行動電源 (必須放置隨身行李)','韓國專用雙圓頭轉接插頭 (4.7mm SE型)','eSIM / 實體網卡確認啟用','相機、重置記憶卡與多孔充電器'] },
+  { category:'🧴 個人衛生與換季保養', items:['個人常用常備藥品','個人基礎卸妝與親膚潔顏品','高保濕乳液 (首爾室內冷氣偏乾)','遮陽太陽眼鏡 / 輕便防曬帽'] }
+];
 
-DAYS.forEach((day, index) => {
-  const color = DAY_COLORS['day'+(index+1)] || 'var(--primary)';
+const PHRASES_DATA = [
+  { tag: '日常問候', tw: '你好。', ja: '안녕하세요.', romaji: 'An-nyeong-ha-se-yo.', speak: '안녕하세요' },
+  { tag: '日常問候', tw: '謝謝。', ja: '감사합니다.', romaji: 'Gam-sa-ham-ni-da.', speak: '감사합니다' },
+  { tag: '日常問候', tw: '對不起。', ja: '죄송합니다.', romaji: 'Joe-song-ham-ni-da.', speak: '죄송합니다' },
+  { tag: '日常問候', tw: '不好意思 (叫服務生)。', ja: '저기요.', romaji: 'Jeo-gi-yo.', speak: '저기요' },
+  { tag: '日常問候', tw: '再見 (對留下來的人說)。', ja: '안녕히 계세요.', romaji: 'An-nyeong-hi gye-se-yo.', speak: '안녕히 계세요' },
+  { tag: '日常問候', tw: '再見 (對離去的人說)。', ja: '안녕히 가세요.', romaji: 'An-nyeong-hi ga-se-yo.', speak: '안녕히 가세요' },
+  { tag: '日常問候', tw: '是的 / 不是。', ja: '네 / 아니요.', romaji: 'Ne / A-ni-yo.', speak: '네 아니요' },
+  { tag: '日常問候', tw: '請問您聽得懂中文嗎？', ja: '중국어 할 줄 아세요?', romaji: 'Jung-guk-eo hal jul a-se-yo?', speak: '중국어 할 줄 아세요' },
+  { tag: '日常問候', tw: '請幫我一下。', ja: '좀 도와주세요.', romaji: 'Jom do-wa-ju-se-yo.', speak: '좀 도와주세요' },
+  { tag: '日常問候', tw: '沒關係。', ja: '괜찮습니다.', romaji: 'Gwaen-chan-seum-ni-da.', speak: '괜찮습니다' },
+
+  { tag: '交通問路', tw: '請問地鐵站在哪裡？', ja: '지하철역이 어디에 있어요?', romaji: 'Ji-ha-cheol-yeog-i eo-di-e is-seo-yo?', speak: '지하철역이 어디에 있어요' },
+  { tag: '交通問路', tw: '請載我到這個地址。', ja: '이 주소로 가주세요.', romaji: 'I ju-so-ro ga-ju-se-yo.', speak: '이 주소로 가주세요' },
+  { tag: '交通問路', tw: '請問到這裡要走多久？', ja: '여기까지 걸어서 얼마나 걸려요?', romaji: 'Yeo-gi-kkal-ji geol-eo-seo ol-ma-na geol-ryeo-yo?', speak: '여기까지 걸어서 얼마나 걸려요' },
+  { tag: '交通問路', tw: '請問可以在這裡下車嗎？', ja: '여기서 내려주세요.', romaji: 'Yeo-gi-seo nae-ryeo-ju-se-yo.', speak: '여기서 내려주세요' },
+  { tag: '交通問路', tw: '請問票在哪裡買？', ja: '표는 어디서 사요?', romaji: 'Pyo-neun eo-di-seo sa-yo?', speak: '표는 어디서 사요' },
+  { tag: '交通問路', tw: '請問這班車有到弘大嗎？', ja: '이 차 홍대 가나요?', romaji: 'I cha hong-dae ga-na-yo?', speak: '이 차 홍대 가나요' },
+  { tag: '交通問路', tw: '請往右邊轉。', ja: '우회전해 주세요.', romaji: 'U-hoe-jeon-hae ju-se-yo.', speak: '우회전해 주세요' },
+  { tag: '交通問路', tw: '請往左邊轉。', ja: '좌회전해 주세요.', romaji: 'Jwa-hoe-jeon-hae ju-se-yo.', speak: '좌회전해 주세요' },
+  { tag: '交通問路', tw: '請一直直走。', ja: '쭉 직진해 주세요.', romaji: 'Kkug jik-jin-hae ju-se-yo.', speak: '쭉 직진해 주세요' },
+  { tag: '交通問路', tw: '請問這裡是哪裡？', ja: '여기가 어디예요?', romaji: 'Yeo-gi-ga eo-di-ye-yo?', speak: '여기가 어디예요' },
+
+  { tag: '飯店住宿', tw: '我要辦理 Check-in。', ja: '체크인 부탁드립니다.', romaji: 'Che-keu-in bu-tak-deu-rim-ni-da.', speak: '체크인 부탁드립니다' },
+  { tag: '飯店住宿', tw: '可以先寄放行李嗎？', ja: '짐을 먼저 맡길 수 있을까요?', romaji: 'Jim-eul meon-jeo mat-gil su is-seul-kka-yo?', speak: '짐을 먼저 맡길 수 있을까요' },
+  { tag: '飯店住宿', tw: '請問退房時間是幾點？', ja: '체크아웃 시간은 몇 시예요?', romaji: 'Che-keu-a-ut si-gan-eun myeot si-ye-yo?', speak: '체크아웃 시간은 몇 시예요' },
+  { tag: '飯店住宿', tw: '房間冷氣好像故障了。', ja: '방 에어컨이 고장 난 것 같아요.', romaji: 'Bang e-eo-keon-i go-jang nan geot gat-a-yo.', speak: '방 에어컨이 고장 난 것 같아요' },
+  { tag: '飯店住宿', tw: '請幫我更換新的毛巾。', ja: '새 수건으로 교체해 주세요.', romaji: 'Sae su-geon-eu-ro gyo-che-hae ju-se-yo.', speak: '새 수건으로 교체해 주세요' },
+  { tag: '飯店住宿', tw: '請問 Wi-Fi 密碼嗎？', ja: '와이파이 비밀번호가 어떻게 되나요?', romaji: 'Wa-i-pa-i bi-mil-beon-ho-ga eo-tteo-ke doe-na-yo?', speak: '와이파이 비밀번호가 어떻게 되나요' },
+  { tag: '飯店住宿', tw: '請幫我叫一輛計程車。', ja: '택시 한 대만 불러주세요.', romaji: 'Taek-si han dae-man bul-leo-ju-se-yo.', speak: '택시 한 대만 불러주세요' },
+  { tag: '飯店住宿', tw: '我把鑰匙忘在房間裡了。', ja: '방 키를 안에 두고 나왔어요.', romaji: 'Bang ki-reun an-e du-go na-was-seo-yo.', speak: '방 키를 안에 두고 나왔어요' },
+  { tag: '飯店住宿', tw: '請問附近有便利商店嗎？', ja: '근처에 편의점이 있나요?', romaji: 'Geun-cheo-e pyeon-ui-jeom-i in-na-yo?', speak: '근처에 편의점이 있나요' },
+  { tag: '飯店住宿', tw: '我要辦理 Check-out。', ja: '체크아웃 부탁드립니다.', romaji: 'Che-keu-a-ut bu-tak-deu-rim-ni-da.', speak: '체크아웃 부탁드립니다' },
+
+  { tag: '餐廳點餐', tw: '不好意思，請給我菜單。', ja: '여기 메뉴판 좀 주세요.', romaji: 'Yeo-gi me-nyu-pan jom ju-se-yo.', speak: '여기 메뉴판 좀 주세요' },
+  { tag: '餐廳點餐', tw: '請推薦招牌菜。', ja: '가장 인기 있는 메뉴 추천해 주세요.', romaji: 'Ga-jang in-gi in-neun me-nyu chu-cheon-hae ju-se-yo.', speak: '가장 인기 있는 메뉴 추천해 주세요' },
+  { tag: '餐廳點餐', tw: '我要點這個和這個。', ja: '이거랑 이거 주세요.', romaji: 'I-geo-rang i-geo ju-se-yo.', speak: '이거랑 이거 주세요' },
+  { tag: '餐廳點餐', tw: '請幫我做得不要太辣。', ja: '덜 맵게 해주세요.', romaji: 'Deol maeb-ge hae-ju-se-yo.', speak: '덜 맵게 해주세요' },
+  { tag: '餐廳點餐', tw: '請給我水。', ja: '물 좀 주세요.', romaji: 'Mul jom ju-se-yo.', speak: '물 좀 주세요' },
+  { tag: '餐廳點餐', tw: '請問可以續小菜嗎？', ja: '반찬 좀 더 주실 수 있나요?', romaji: 'Ban-chan jom deo ju-sil su in-na-yo?', speak: '반찬 좀 더 ju-sil su in-na-yo' },
+  { tag: '餐廳點餐', tw: '請給我筷子和湯匙。', ja: '숟가락이랑 젓가락 좀 주세요.', romaji: 'Sud-ga-rag-i-rang jeos-ga-rag jom ju-se-yo.', speak: '숟가락이랑 젓가락 좀 주세요' },
+  { tag: '餐廳點餐', tw: '我們要結帳。', ja: '계산해 주세요.', romaji: 'Gye-san-hae ju-se-yo.', speak: '계산해 주세요' },
+  { tag: '餐廳點餐', tw: '請問這裡可以外帶嗎？', ja: '포장 가능한가요?', romaji: 'Po-jang ga-neung-han-ga-yo?', speak: '포장 가능한가요' },
+  { tag: '餐廳點餐', tw: '非常好吃，謝謝。', ja: '정말 맛있었어요. 감사합니다.', romaji: 'Jeong-mal mas-is-eos-seo-yo. Gam-sa-ham-ni-da.', speak: '정말 맛있었어요 감사합니다' },
+
+  { tag: '購物退稅', tw: '請問這個多少錢？', ja: '이거 얼마예요?', romaji: 'I-geo ol-ma-ye-yo?', speak: '이거 얼마예요' },
+  { tag: '購物退稅', tw: '請問可以當場退稅嗎？', ja: '바로 택스프리 되나요?', romaji: 'Ba-ro taek-seu-peu-ri doe-na-yo?', speak: '바로 택스프리 되나요' },
+  { tag: '購物退稅', tw: '請問可以試穿嗎？', ja: '입어봐도 돼요?', romaji: 'Ib-eo-bwa-do dwae-yo?', speak: '입어봐도 돼요' },
+  { tag: '購物退稅', tw: '請問有沒有新的？', ja: '새 제품으로 있나요?', romaji: 'Sae je-pum-eu-ro in-na-yo?', speak: '새 제품으로 있나요' },
+  { tag: '購物退稅', tw: '可以用信用卡付款嗎？', ja: '신용카드 쓸 수 있어요?', romaji: 'Sin-yong-ka-deu sseul su is-seo-yo?', speak: '신용카드 쓸 수 있어요' },
+  { tag: '購物退稅', tw: '請給我一張購物收據。', ja: '영수증 좀 주세요.', romaji: 'Yeong-su-jeung jom ju-se-yo.', speak: '영수증 좀 주세요' },
+  { tag: '購物退稅', tw: '請問有沒有更大的尺寸？', ja: '더 큰 사이즈 있어요?', romaji: 'Deo keun sa-i-zeu is-seo-yo?', speak: '더 큰 사이즈 있어요' },
+  { tag: '購物退稅', tw: '請問有沒有其他的顏色？', ja: '다른 색상도 있나요?', romaji: 'Da-reun saek-sang-do in-na-yo?', speak: '다른 색상도 있나요' },
+  { tag: '購物退稅', tw: '我只是隨便看看，謝謝。', ja: '그냥 구경하는 거예요. 감사합니다.', romaji: 'Geu-nyang gu-gyeong-ha-neun geo-ye-yo. Gam-sa-ham-ni-da.', speak: '그냥 구경하는 거예요 감사합니다' },
+  { tag: '購物退稅', tw: '請幫我包裝得精美一點。', ja: '포장 좀 예쁘게 해주세요.', romaji: 'Po-jang jom ye-ppeu-ge hae-ju-se-yo.', speak: '포장 좀 예쁘게 해주세요' }
+];
+
+// ===================== STATE =====================
+let state = {
+  currentView: 'view-overview',
+  currentDayId: null,
+  currentDayTab: 'itinerary',
+  placeTypeFilter: 'all',
+  phraseCategoryFilter: 'all',
+  checklist: JSON.parse(localStorage.getItem('seoul_checklist_v5') || '{}'),
+  wishlist: JSON.parse(localStorage.getItem('seoul_wishlist_v5') || '[]'),
+  notes: JSON.parse(localStorage.getItem('seoul_notes_v5') || '{}'),
+  dayNotes: JSON.parse(localStorage.getItem('seoul_daynotes_v5') || '{}'),
+  exchangeRate: { KRW_TWD: 0.024 }
+};
+
+// ===================== INIT =====================
+document.addEventListener('DOMContentLoaded', () => {
+  buildNavigation();
+  setupNavClicks();
+  initOverview();
+  renderChecklist();
+  initNotes();
+  renderPhrases();
+  renderWishlist();
+  setupPWA();
   
-  // Nav Render
-  const navA = document.createElement('a');
-  navA.className = 'nav-item' + (index === 0 ? ' active' : '');
-  navA.href = '#' + day.id;
-  navA.dataset.day = day.id;
-  navA.innerHTML = `<span class="day-dot" style="background:${color}"></span>${day.title}`;
-  navInner.appendChild(navA);
-
-  // Timeline Render
-  let timelineHTML = '';
-  if(day.itinerary && day.itinerary.length > 0) {
-    timelineHTML = `
-      <div class="timeline-wrap">
-        <div class="timeline-bg"></div>
-        <div class="timeline-header"><i class="fas fa-route" style="color:${color}"></i> 行程規劃</div>
-        <div class="timeline-list">
-          ${day.itinerary.map(it => `
-            <div class="timeline-item">
-              <div class="timeline-icon" style="color:${color}">${it.icon}</div>
-              <div class="timeline-content">
-                <div class="timeline-time">${it.time}</div>
-                <div class="timeline-text">${it.text}</div>
-                ${it.map ? `<a href="${buildMapUrl(it.map)}" target="_blank" class="timeline-map-btn"><i class="fas fa-map-pin" style="color:${color}"></i> 導航</a>` : ''}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    `;
-  }
-
-  // Cards Render
-  const cardsHTML = (day.places || []).map(p => `
-    <div class="card" style="--tape-color:${p.tape};--tape-angle:${p.angle}">
-      <div class="card-header">
-        <div class="card-header-left">
-          <div class="card-area" style="color:${color}"><i class="fas fa-map-marker-alt"></i>${p.area}</div>
-          <div class="card-name">${p.name}</div>
-          <div class="card-type">${p.type}</div>
-        </div>
-        <div class="card-score">${p.rating}<span class="s"><i class="fas fa-star"></i></span></div>
-      </div>
-      <div class="card-desc">${p.desc}</div>
-      <div class="card-recommend" style="--rc-color:${color}">
-        <div class="rc-title">推薦必點</div>
-        <div>${p.recommend}</div>
-      </div>
-      <div style="margin-top:auto">
-        <a href="${buildMapUrl(p.name + ' ' + p.area)}" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> 開啟地圖導航</a>
-      </div>
-    </div>`).join('');
-
-  const sec = document.createElement('section');
-  sec.id = day.id;
-  sec.className = 'day-section';
-  sec.innerHTML = `
-    <div class="day-header">
-      <div class="day-badge" style="background:${color}">
-        <div class="dn">${day.num}</div><div class="dl">DAY</div>
-      </div>
-      <div class="day-meta">
-        <div class="day-title" style="color:${color}">${day.date}　${day.title}</div>
-        <div class="day-subtitle">${day.subtitle}</div>
-      </div>
-    </div>
-    ${timelineHTML}
-    ${day.places && day.places.length > 0 ? `<h3 style="font-family:var(--f-display); font-weight:900; margin-bottom: 20px; font-size: 1.1rem; color:var(--ink); display:flex; align-items:center; gap:8px;"><i class="fas fa-utensils" style="color:${color}; font-size:0.9em;"></i> 周邊美食推薦 (${day.places.length}選)</h3><div class="restaurant-grid">${cardsHTML}</div>` : ''}
-  `;
-  mainEl.appendChild(sec);
+  document.querySelector('.sidebar-btn[data-target="view-overview"]')?.classList.add('active-sidebar');
+  document.querySelector('.mobile-btn[data-target="view-overview"]')?.classList.add('active-mobile');
 });
 
-/* ═══ INTERACTION LOGIC ═══ */
-const animateObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); animateObs.unobserve(e.target); } }); }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.timeline-item, .card').forEach(el => animateObs.observe(el));
+function buildNavigation() {
+  const sidebarDays = document.getElementById('sidebar-days');
+  const mobileDays = document.getElementById('mobile-day-btns');
+  
+  DAYS_DATA.forEach(day => {
+    const sb = document.createElement('button');
+    sb.className = 'nav-btn sidebar-btn w-full text-left px-4 py-3 rounded-2xl hover:bg-white/60 transition-all flex items-center gap-3 text-ink/60 mb-1';
+    sb.dataset.target = 'view-day';
+    sb.dataset.day = day.id;
+    sb.innerHTML = `<div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-sm" style="background:${day.hex}">D${day.num.replace('0','')}</div><div><div class="font-heading font-bold text-sm text-ink">${day.date}</div><div class="text-[10px] truncate text-ink/50 font-bold">${day.title.slice(0,11)}...</div></div>`;
+    sidebarDays.appendChild(sb);
+    
+    const mb = document.createElement('button');
+    mb.className = 'nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-1.5 px-4 py-3 rounded-full text-ink/50 font-bold transition-all';
+    mb.dataset.target = 'view-day';
+    mb.dataset.day = day.id;
+    mb.innerHTML = `<span class="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black text-white shadow-sm" style="background:${day.hex}">D${day.num.replace('0','')}</span><span class="text-sm tracking-tight">${day.date.replace('月','/')}</span>`;
+    mobileDays.appendChild(mb);
+  });
+}
 
-const navItems = document.querySelectorAll('.nav-item');
-navItems.forEach(item => { item.addEventListener('click', function(e) { e.preventDefault(); const dayId = this.dataset.day; navItems.forEach(n => n.classList.remove('active')); this.classList.add('active'); const sec = document.getElementById(dayId); const navH = document.querySelector('.nav-wrap').offsetHeight; const y = sec.getBoundingClientRect().top + window.scrollY - navH - 12; window.scrollTo({ top: y, behavior: 'smooth' }); }); });
+function setupNavClicks() {
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const tgt = e.currentTarget.dataset.target;
+      const dayId = e.currentTarget.dataset.day;
+      
+      document.querySelectorAll('.sidebar-btn').forEach(b => { b.classList.remove('active-sidebar'); b.classList.add('text-ink/60'); });
+      document.querySelectorAll('.mobile-btn').forEach(b => { b.classList.remove('active-mobile'); b.classList.add('text-ink/50'); });
+      
+      const matches = document.querySelectorAll(`.nav-btn[data-target="${tgt}"]${dayId?`[data-day="${dayId}"]`:':not([data-day])'}`);
+      matches.forEach(b => {
+        if(b.classList.contains('sidebar-btn')) { b.classList.add('active-sidebar'); b.classList.remove('text-ink/60'); }
+        if(b.classList.contains('mobile-btn')) { 
+          b.classList.add('active-mobile'); 
+          b.classList.remove('text-ink/50'); 
+          b.scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"});
+        }
+      });
+      switchView(tgt, dayId);
+    });
+  });
+}
 
-const secObs = new IntersectionObserver(entries => { entries.forEach(e => { if (!e.isIntersecting) return; navItems.forEach(n => n.classList.remove('active')); const match = document.querySelector(`.nav-item[data-day="${e.target.id}"]`); if (match) match.classList.add('active'); }); }, { threshold: 0, rootMargin: '-60px 0px -75% 0px' });
-document.querySelectorAll('.day-section').forEach(s => secObs.observe(s));
+function switchView(target, dayId = null) {
+  document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+  document.getElementById(target)?.classList.add('active');
+  state.currentView = target;
+  
+  if(target === 'view-day' && dayId) {
+    state.currentDayId = dayId;
+    state.placeTypeFilter = 'all';
+    state.currentDayTab = 'itinerary';
+    renderDayView(dayId);
+  }
+  document.getElementById('mainContent').scrollTop = 0;
+}
 
-const btt = document.getElementById('btt');
-window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500), { passive: true });
+function initOverview() {
+  const target = new Date('2026-06-19T00:00:00+09:00').getTime();
+  const tick = () => {
+    const d = Math.max(0, Math.ceil((target - Date.now()) / 86400000));
+    document.getElementById('countdown-display').textContent = d > 0 ? `${d} Days` : '出發！';
+  };
+  tick();
+  setInterval(tick, 60000);
+  
+  fetchWeather();
+  fetchCurrency();
+}
+
+async function fetchWeather() {
+  try {
+    const wr = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&daily=temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,precipitation_probability_max,sunset&timezone=Asia%2FSeoul');
+    const wd = await wr.json();
+    renderWeatherChart(wd.daily);
+    
+    document.getElementById('rain-prob').textContent = (wd.daily.precipitation_probability_max[0] || 0) + '%';
+    document.getElementById('uv-index').textContent = (wd.daily.uv_index_max[0] || 0).toFixed(1);
+    if(wd.daily.sunset && wd.daily.sunset[0]) {
+      document.getElementById('sunset-time').textContent = new Date(wd.daily.sunset[0]).toLocaleTimeString('zh-TW', {hour: '2-digit', minute:'2-digit', hour12: false});
+    }
+    if ((wd.daily.precipitation_sum[0] || 0) > 2.0) { document.body.classList.add('theme-rainy'); }
+  } catch(e) { console.warn('氣象數據載入受限'); }
+}
+
+function renderWeatherChart(data) {
+  const ctx = document.getElementById('weatherChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: data.time.map(d => d.slice(5).replace('-','/')),
+      datasets: [
+        { label:'最高溫 (°C)', data:data.temperature_2m_max, borderColor:'#d1757f', backgroundColor:'rgba(209, 117, 127, 0.1)', borderWidth:3, tension:0.4, fill:true },
+        { label:'最低溫 (°C)', data:data.temperature_2m_min, borderColor:'#2c5d88', borderDash:[5,5], borderWidth:2, tension:0.4 }
+      ]
+    },
+    options: { responsive:true, maintainAspectRatio:false }
+  });
+}
+
+async function fetchCurrency() {
+  try {
+    const res = await fetch('https://api.exchangerate-api.com/v4/latest/KRW');
+    const data = await res.json();
+    state.exchangeRate.KRW_TWD = data.rates.TWD;
+    document.getElementById('rateUpdate').textContent = '即時同步成功';
+    updateCurrency();
+  } catch(e) { updateCurrency(); }
+}
+
+function updateCurrency() {
+  const krw = parseFloat(document.getElementById('krwInput').value) || 0;
+  document.getElementById('twdOutput').textContent = Math.round(krw * state.exchangeRate.KRW_TWD).toLocaleString();
+}
+document.getElementById('krwInput')?.addEventListener('input', updateCurrency);
+
+function renderChecklist() {
+  const container = document.getElementById('checklist-container');
+  container.innerHTML = '';
+  let total = 0, checked = 0;
+  
+  CHECKLIST_DATA.forEach((cat, ci) => {
+    const card = document.createElement('div');
+    card.className = 'glass-card border border-white rounded-3xl p-6';
+    let itemsHtml = '';
+    cat.items.forEach((item, ii) => {
+      total++;
+      const id = `chk-${ci}-${ii}`;
+      const isChecked = !!state.checklist[id];
+      if(isChecked) checked++;
+      itemsHtml += `<label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/40 cursor-pointer transition ${isChecked?'checked-label':''}">
+        <input type="checkbox" class="mt-0.5 flex-shrink-0" data-id="${id}" ${isChecked?'checked':''} onchange="handleCheck(this)">
+        <span class="text-sm font-sans font-bold text-ink/80 pt-px">${item}</span>
+      </label>`;
+    });
+    card.innerHTML = `<h3 class="font-heading font-black text-base text-ink mb-4 pb-2 border-b border-ink/5">${cat.category}</h3><div class="space-y-1">${itemsHtml}</div>`;
+    container.appendChild(card);
+  });
+  updateProgress(checked, total);
+}
+
+window.handleCheck = (cb) => {
+  state.checklist[cb.dataset.id] = cb.checked;
+  localStorage.setItem('seoul_checklist_v5', JSON.stringify(state.checklist));
+  cb.parentElement.classList.toggle('checked-label', cb.checked);
+  updateProgress(document.querySelectorAll('#checklist-container input[type=checkbox]:checked').length, document.querySelectorAll('#checklist-container input[type=checkbox]').length);
+};
+
+function updateProgress(checked, total) {
+  const pct = total ? Math.round(checked/total*100) : 0;
+  document.getElementById('progress-bar').style.width = `${pct}%`;
+  document.getElementById('progress-text').textContent = `${pct}%`;
+}
+
+function initNotes() { if(document.getElementById('note1')) document.getElementById('note1').value = state.notes['note1'] || ''; }
+window.saveNote = (id, val) => { state.notes[id] = val; localStorage.setItem('seoul_notes_v5', JSON.stringify(state.notes)); };
+window.saveDayNote = (val) => { if(!state.currentDayId) return; state.dayNotes[state.currentDayId] = val; localStorage.setItem('seoul_daynotes_v5', JSON.stringify(state.dayNotes)); };
+
+window.toggleWishlist = (dayId, placeIndex) => {
+  const day = DAYS_DATA.find(d => d.id === dayId);
+  const place = day.places[placeIndex];
+  const key = `${dayId}-${placeIndex}`;
+  const idx = state.wishlist.findIndex(w => w.key === key);
+  
+  if(idx >= 0) {
+    state.wishlist.splice(idx, 1);
+    showToast(`已移除「${place.name}」`);
+  } else {
+    state.wishlist.push({ key, dayId, placeIndex, name: place.name, area: place.area, tags: place.tags, hex: day.hex });
+    showToast(`已成功收藏「${place.name}」❤️`);
+  }
+  localStorage.setItem('seoul_wishlist_v5', JSON.stringify(state.wishlist));
+  renderWishlist();
+  if(state.currentView === 'view-day' && state.currentDayId === dayId) renderPlaces(day);
+};
+
+function renderWishlist() {
+  const grid = document.getElementById('wishlist-grid');
+  if(!grid) return;
+  if(!state.wishlist.length) { document.getElementById('wishlist-empty').style.display = 'block'; grid.innerHTML = ''; return; }
+  document.getElementById('wishlist-empty').style.display = 'none';
+  grid.innerHTML = state.wishlist.map(w => `
+    <div class="glass-card rounded-3xl p-5 border border-white relative">
+      <button onclick="toggleWishlist('${w.dayId}', ${w.placeIndex})" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-coral/10 flex items-center justify-center text-coral shadow-sm"><i class="fas fa-heart text-sm"></i></button>
+      <h4 class="font-heading font-black text-lg text-ink mb-1 pr-8">${w.name}</h4>
+      <div class="text-[11px] font-bold text-ink/40 mb-3">${w.area} · ${w.tags}</div>
+      <div class="flex gap-2">
+        <a href="https://map.naver.com/v5/search/${encodeURIComponent(w.name)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(w.name)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+      </div>
+    </div>`).join('');
+}
+
+function renderPhrases() {
+  const grid = document.getElementById('phrases-grid');
+  if(!grid) return;
+  const filtered = state.phraseCategoryFilter === 'all' ? PHRASES_DATA : PHRASES_DATA.filter(p => p.tag === state.phraseCategoryFilter);
+  
+  grid.innerHTML = filtered.map(p => `
+    <div class="glass-card rounded-3xl p-6 border border-white relative group">
+      <button class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-coral hover:bg-coral hover:text-white transition" onclick="speakKorean('${p.speak}')">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <div class="text-[10px] font-black text-ink/40 bg-black/5 px-2 py-1 rounded-md inline-block mb-3">${p.tag}</div>
+      <h4 class="font-sans font-black text-ink text-sm mb-2 leading-tight">${p.tw}</h4>
+      <div class="text-ocean font-bold text-sm mb-1">${p.ja}</div>
+      <div class="font-mono text-[10px] font-bold text-ink/30">${p.romaji}</div>
+    </div>`).join('');
+}
+
+window.filterPhrases = (cat) => {
+  state.phraseCategoryFilter = cat;
+  document.querySelectorAll('.phrase-filter-btn').forEach(btn => { btn.classList.remove('filter-active'); btn.classList.add('bg-white/60', 'text-ink/60'); });
+  event.currentTarget.classList.add('filter-active');
+  event.currentTarget.classList.remove('bg-white/60', 'text-ink/60');
+  renderPhrases();
+};
+
+window.speakKorean = (text) => {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR'; u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  } else { showToast('您的裝置不支援語音朗讀'); }
+};
+
+function renderDayView(dayId) {
+  const day = DAYS_DATA.find(d => d.id === dayId);
+  if(!day) return;
+  
+  document.getElementById('day-header').innerHTML = `
+    <div class="w-20 h-20 text-white rounded-3xl flex flex-col items-center justify-center flex-shrink-0 shadow-md" style="background:${day.hex}">
+      <span class="font-heading font-black text-3xl leading-none">${day.num}</span>
+      <span class="font-mono text-[10px] font-bold tracking-widest opacity-90 mt-0.5">DAY</span>
+    </div>
+    <div>
+      <div class="font-mono font-black text-xs mb-1 uppercase px-2 py-0.5 rounded bg-white/50 inline-block border border-white" style="color:${day.hex}">${day.date}</div>
+      <h2 class="font-heading font-black text-3xl text-ink tracking-tight mb-2">${day.title}</h2>
+      <p class="font-serif text-ink/70 text-sm max-w-2xl leading-relaxed">${day.intro}</p>
+    </div>`;
+
+  document.getElementById('day-timeline').innerHTML = day.itinerary.map(it => `
+    <div class="timeline-item relative pl-12 pb-2">
+      <div class="timeline-dot"></div>
+      <div class="absolute left-0 top-0 w-9 h-9 bg-white border-2 rounded-full flex items-center justify-center shadow-sm z-10 text-sm" style="border-color:${day.hex}">${it.icon}</div>
+      <div class="bg-white/60 border border-white p-4 rounded-2xl shadow-sm hover:bg-white transition duration-300">
+        <div class="font-mono font-black text-xs mb-1" style="color:${day.hex}">${it.time}</div>
+        <div class="font-sans font-black text-sm text-ink mb-2">${it.text}</div>
+        <div class="flex gap-2 mt-2">
+          <a href="https://map.naver.com/v5/search/${encodeURIComponent(it.q)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
+            <i class="fas fa-map-marked-alt text-[9px]"></i> Naver 導航
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.q)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
+            <i class="fab fa-google text-[9px]"></i> Google 備案
+          </a>
+        </div>
+      </div>
+    </div>`).join('');
+    
+  document.getElementById('day-tips').innerHTML = day.tips.map(t => `<div class="flex items-start gap-2.5 bg-white/50 rounded-xl px-4 py-3 text-xs border border-white shadow-inner-light"><i class="fas fa-check-circle text-sand mt-0.5 opacity-70"></i> ${t}</div>`).join('');
+  if(document.getElementById('day-note')) document.getElementById('day-note').value = state.dayNotes[dayId] || '';
+  
+  renderPlaces(day);
+  switchDayTab('itinerary');
+}
+
+function renderPlaces(day) {
+  const container = document.getElementById('day-places');
+  if(!day.places.length) { container.innerHTML = '<div class="text-center py-6 text-ink/30">本日無特定卡片資料</div>'; return; }
+  
+  const filteredPlaces = state.placeTypeFilter === 'all' ? day.places : day.places.filter(p => p.type === state.placeTypeFilter);
+  
+  container.innerHTML = filteredPlaces.map((p, i) => {
+    const origIndex = day.places.indexOf(p);
+    const key = `${day.id}-${origIndex}`;
+    const isWished = state.wishlist.some(w => w.key === key);
+    return `
+      <div class="glass-card rounded-3xl p-5 hover:shadow-float border border-white transition-all duration-300 flex flex-col transform hover:-translate-y-1">
+        <div class="flex justify-between items-start mb-3">
+          <div class="flex-1 min-w-0 pr-3">
+            <div class="text-[9px] font-black uppercase mb-1.5" style="color:${day.hex}"><i class="fas fa-map-pin mr-1"></i>${p.area}</div>
+            <h4 class="font-heading font-black text-base text-ink leading-tight mb-2">${p.name}</h4>
+            <span class="inline-block text-[9px] font-black bg-ocean/10 text-ocean px-2 py-1 rounded-md">${p.tags}</span>
+          </div>
+          <button onclick="toggleWishlist('${day.id}', ${origIndex})" class="w-9 h-9 flex items-center justify-center rounded-full border shadow-sm flex-shrink-0 ${isWished?'text-coral border-coral/30 bg-coral/10':'text-ink/30 bg-white border-white'}">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+        <p class="font-serif text-xs text-ink/70 mb-4 flex-1 leading-relaxed">${p.desc}</p>
+        <div class="bg-white/50 border border-white p-3 rounded-2xl mb-4 text-xs font-bold text-ink">
+          <div class="text-[9px] uppercase tracking-widest mb-1 opacity-70" style="color:${day.hex}">精選推薦 / 特色單品</div>
+          <div>${p.recommend}</div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <a href="https://map.naver.com/v5/search/${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-mint text-white text-xs font-bold shadow-md">
+            <i class="fas fa-route"></i> Naver 現地導航
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-coral text-white text-xs font-bold shadow-md">
+            <i class="fab fa-google"></i> Google 備用
+          </a>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+window.switchDayTab = (tab) => {
+  state.currentDayTab = tab;
+  document.getElementById('day-tab-itinerary').classList.toggle('hidden', tab !== 'itinerary');
+  document.getElementById('day-tab-places').classList.toggle('hidden', tab !== 'places');
+  document.getElementById('tab-itinerary').classList.toggle('bg-white', tab==='itinerary');
+  document.getElementById('tab-places').classList.toggle('bg-white', tab==='places');
+};
+
+window.setPlaceTypeFilter = (type) => {
+  state.placeTypeFilter = type;
+  document.querySelectorAll('#view-day .place-filter-btn').forEach(btn => { btn.classList.remove('filter-active'); btn.classList.add('bg-white/60', 'text-ink/60'); });
+  event.currentTarget.classList.add('filter-active');
+  event.currentTarget.classList.remove('bg-white/60', 'text-ink/60');
+  const day = DAYS_DATA.find(d => d.id === state.currentDayId);
+  if(day) renderPlaces(day);
+};
+
+window.openMobileSearch = () => { switchView('view-search'); setTimeout(() => document.getElementById('mobileQuickSearch')?.focus(), 100); };
+
+window.handleSearch = (val, source = 'desktop') => {
+  if (source === 'desktop') { if(document.getElementById('mobileQuickSearch')) document.getElementById('mobileQuickSearch').value = val; }
+  else { if(document.getElementById('quickSearch')) document.getElementById('quickSearch').value = val; }
+  if(state.currentView !== 'view-search') switchView('view-search');
+  performSearch(val.trim());
+};
+
+function performSearch(query) {
+  const container = document.getElementById('search-results');
+  const countDisplay = document.getElementById('search-count');
+  if(!query) { countDisplay.textContent = ''; container.innerHTML = '<p class="text-ink/40 text-center py-10 col-span-full">請輸入關鍵字進行全端地標檢索</p>'; return; }
+  
+  const q = query.toLowerCase();
+  const results = [];
+  DAYS_DATA.forEach(day => {
+    day.places.forEach(p => {
+      if(p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || p.tags.toLowerCase().includes(q)) { results.push({ ...p, dayNum: day.num, hex: day.hex }); }
+    });
+  });
+  
+  countDisplay.textContent = `找到 ${results.length} 個與「${query}」高度相關的首爾空間`;
+  container.innerHTML = results.map(p => `
+    <div class="glass-card rounded-3xl p-5 border border-white flex flex-col transform transition hover:-translate-y-1">
+      <span class="text-[9px] font-black px-2 py-1 rounded-md text-white w-fit mb-2" style="background:${p.hex}">Day ${p.dayNum}</span>
+      <h4 class="font-heading font-black text-base text-ink mb-1">${p.name}</h4>
+      <p class="text-xs text-ink/70 flex-1 mb-4 font-serif leading-relaxed">${p.desc || ''}</p>
+      <div class="grid grid-cols-2 gap-2 mt-auto">
+        <a href="https://map.naver.com/v5/search/${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+      </div>
+    </div>`).join('');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+window.copyText = (text) => {
+  navigator.clipboard.writeText(text).then(() => showToast('已複製到剪貼簿！')).catch(() => {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy') ? showToast('已複製到剪貼簿！') : showToast('複製失敗'); document.body.removeChild(ta);
+  });
+};
+
+function setupPWA() {
+  console.log("PWA 設置與 LocalStorage 初始化調試正常");
+}
 </script>
 </body>
 </html>
