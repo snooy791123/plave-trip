@@ -325,7 +325,7 @@ tailwind.config = {
 
     <div class="flex gap-2 mb-8 bg-white/40 p-1.5 rounded-full w-fit border border-white/60 shadow-inner-light backdrop-blur-sm">
       <button id="tab-itinerary" onclick="switchDayTab('itinerary')" class="px-5 py-2 text-sm font-heading font-bold rounded-full bg-white shadow-sm text-ink transition">📍 行程時間軸</button>
-      <button id="tab-places" onclick="switchDayTab('places')" class="px-5 py-2 text-sm font-heading font-bold rounded-full text-ink/60 hover:text-ink transition">🍜 今日詳細探索 (精選20選)</button>
+      <button id="tab-places" onclick="switchDayTab('places')" class="px-5 py-2 text-sm font-heading font-bold rounded-full text-ink/60 hover:text-ink transition">🍜 今日詳細探索</button>
     </div>
 
     <div id="day-tab-itinerary" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -389,44 +389,44 @@ tailwind.config = {
 </nav>
 
 <script>
-// ===================== DATA =====================
+// ===================== DATA (已補全現地註冊官方韓文名稱) =====================
 const DAYS_DATA = [
   { id:'day1', num:'01', date:'6月19日', color:'ocean', hex:'#2c5d88',
     title:'抵達首爾與經典潮玩探索',
     intro:'降落仁川後迅速啟動首爾潮流美學之旅。首日聚焦延南洞、弘大與合井商圈的特色獨立店、應援概念店，完美混搭米其林星級美食。',
     tips:['🚇 搭乘機場快線 AREX 直達車至弘大入口站只需45分鐘','🪙 首爾街頭小店普遍接受 WOWPASS 支付','🛍️ 退稅級距通常為3萬韓元起跳，結帳請隨身攜帶護照'],
     itinerary:[
-      {time:'05:00', text:'仁川國際機場 (抵達辦理入境)', icon:'🛫', q:'인천국제공항'},
-      {time:'06:30', text:'Transit Lounge Yongsan', icon:'🛋️', q:'용산역'},
-      {time:'11:00', text:'乙密臺 (傳統冷麵經典老字號)', icon:'🍜', q:'을밀대 본점'},
-      {time:'12:00', text:'噗哩應援咖啡廳 (期間限定美學展示空間)', icon:'☕', q:'마포구 카페'},
-      {time:'13:00', text:'合井辣炒年糕joy', icon:'🍡', q:'합정역 떡볶이'},
-      {time:'14:00', text:'ASTERUM 433-10 (極致視覺企劃空間)', icon:'🌌', q:'마포구 독막로'},
-      {time:'15:00', text:'屋同食 (米其林推薦經典清湯豬肉湯飯)', icon:'🍲', q:'옥동식'},
-      {time:'16:00', text:'弘大街頭炸玉米點心時光', icon:'🌽', q:'홍대거리'},
-      {time:'17:00', text:'Nouvelle Hotel and Spa Seoul Jongro (入住辦理)', icon:'🏨', q:'누벨호텔'}
+      {time:'05:00', text:'仁川國際機場 (抵達辦理入境)', icon:'🛫', q:'인천국제공항', krName:'인천국제공항'},
+      {time:'06:30', text:'Transit Lounge Yongsan', icon:'🛋️', q:'용산역', krName:'용산역'},
+      {time:'11:00', text:'乙密臺 本店 (傳統冷麵經典老字號)', icon:'🍜', q:'을밀대 본점', krName:'을밀대 본점'},
+      {time:'12:00', text:'噗哩應援咖啡廳 (期間限定美學展示空間)', icon:'☕', q:'마포구 카페', krName:'마포구 카페'},
+      {time:'13:00', text:'合井辣炒年糕joy', icon:'🍡', q:'합정역 떡볶이', krName:'합정역 떡볶이'},
+      {time:'14:00', text:'ASTERUM 433-10 (極致視覺企劃空間)', icon:'🌌', q:'마포구 독막로', krName:'마포구 독막로'},
+      {time:'15:00', text:'屋同食 (米其林推薦經典清湯豬肉湯飯)', icon:'🍲', q:'옥동식 서교점', krName:'옥동식 서교점'},
+      {time:'16:00', text:'弘大街頭炸玉米點心時光', icon:'🌽', q:'홍대거리', krName:'홍대거리'},
+      {time:'17:00', text:'Nouvelle Hotel and Spa Seoul Jongro (入住辦理)', icon:'🏨', q:'누벨호텔', krName:'누벨호텔'}
     ],
     places:[
-      {name:'乙密臺 本店', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾數一數二的經典平壤冷麵老字號，湯頭清甜回甘、手工現蕎麥麵條極具嚼勁。', recommend:'平壤水冷麵、酥脆綠豆煎餅'},
-      {name:'屋同食 Okdongsik', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'米其林必比登連續多年強烈推薦！清澈的高湯搭配極薄的頂級黑豬肉片。', recommend:'常創豬肉湯飯 (Dwaeji-gukbap)'},
-      {name:'合井辣炒年糕joy', area:'合井站', tags:'街頭小吃', type:'food', desc:'位於潮流商圈巷底的經典辣炒年糕，甜辣調味適中。', recommend:'經典年糕加手工炸物拼盤'},
-      {name:'咖啡廳 延南洞 561', area:'延南洞', tags:'質感咖啡', type:'food', desc:'老屋改建的工業風咖啡館，手沖單品咖啡層次豐富。', recommend:'衣索比亞手沖、招牌肉桂捲'},
-      {name:'小夏鹽田 延南', area:'延南洞', tags:'人氣烘焙', type:'food', desc:'以鹽田為視覺主題的人氣麵包店，空氣中充滿濃郁海鹽與奶油香氣。', recommend:'經典海鹽可頌、松露鹽可頌'},
-      {name:'Flippers 弘大', area:'弘大', tags:'舒芙蕾鬆餅', type:'food', desc:'入口即化的人氣舒芙蕾鬆餅，口感蓬鬆濕潤。', recommend:'草莓千層舒芙蕾'},
-      {name:'申美京辣炒雞排', area:'弘大', tags:'經典鐵板燒', type:'food', desc:'在巨大鑄鐵盤上大火翻炒的春川辣炒雞排，搭配大量牽絲起司。', recommend:'起司雙重辣炒雞排'},
-      {name:'豚壽百 弘大直營店', area:'弘大', tags:'釜山湯飯', type:'food', desc:'24小時營業的傳統豬肉湯飯，大骨熬煮出的乳白色湯頭極為濃郁。', recommend:'特級豬肉湯飯套餐'},
-      {name:'朝鮮火爐烤肉', area:'弘大/合井', tags:'韓式燒肉', type:'food', desc:'許多老首爾人口中的頂級韓牛燒肉老店，肉質軟嫩多汁。', recommend:'特選韓牛里肌肉'},
-      {name:'延南豬腳 1987', area:'延南洞', tags:'在地宵夜', type:'food', desc:'外皮Q彈有光澤、肉質軟嫩無腥味的排隊名店。', recommend:'半半豬腳 (原味與香辣)'},
-      {name:'Café Layered 延南店', area:'延南洞', tags:'美學英式甜點', type:'food', desc:'充滿歐洲鄉村復古感的高顏值司康與蛋糕專賣店。', recommend:'伯爵茶司康、紅絲絨蛋糕'},
-      {name:'ASTERUM 433-10', area:'麻浦區', tags:'空間企劃', type:'shop', desc:'結合了多媒體聲光與極致極簡主義的視覺概念企劃空間。', recommend:'多媒體美學展示區展覽'},
-      {name:'Object 弘大旗艦店', area:'西橋洞', tags:'文創選物', type:'shop', desc:'整棟樓聚集了無數首爾在地獨立插畫家、手工藝創作者的文創天堂。', recommend:'獨立設計手工帆布包'},
-      {name:'ADER error 弘大空間', area:'西橋洞', tags:'潮流時裝', type:'shop', desc:'韓國頂級解構主義潮流品牌，其店面本身就是一個藝術展間。', recommend:'解構主義剪裁衛衣'},
-      {name:'Musinsa Standard 弘大', area:'弘大', tags:'現代基本款', type:'shop', desc:'大名鼎鼎的服飾電商實體概念店，剪裁俐落、都會風格強烈。', recommend:'修身寬褲、重磅短T'},
-      {name:'Butter 弘大店', area:'弘大', tags:'生活雜貨', type:'shop', desc:'色彩繽紛、充滿幽默設計感的小物與生活設計雜貨。', recommend:'療癒系角色造型物品'},
-      {name:'Retro Kitty 延南', area:'延南洞', tags:'懷舊古著', type:'shop', desc:'主打歐美與日系美式懷舊風格的古著衣物選品店。', recommend:'復古刺繡夾克'},
-      {name:'Visual Aid 選品店', area:'合井', tags:'高端服飾選物', type:'shop', desc:'精選國內外獨立設計師服飾與小眾香氛，陳列極具現代幾何美感。', recommend:'小眾品牌香氛蠟燭'},
-      {name:'Teterot Salon', area:'弘大', tags:'改良韓服', type:'shop', desc:'將傳統韓服元素融入現代日常服裝剪裁的品味服飾店。', recommend:'現代改良式亞麻韓服'},
-      {name:'Market A 弘大店', area:'弘大', tags:'平價快時尚', type:'shop', desc:'首爾本土年輕人愛逛的服飾選物店，依顏色整齊排列。', recommend:'正韓剪裁西裝外套'}
+      {name:'乙密臺 本店', krName:'을밀대 본점', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾數一數二的經典平壤冷麵老字號，湯頭清甜回甘、手工現蕎麥麵條極具嚼勁。', recommend:'平壤水冷麵、酥脆綠豆煎餅'},
+      {name:'屋同食 Okdongsik', krName:'옥동식 서교점', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'米其林必比登連續多年強烈推薦！清澈的高湯搭配極薄的頂級黑豬肉片。', recommend:'常創豬肉湯飯 (Dwaeji-gukbap)'},
+      {name:'合井辣炒年糕joy', krName:'합정역 떡볶이', area:'合井站', tags:'街頭小吃', type:'food', desc:'位於潮流商圈巷底的經典辣炒年糕，甜辣調味適中。', recommend:'經典年糕加手工炸物拼盤'},
+      {name:'咖啡廳 延南洞 561', krName:'카페연남동561', area:'延南洞', tags:'質感咖啡', type:'food', desc:'老屋改建的工業風咖啡館，手沖單品咖啡層次豐富。', recommend:'衣索比亞手沖、招牌肉桂捲'},
+      {name:'小夏鹽田 延南', krName:'소하염전 연남', area:'延南洞', tags:'人氣烘焙', type:'food', desc:'以鹽田為視覺主題的人氣麵包店，空氣中充滿濃郁海鹽與奶油香氣。', recommend:'經典海鹽可頌、松露鹽可頌'},
+      {name:'Flippers 弘大', krName:'플리퍼斯 홍대점', area:'弘大', tags:'舒芙蕾鬆餅', type:'food', desc:'入口即化的人氣舒芙蕾鬆餅，口感蓬鬆濕潤。', recommend:'草莓千層舒芙蕾'},
+      {name:'申美京辣炒雞排', krName:'신미경홍대닭갈비', area:'弘大', tags:'經典鐵板燒', type:'food', desc:'在巨大鑄鐵盤上大火翻炒的春川辣炒雞排，搭配大量牽絲起司。', recommend:'起司雙重辣炒雞排'},
+      {name:'豚壽百 弘大直營店', krName:'돈수백 홍대직영점', area:'弘大', tags:'釜山湯飯', type:'food', desc:'24小時營業的傳統豬肉湯飯，大骨熬煮出的乳白色湯頭極為濃郁。', recommend:'特級豬肉湯飯套餐'},
+      {name:'朝鮮火爐烤肉', krName:'조선화로구이', area:'弘大/合井', tags:'韓式燒肉', type:'food', desc:'許多老首爾人口中的頂級韓牛燒肉老店，肉質軟嫩多汁。', recommend:'特選韓牛里肌肉'},
+      {name:'延南豬腳 1987', krName:'연남족발1987', area:'延南洞', tags:'在地宵夜', type:'food', desc:'外皮Q彈有光澤、肉質軟嫩無腥味的排隊名店。', recommend:'半半豬腳 (原味與香辣)'},
+      {name:'Café Layered 延南店', krName:'카페레이어드 연남점', area:'延南洞', tags:'美學英式甜點', type:'food', desc:'充滿歐洲鄉村復古感的高顏值司康與蛋糕專專賣店。', recommend:'伯爵茶司康、紅絲絨蛋糕'},
+      {name:'ASTERUM 433-10', krName:'마拓구 독막로', area:'麻浦區', tags:'空間企劃', type:'shop', desc:'結合了多媒體聲光與極致極簡主義的視覺概念企劃空間。', recommend:'多媒體美學展示區展覽'},
+      {name:'Object 弘大旗艦店', krName:'오브젝트 홍대점', area:'西橋洞', tags:'文創選物', type:'shop', desc:'整棟樓聚集了無數首爾在地獨立插畫家、手工藝創作者的文創天堂。', recommend:'獨立設計手工帆布包'},
+      {name:'ADER error 弘大空間', krName:'아더에러 홍대플러그인스토어', area:'西橋洞', tags:'潮流時裝', type:'shop', desc:'韓國頂級解構主義潮流品牌，其店面本身就是一個藝術展間。', recommend:'解構主義剪裁衛衣'},
+      {name:'Musinsa Standard 弘大', krName:'무신사 스탠다드 홍대', area:'弘大', tags:'現代基本款', type:'shop', desc:'大名鼎鼎的服飾電商實體概念店，剪裁俐落、都會風格強烈。', recommend:'修身寬褲、重磅短T'},
+      {name:'Butter 弘大店', krName:'버터샵 홍대점', area:'弘大', tags:'生活雜貨', type:'shop', desc:'色彩繽紛、充滿幽默設計感的小物與生活設計雜貨。', recommend:'療癒系角色造型物品'},
+      {name:'Retro Kitty 延南', krName:'레트로키티 연남', area:'延南洞', tags:'懷舊古著', type:'shop', desc:'主打歐美與日系美式懷舊風格的古著衣物選品店。', recommend:'復古刺繡夾克'},
+      {name:'Visual Aid 選品店', krName:'비주얼에이드', area:'合井', tags:'高端服飾選物', type:'shop', desc:'精選國內外獨立設計師服飾與小眾香氛，陳列極具現代幾何美感。', recommend:'小眾品牌香氛蠟燭'},
+      {name:'Teterot Salon', krName:'테테롯살롱', area:'弘大', tags:'改良韓服', type:'shop', desc:'將傳統韓服元素融入現代日常服裝剪裁的品味服飾店。', recommend:'現代改良式亞麻韓服'},
+      {name:'Market A 弘大店', krName:'마켓에이 홍대점', area:'弘大', tags:'平價快時尚', type:'shop', desc:'首爾本土年輕人愛逛的服飾選物店，依顏色整齊排列。', recommend:'正韓剪裁西裝外套'}
     ]
   },
   { id:'day2', num:'02', date:'6月20日', color:'mint', hex:'#629a7c',
@@ -434,36 +434,36 @@ const DAYS_DATA = [
     intro:'深入目前首爾最核心的工業風美學聚落「聖水洞」，拜訪指標性設計品牌、巨型科技美妝旗艦店，傍晚轉往蠶室地標樂天世界塔。',
     tips:['👟 聖水洞選物店極度分散，強烈建議穿著最好走的走路鞋','🛒 樂天超市買齊伴手禮後可當場在退稅專用櫃檯辦理退稅'],
     itinerary:[
-      {time:'08:00', text:'飯店出發享用晨間散步', icon:'🚶', q:'누벨호텔'},
-      {time:'09:00', text:'Hwangdo Bajirak Kalguksu (大盆鮮美蛤蜊刀削麵)', icon:'🍜', q:'황도바지락칼국수'},
-      {time:'10:00', text:'樂天超級市場 世界塔店 (伴手禮大採購)', icon:'🛒', q:'롯데마트 월드타워점'},
-      {time:'11:00', text:'STAND OIL 聖水旗艦店 (極簡美學人氣包包)', icon:'👜', q:'스탠드오일 성수'},
-      {time:'12:00', text:'Miffy Store 聖水限定美學特展快閃', icon:'🐰', q:'성수동 미피'},
-      {time:'13:00', text:'29cm.home 質感品味生活美學概念選物', icon:'🏡', q:'29CM SEONGSU'},
-      {time:'14:00', text:'Olive Young N Seongsu (未來概念頂級旗艦店)', icon:'🧴', q:'올리브영 성수'},
-      {time:'15:00', text:'返回 Nouvelle Hotel 放置戰利品與休息', icon:'🏨', q:'누벨호텔'}
+      {time:'08:00', text:'飯店出發享用晨間散步', icon:'🚶', q:'누벨호텔', krName:'누벨호텔'},
+      {time:'09:00', text:'Hwangdo Bajirak Kalguksu (大盆鮮美蛤蜊刀削麵)', icon:'🍜', q:'황도바지락칼국수', krName:'황도바지락칼국수'},
+      {time:'10:00', text:'樂天超級市場 世界塔店 (伴手禮大採購)', icon:'🛒', q:'롯데마트 월드타워점', krName:'롯데마트 월드타워점'},
+      {time:'11:00', text:'STAND OIL 聖水旗艦店 (極簡美學人氣包包)', icon:'👜', q:'스탠드오일 성수', krName:'스탠드오일 성수'},
+      {time:'12:00', text:'Miffy Store 聖水限定美學特展快閃', icon:'🐰', q:'성수동 미피快閃', krName:'성수동 미피'},
+      {time:'13:00', text:'29cm.home 質感品味生活美學概念選物', icon:'🏡', q:'29CM SEONGSU', krName:'29CM SEONGSU'},
+      {time:'14:00', text:'Olive Young N Seongsu (未來概念頂級旗艦店)', icon:'🧴', q:'올리브영 성수', krName:'올리브영 성수'},
+      {time:'15:00', text:'返回 Nouvelle Hotel 放置戰利品與休息', icon:'🏨', q:'누벨호텔', krName:'누벨호텔'}
     ],
     places:[
-      {name:'STAND OIL 聖水旗艦店', area:'聖水洞', tags:'潮流包款', type:'shop', desc:'極簡、實用且充滿現代幾何美感的設計包款，空間陳列極美。', recommend:'經典微亮面腋下包'},
-      {name:'Olive Young N Seongsu', area:'聖水洞', tags:'美妝旗艦', type:'shop', desc:'全新超大型次世代旗艦店，品牌最齊全、附設高科技肌膚檢測。', recommend:'熱門小眾護膚精華'},
-      {name:'29cm.home', area:'聖水洞', tags:'美學概念店', type:'shop', desc:'設計選物網 29CM 的實體美學展示空間，定期更換展示主題。', recommend:'品味家居香氛'},
-      {name:'Tamburins 聖水旗艦店', area:'聖水洞', tags:'小眾香氛', type:'shop', desc:'以清水模與地下展間形式呈現的高端香氛品牌。', recommend:'貝殼護手霜'},
-      {name:'LCDC SEOUL', area:'聖水洞', tags:'複合美學園區', type:'shop', desc:'由多間精緻小眾獨立品牌與設計選物組成的巨型空間。', recommend:'獨立品牌文具、香氛'},
-      {name:'Fwee Agit 聖水旗艦店', area:'聖水洞', tags:'潮流彩妝', type:'shop', desc:'在社群爆紅的彩妝空間，設有獨特的色彩調配體驗吧。', recommend:'布丁唇頰兩用膏'},
-      {name:'Matin Kim 聖水概念店', area:'聖水洞', tags:'潮流時裝', type:'shop', desc:'將前衛街頭元素與日常穿搭完美融合的韓國本土高人氣品牌。', recommend:'經典金屬鐵牌錢包'},
-      {name:'Point of View', area:'聖水洞', tags:'頂級復古文具', type:'shop', desc:'三層樓空間主打歐洲學者的奢華書房風，販售工藝級文具。', recommend:'復古刻印黃銅書籤'},
-      {name:'Amuse 聖水快閃店', area:'聖水洞', tags:'純素彩妝', type:'shop', desc:'主打純素美學的透明感彩妝品牌，空間視覺清新通透。', recommend:'果凍果凍水光唇釉'},
-      {name:'Empty Seoul', area:'聖水洞', tags:'前衛買手店', type:'shop', desc:'佔地廣闊的先鋒服飾空間，收集全球實驗性獨立設計師品牌。', recommend:'實驗性剪裁連帽衫'},
-      {name:'Hwangdo Bajirak Kalguksu', area:'松坡區', tags:'蛤蜊刀削麵', type:'food', desc:'滿滿大盆蛤蜊鮮甜海鮮高湯，搭配手工現揉黃金刀削麵。', recommend:'鮮美蛤蜊刀削麵'},
-      {name:'祖傳三代馬鈴薯排骨湯', area:'聖水洞', tags:'24H老店', type:'food', desc:'白鐘元強烈推薦！燉煮到骨肉分離的豬脊骨高湯。', recommend:'馬鈴薯排骨湯'},
-      {name:'Onedegree Celsius', area:'聖水洞', tags:'質感茶屋', type:'food', desc:'主打東方禪意與現代極簡融合的極靜謐原木風茶空間。', recommend:'精選宇治烘焙茶'},
-      {name:'Onion 聖水店', area:'聖水洞', tags:'工業舊工廠', type:'food', desc:'由舊金屬工廠保留原始廢墟風貌改建的經典代表作。', recommend:'經典雪山黃金麵包'},
-      {name:'Rain Report Croissant', area:'聖水洞', tags:'降雨概念空間', type:'food', desc:'以「365天都在下雨」為主題的暗黑系科技感咖啡廳。', recommend:'黑松露黑色可頌'},
-      {name:'大成排骨', area:'聖水洞', tags:'炭火烤肉', type:'food', desc:'聖水烤肉一條街上人氣最旺的老字號傳統炭火烤肉店。', recommend:'招牌正宗炭火辣烤豬排'},
-      {name:'Center Coffee', area:'聖水/首爾林', tags:'精品手沖', type:'food', desc:'位於首爾林旁的精品咖啡館，主打單一產區極致手沖。', recommend:'藝術家季節單品手沖'},
-      {name:'Camel Coffee 7號店', area:'聖水洞', tags:'復古咖啡', type:'food', desc:'充滿主理人復古手繪線條與皮沙發質感的極受歡迎空間。', recommend:'招牌焦糖 Camel Cream'},
-      {name:'小文湯飯', area:'聖水洞', tags:'家常料理', type:'food', desc:'口味清淡爽口、使用全韓國產優質大米製作的溫熱雪濃湯。', recommend:'極品清燉牛腩湯飯'},
-      {name:'Litte&Much', area:'蠶室', tags:'法式甜點', type:'food', desc:'外觀晶瑩剔透宛如高級珠寶工藝品的頂級慕斯蛋糕名店。', recommend:'白巧克力蜜桃慕斯ケーキ'}
+      {name:'STAND OIL 聖水旗艦店', krName:'스탠드오일 성수플래그십스토어', area:'聖水洞', tags:'潮流包款', type:'shop', desc:'極簡、實用且充滿現代幾何美感的設計包款，空間陳列極美。', recommend:'經典微亮面腋下包'},
+      {name:'Olive Young N Seongsu', krName:'올리브영 N 성수', area:'聖水洞', tags:'美妝旗艦', type:'shop', desc:'全新超大型次世代旗艦店，品牌最齊全、附設高科技肌膚檢測。', recommend:'熱門小眾護膚精華'},
+      {name:'29cm.home', krName:'29CM SEONGSU', area:'聖水洞', tags:'美學概念店', type:'shop', desc:'設計選物網 29CM 的實體美學展示空間，定期更換展示主題。', recommend:'品味家居香氛'},
+      {name:'Tamburins 聖水旗艦店', krName:'탬버린즈 성수 플래그십스토어', area:'聖水洞', tags:'小眾香氛', type:'shop', desc:'以清水模與地下展間形式呈現的高端香氛品牌。', recommend:'貝殼護手霜'},
+      {name:'LCDC SEOUL', krName:'LCDC 서울', area:'聖水洞', tags:'複合美學園區', type:'shop', desc:'由多間精緻小眾獨立品牌與設計選物組成的巨型空間。', recommend:'獨立品牌文具、香氛'},
+      {name:'Fwee Agit 聖水旗艦店', krName:'퓌 아지트 성수', area:'聖水洞', tags:'潮流彩妝', type:'shop', desc:'在社群爆紅的彩妝空間，設有獨特的色彩調配體驗吧。', recommend:'布丁唇頰兩用膏'},
+      {name:'Matin Kim 聖水概念店', krName:'마틴김 성수', area:'聖水洞', tags:'潮流時裝', type:'shop', desc:'將前衛街頭元素與日常穿搭完美融合的韓國本土高人氣品牌。', recommend:'經典金屬鐵牌錢包'},
+      {name:'Point of View', krName:'포인트오브뷰 서울', area:'聖水洞', tags:'頂級復古文具', type:'shop', desc:'三層樓空間主打歐洲學者的奢華書房風，販售工藝級文具。', recommend:'復古刻印黃銅書籤'},
+      {name:'Amuse 聖水快閃店', krName:'어뮤즈 쇼룸 성수', area:'聖水洞', tags:'純素彩妝', type:'shop', desc:'主打純素美學的透明感彩妝品牌，空間視覺清新通透。', recommend:'果凍果凍水光唇釉'},
+      {name:'Empty Seoul', krName:'엠프티 서울', area:'聖水洞', tags:'前衛買手店', type:'shop', desc:'佔地廣闊的先鋒服飾空間，收集全球實驗性獨立設計師品牌。', recommend:'實驗性剪裁連帽衫'},
+      {name:'Hwangdo Bajirak Kalguksu', krName:'황도바지락칼국수', area:'松坡區', tags:'蛤蜊刀削麵', type:'food', desc:'滿滿大盆蛤蜊鮮甜海鮮高湯，搭配手工現揉黃金刀削麵。', recommend:'鮮美蛤蜊刀削麵'},
+      {name:'祖傳三代馬鈴薯排骨湯', krName:'소문난성수감자탕', area:'聖水洞', tags:'24H老店', type:'food', desc:'白鐘元強烈推薦！燉煮到骨肉分離的豬脊骨高湯。', recommend:'馬鈴薯排骨湯'},
+      {name:'Onedegree Celsius', krName:'1도씨 성수', area:'聖水洞', tags:'質感茶屋', type:'food', desc:'主打東方禪意與現代極簡融合的極靜謐原木風茶空間。', recommend:'精選宇治烘焙茶'},
+      {name:'Onion 聖水店', krName:'어니언 성수', area:'聖水洞', tags:'工業舊工廠', type:'food', desc:'由舊金屬工廠保留原始廢墟風貌改建的經典代表作。', recommend:'經典雪山黃金麵包'},
+      {name:'Rain Report Croissant', krName:'레인리포트 크루아상', area:'聖水洞', tags:'降雨概念空間', type:'food', desc:'以「365天都在下雨」為主題的暗黑系科技感咖啡廳。', recommend:'黑松露黑色可頌'},
+      {name:'大成排骨', krName:'대성갈비', area:'聖水洞', tags:'炭火烤肉', type:'food', desc:'聖水烤肉一條街上人氣最旺的老字號傳統炭火烤肉店。', recommend:'招牌正宗炭火辣烤豬排'},
+      {name:'Center Coffee', krName:'센터커피 성수점', area:'聖水/首爾林', tags:'精品手沖', type:'food', desc:'位於首爾林旁的精品咖啡館，主打單一產區極致手沖。', recommend:'藝術家季節單品手沖'},
+      {name:'Camel Coffee 7號店', krName:'카멜커피 7호점', area:'聖水洞', tags:'復古咖啡', type:'food', desc:'充滿主理人復古手繪線條與皮沙發質感的極受歡迎空間。', recommend:'招牌焦糖 Camel Cream'},
+      {name:'小文湯飯', krName:'소문난 성수국밥', area:'聖水洞', tags:'家常料理', type:'food', desc:'口味清淡爽口、使用全韓國產優質大米製作的溫熱雪濃湯。', recommend:'極品清燉牛腩湯飯'},
+      {name:'Litte&Much', krName:'리틀앤머치', area:'蠶室', tags:'法式甜點', type:'food', desc:'外觀晶瑩剔透宛如高級珠寶工藝品的頂級慕斯蛋糕名店。', recommend:'白巧克力蜜桃慕斯ケーキ'}
     ]
   },
   { id:'day3', num:'03', date:'6月21日', color:'sand', hex:'#ca9662',
@@ -471,33 +471,33 @@ const DAYS_DATA = [
     intro:'聚焦弘大、延南洞深處。走訪深受首爾本地穿搭博主青睞的獨立設計銀飾、流行鞋履空間與精緻懷舊動漫玩具基地。',
     tips:['📸 延南洞巷弄隱藏著許多獨特視覺系的四格照相館，非常適合拍照紀念'],
     itinerary:[
-      {time:'08:00', text:'飯店悠閒醒來與街區散步', icon:'☕', q:'누벨호텔'},
-      {time:'09:00', text:'scudo (質感前衛獨立設計銀飾空間)', icon:'💍', q:'스쿠도'},
-      {time:'10:00', text:'Chaakan Shoes (高CP值人氣流行鞋履空間)', icon:'👠', q:'착한구두'},
-      {time:'11:00', text:'DUCKY WORLD (懷舊美式動漫可愛周邊)', icon:'🧸', q:'더키월드'},
-      {time:'12:00', text:'哥賴路演 / 弘大藝術街頭潮流大巡禮', icon:'🎸', q:'홍대거리'}
+      {time:'08:00', text:'飯店悠閒醒來與街區散步', icon:'☕', q:'누벨호텔', krName:'누벨호텔'},
+      {time:'09:00', text:'scudo (質感前衛獨立設計銀飾空間)', icon:'💍', q:'스쿠도', krName:'스쿠도'},
+      {time:'10:00', text:'Chaakan Shoes (高CP值人氣流行鞋履空間)', icon:'👠', q:'착한구두 홍대점', krName:'착한구두 홍대점'},
+      {time:'11:00', text:'DUCKY WORLD (懷舊美式動漫可愛周邊)', icon:'🧸', q:'더키월드', krName:'더키월드'},
+      {time:'12:00', text:'哥賴路演 / 弘大藝術街頭潮流大巡禮', icon:'🎸', q:'홍대거리', krName:'홍대거리'}
     ],
     places:[
-      {name:'scudo', area:'弘大/延南', tags:'設計銀飾', type:'shop', desc:'充滿中性、前衛工業風及解構線條美感的純銀飾品店。', recommend:'幾何流線戒指'},
-      {name:'Chaakan Shoes', area:'弘大店', tags:'流行女鞋', type:'shop', desc:'以高水準穿著舒適度、平價著稱的韓國必訪流行鞋履空間。', recommend:'韓系軟皮樂福鞋'},
-      {name:'DUCKY WORLD', area:'弘大', tags:'角色周邊', type:'shop', desc:'專營各式懷舊動漫、拍立得周邊與卡夾的療癒系巨型基地。', recommend:'Y2K 拍立得相簿卡夾'},
-      {name:'Tinto 選物店', area:'延南洞', tags:'器皿雜貨', type:'shop', desc:'小巧精緻的獨立工作室，專門收集歐洲復古玻璃杯。', recommend:'手工潑墨馬克杯'},
-      {name:'Kakao Friends 弘大店', area:'弘大站', tags:'巨型IP空間', type:'shop', desc:'高達三層樓的標誌性角色空間，頂樓附設景觀主題咖啡。', recommend:'春植造型周邊'},
-      {name:'Chuu 弘大旗艦店', area:'弘大', tags:'潮流服飾', type:'shop', desc:'主打繽紛多色、視覺張力極強的少女俏皮設計服飾。', recommend:'招牌-5公斤視覺修身褲'},
-      {name:'ALAND 弘大總店', area:'弘大', tags:'設計師買手店', type:'shop', desc:'韓國大名鼎鼎的潮流買手店，集結數百個本土新銳街頭品牌。', recommend:'設計師印花衛衣'},
-      {name:'Wonder Place 弘大', area:'弘大', tags:'街頭時裝', type:'shop', desc:'主打街頭、滑板文化與美式休閒混搭的正韓服飾選品空間。', recommend:'工裝風防風外套'},
-      {name:'Swoon 延南', area:'延南洞', tags:'法式復古', type:'shop', desc:'溫柔風精緻服飾店，色調以莫蘭迪色為主，面料親膚。', recommend:'優雅針織鏤空上衣'},
-      {name:'Paper Doll Mate Atelier', area:'延南洞', tags:'插畫文具', type:'shop', desc:'充滿粉嫩夢幻色彩的獨立插畫工作室，復古少女畫風。', recommend:'手繪感收納袋'},
-      {name:'延南洞 烤百葉 1987', area:'延南洞', tags:'傳統烤腸', type:'food', desc:'弘大年輕人最愛的傳統炭火烤牛腸名店，表皮焦香焦脆。', recommend:'綜合豪華烤牛腸拼盤'},
-      {name:'SF Sbaghetti', area:'延南洞', tags:'美式義麵', type:'food', desc:'復古美式公路風格的義大利麵館，手工自製醬汁極其濃厚。', recommend:'肉丸番茄義大利麵'},
-      {name:'Pizza Up', area:'弘大', tags:'客製化披薩', type:'food', desc:'全自助點單，可從數十種頂級起司、肉品配料中自由組合。', recommend:'獨家松露野菇披薩'},
-      {name:'豬肉商會 弘大總店', area:'弘大', tags:'烤肉吃到飽', type:'food', desc:'提供極高水準的手切新鮮厚片豬五花與牛五花。', recommend:'豪華無限量烤肉套餐'},
-      {name:'Perlen 延南', area:'延南洞', tags:'現代黑灰幾何', type:'food', desc:'極具建築幾何設計感的灰色冷調咖啡館，氛圍極靜謐。', recommend:'冷萃精品黑咖啡'},
-      {name:'風川鰻魚 弘大店', area:'弘大', tags:'炭烤活鰻', type:'food', desc:'頂級炭火現點現烤的新鮮活鰻魚，肉質豐腴充滿膠原蛋白。', recommend:'正宗炭烤活鰻魚'},
-      {name:'J’s Recipe', area:'延南洞', tags:'天然酵母', type:'food', desc:'堅持不添加人工香精、低溫發酵的歐式天然烘焙坊。', recommend:'無花果裸麥麵包'},
-      {name:'Myth 豬腳 弘大總店', area:'弘大', tags:'蒜味豬腳', type:'food', desc:'老字號排隊店！在厚切Q彈的豬腳上淋上獨門香甜大蒜泥。', recommend:'招牌蒜味大蒜豬腳'},
-      {name:'Thanks Nature Cafe', area:'弘大', tags:'綿羊中庭', type:'food', desc:'著名的療癒景觀咖啡，中庭有兩隻受到悉心照料的綿羊。', recommend:'冰淇淋格子鬆餅'},
-      {name:'美夏年糕', area:'弘大', tags:'創意韓式', type:'food', desc:'將傳統辣炒年糕盛裝在極具西式質感的器皿中，覆蓋炙燒起司。', recommend:'炙燒起司玫瑰炒年糕'}
+      {name:'scudo銀飾', krName:'스쿠도', area:'弘大/延南', tags:'設計銀飾', type:'shop', desc:'充滿中性、前衛工業風及解構線條美感的純銀飾品店。', recommend:'幾何流線戒指'},
+      {name:'Chaakan Shoes', krName:'착한구두 홍대점', area:'弘大店', tags:'流行女鞋', type:'shop', desc:'以高水準穿著舒適度、平價著稱的韓國必訪流行鞋履空間。', recommend:'韓系軟皮樂福鞋'},
+      {name:'DUCKY WORLD', krName:'더키월드', area:'弘大', tags:'角色周邊', type:'shop', desc:'專營各式懷舊動漫、拍立得周邊與卡夾的療癒系巨型基地。', recommend:'Y2K 拍立得相簿卡夾'},
+      {name:'Tinto 選物店', krName:'틴토', area:'延南洞', tags:'器皿雜貨', type:'shop', desc:'小巧精緻的獨立工作室，專門收集歐洲復古玻璃杯。', recommend:'手工潑墨馬克杯'},
+      {name:'Kakao Friends 弘大店', krName:'카카오프렌즈 홍대플래그십스토어', area:'弘大站', tags:'巨型IP空間', type:'shop', desc:'高達三層樓的標誌性角色空間，頂樓附設景觀主題咖啡。', recommend:'春植造型周邊'},
+      {name:'Chuu 弘大旗艦店', krName:'츄 홍대플래그십스토어', area:'弘大', tags:'潮流服飾', type:'shop', desc:'主打繽紛多色、視覺張力極強的少女俏皮設計服飾。', recommend:'招牌-5公斤視覺修身褲'},
+      {name:'ALAND 弘大總店', krName:'에이랜드 홍대본점', area:'弘大', tags:'設計師買手店', type:'shop', desc:'韓國大名鼎鼎的潮流買手店，集結數百個本土新銳街頭品牌。', recommend:'設計師印花衛衣'},
+      {name:'Wonder Place 弘大', krName:'원더플레이스 홍대점', area:'弘大', tags:'街頭時裝', type:'shop', desc:'主打街頭、滑板文化與美式休閒混搭的正韓服飾選品空間。', recommend:'工裝風防風外套'},
+      {name:'Swoon 延南', area:'延南洞', tags:'法式復古', type:'shop', krName:'스운 연남', desc:'溫柔風精緻服飾店，色調以莫蘭迪色為主，面料親膚。', recommend:'優雅針織鏤空上衣'},
+      {name:'Paper Doll Mate Atelier', krName:'페이퍼돌메이트 아틀리에', area:'延南洞', tags:'插畫文具', type:'shop', desc:'充滿粉嫩夢幻色彩的獨立插畫工作室，復古少女畫風。', recommend:'手繪感收納袋'},
+      {name:'延南洞 烤百葉 1987', krName:'연남곱창1987', area:'延南洞', tags:'傳統烤腸', type:'food', desc:'弘大年輕人最愛的傳統炭火烤牛腸名店，表皮焦香焦脆。', recommend:'綜合豪華烤牛腸拼盤'},
+      {name:'SF Spaghetti', krName:'SF스파게티', area:'延南洞', tags:'美式義麵', type:'food', desc:'復古美式公路風格的義大利麵館，手工自製醬汁極其濃厚。', recommend:'肉丸番茄義大利麵'},
+      {name:'Pizza Up', krName:'피자업', area:'弘大', tags:'客製化披薩', type:'food', desc:'全自助點單，可從數十種頂級起司、肉品配料中自由組合。', recommend:'獨家松露野菇披薩'},
+      {name:'豬肉商會 弘大總店', krName:'돼지상회 홍대점', area:'弘大', tags:'烤肉吃到飽', type:'food', desc:'提供極高水準的手切新鮮厚片豬五花與牛五花。', recommend:'豪華無限量烤肉套餐'},
+      {name:'Perlen 延南', krName:'펠른 연남', area:'延南洞', tags:'現代黑灰幾何', type:'food', desc:'極具建築幾何設計感的灰色冷調咖啡館，氛圍極靜謐。', recommend:'冷萃精品黑咖啡'},
+      {name:'風川鰻魚 弘大店', krName:'풍천장어 홍대점', area:'弘大', tags:'炭烤活鰻', type:'food', desc:'頂級炭火現點現烤的新鮮活鰻魚，肉質豐腴充滿膠原蛋白。', recommend:'正宗炭烤活鰻魚'},
+      {name:'J’s Recipe', krName:'제이스레시피', area:'延南洞', tags:'天然酵母', type:'food', desc:'堅持不添加人工香精、低溫發酵的歐式天然烘焙坊。', recommend:'無花果裸麥麵包'},
+      {name:'Myth 豬腳 弘大總店', krName:'미쓰족발 홍대본점', area:'弘大', tags:'蒜味豬腳', type:'food', desc:'老字號排隊店！在厚切Q彈的豬腳上淋上獨門香甜大蒜泥。', recommend:'招牌蒜味大蒜豬腳'},
+      {name:'Thanks Nature Cafe', krName:'땡스네이처카페', area:'弘大', tags:'綿羊中庭', type:'food', desc:'著名的療癒景觀咖啡，中庭有兩隻受到悉心照料的綿羊。', recommend:'冰淇淋格子鬆餅'},
+      {name:'美夏年糕', krName:'미하떡볶이', area:'弘大', tags:'創意韓式', type:'food', desc:'將傳統辣炒年糕盛裝在極具西式質感的器皿中，覆蓋炙燒起司。', recommend:'炙燒起司玫瑰炒年糕'}
     ]
   },
   { id:'day4', num:'04', date:'6月22日', color:'coral', hex:'#d1757f',
@@ -505,29 +505,29 @@ const DAYS_DATA = [
     intro:'最後一天保留全面彈性，在 Nouvelle Hotel 享受精品頂級 Spa 洗禮，完美結束四天高強度的時尚美學探索，整裝返台。',
     tips:['✈️ 請提早3小時抵達仁川機場，以便預留充足時間辦理行李託運與退稅核銷'],
     itinerary:[
-      {time:'08:00', text:'Nouvelle Hotel and Spa 悠閒退房與打包戰利品，整裝前往有機場接駁處', icon:'🏨', q:'누벨호텔'}
+      {time:'08:00', text:'Nouvelle Hotel and Spa 悠閒退房與打包戰利品，整裝前往有機場接駁處', icon:'🏨', q:'누벨호텔', krName:'누벨호텔'}
     ],
     places:[
-      {name:'Nouvelle Hotel and Spa', area:'鐘路區', tags:'高端精品酒店', type:'shop', desc:'融合都會摩登極簡設計與 Spa 療程理念的頂級空間。', recommend:'精緻雙人房景觀 Spa'},
-      {name:'土俗村參雞湯', area:'景福宮周邊', tags:'宮廷滋補', type:'food', desc:'鄰近鐘路，全首爾最出名的傳統人參雞湯，加入了松子熬煮。', recommend:'元祖山參烏骨雞湯'},
-      {name:'Cafe Onion 安國店', area:'安國洞', tags:'韓屋美學', type:'food', desc:'全木造大型傳統韓屋改建的殿堂級咖啡廳，視覺張力一流。', recommend:'招牌草莓派'},
-      {name:'Jongro Jin Halmoni', area:'鐘路區', tags:'一隻雞始祖', type:'food', desc:'傳承數十年的蒜味清雞湯，肉質極度鮮嫩，最後必加手工麵。', recommend:'始祖東大門一隻雞'},
-      {name:'吾燈 鐘路店', area:'鐘路區', tags:'精緻韓定食', type:'food', desc:'一次品嚐高達十幾種陶瓷小碟盛裝的韓式家常小菜與烤魚。', recommend:'招牌山菜御膳定食'},
-      {name:'木火港川', area:'安國洞', tags:'手工麻糬', type:'food', desc:'堅持使用古法每日現敲打的Q彈黃豆粉黑糖麻糬。', recommend:'黃豆粉現敲麻糬'},
-      {name:'鐘路 炭火烤肉街', area:'鐘路區', tags:'直火街頭', type:'food', desc:'最接地氣的露天直火烤豬五花巷弄，充滿首爾老派煙火氣。', recommend:'手切厚片直火烤五五花'},
-      {name:'廣藏市場 順熙家', area:'廣藏市場', tags:'綠豆煎餅', type:'food', desc:'市場內最火紅的綠豆餅，現磨豆漿在油鍋中炸至外皮酥脆。', recommend:'招牌現磨綠豆煎餅'},
-      {name:'昌華堂 惠化店', area:'大學路', tags:'手工煎餃', type:'food', desc:'經典韓劇拍攝地，手工捏製的巨型薄皮煎餃，內餡多汁。', recommend:'綜合手工煎餃拼盤'},
-      {name:'咖啡 瑟雍', area:'鐘路區', tags:'黑白極簡', type:'food', desc:'以「黑與白」為絕對視覺主題的現代美學獨立咖啡廳。', recommend:'暗黑極緻黑拿鐵'},
-      {name:'Granhand 鐘路店', area:'鐘路區', tags:'小眾香氛', type:'shop', desc:'主打自然、麻質標籤與手作現場印字敲印的高質感香氛空間。', recommend:'經典香氛噴霧 Marine'},
-      {name:'Mimi Market', area:'鐘路區', tags:'古董選物', type:'shop', desc:'店主從歐洲親自帶回的早期玻璃器皿、限量海報與藝術擺飾。', recommend:'復古雕花玻璃餐具'},
-      {name:'Lululemon 鐘路概念店', area:'鐘路區', tags:'健康美學', type:'shop', desc:'空間明亮大器，除了商品外，常舉辦城市運動美學工作坊。', recommend:'都會剪裁修身運動褲'},
-      {name:'Ofr. Seoul', area:'西村周邊', tags:'巴黎獨立書選', type:'shop', desc:'來自巴黎的獨立藝術書店首爾分店，充滿當代攝影集與帆布袋。', recommend:'巴黎限定經典字樣帆布袋'},
-      {name:'Ibaen Studio', area:'鐘路', tags:'手工西服配件', type:'shop', desc:'展售大師現場手工縫製的高級領帶、黃銅袖扣與精緻正裝。', recommend:'純銅工藝雕刻袖扣'},
-      {name:'Tamburins 三清洞店', area:'三清洞', tags:'香氛藝術', type:'shop', desc:'整棟純白建築搭配巨型寫實現代人偶裝置藝術，美感驚人。', recommend:'經典香氛護手霜'},
-      {name:'Gentle Monster 鐘路', area:'鐘路區', tags:'前衛墨鏡', type:'shop', desc:'前衛墨鏡鼻祖，一樓通常有巨大的擬真仿生機械裝置藝術。', recommend:'現代全金屬細框眼鏡'},
-      {name:'Minhwa Studio', area:'鐘路', tags:'民畫藝術', type:'shop', desc:'當代插畫家將傳統線條重新解構翻玩後的韓式藝術掛軸。', recommend:'翻玩設計款民畫明信片'},
-      {name:'Sloane Seoul', area:'鐘路', tags:'皮革植鞣', type:'shop', desc:'主打全手工植鞣皮革、越用越有光澤的極簡幾何皮件。', recommend:'極簡幾何線條皮夾'},
-      {name:'仁川機場 樂天免稅總店', area:'仁川機場', tags:'免稅終點站', type:'shop', desc:'離開前最後的國際精品、一線高端保養品與伴手禮打包核心。', recommend:'機場限定頂級紅蔘高'}
+      {name:'Nouvelle Hotel and Spa', krName:'누벨호텔', area:'鐘路區', tags:'高端精品酒店', type:'shop', desc:'融合都會摩登極簡設計與 Spa 療程理念的頂級空間。', recommend:'精緻雙人房景觀 Spa'},
+      {name:'土俗村參雞湯', krName:'토속촌 삼계탕', area:'景福宮周邊', tags:'宮廷滋補', type:'food', desc:'鄰近鐘路，全首爾最出名的傳統人參雞湯，加入了松子熬煮。', recommend:'元祖山參烏骨雞湯'},
+      {name:'Cafe Onion 安國店', krName:'어니언 안국점', area:'安國洞', tags:'韓屋美學', type:'food', desc:'全木造大型傳統韓屋改建的殿堂級咖啡廳，視覺張力一流。', recommend:'招牌草莓派'},
+      {name:'Jongro Jin Halmoni', krName:'진옥화할매원조닭한마리', area:'鐘路區', tags:'一隻雞始祖', type:'food', desc:'傳承數十年的蒜味清雞湯，肉質極度鮮嫩，最後必加手工麵。', recommend:'始祖東大門一隻雞'},
+      {name:'吾燈 鐘路店', krName:'오등 종로점', area:'鐘路區', tags:'精緻韓定食', type:'food', desc:'一次品嚐高達十幾種陶瓷小碟盛裝的韓式家常小菜與烤魚。', recommend:'招牌山菜御膳定食'},
+      {name:'木火港川', krName:'모카포트 안국', area:'安國洞', tags:'手工麻糬', type:'food', desc:'堅持使用古法每日現敲打的Q彈黃豆粉黑糖麻糬。', recommend:'黃豆粉現敲麻糬'},
+      {name:'鐘路 炭火烤肉街', krName:'종로 삼겹살거리', area:'鐘路區', tags:'直火街頭', type:'food', desc:'最接地氣的露天直火烤豬五花巷弄，充滿首爾老派煙火氣。', recommend:'手切厚片直火烤五五花'},
+      {name:'廣藏市場 順熙家', krName:'순희네빈대떡', area:'廣藏市場', tags:'綠豆煎餅', type:'food', desc:'市場內最火紅的綠豆餅，現磨豆漿在油鍋中炸至外皮酥脆。', recommend:'招牌現磨綠豆煎餅'},
+      {name:'昌華堂 惠化店', krName:'창화당 대학로점', area:'大學路', tags:'手工煎餃', type:'food', desc:'經典韓劇拍攝地，手工捏製的巨型薄皮煎餃，內餡多汁。', recommend:'綜合手工煎餃拼盤'},
+      {name:'咖啡 瑟雍', krName:'카페 슬옹', area:'鐘路區', tags:'黑白極簡', type:'food', desc:'以「黑與白」為絕對視覺主題的現代美學獨立咖啡廳。', recommend:'暗黑極緻黑拿鐵'},
+      {name:'Granhand 鐘路店', krName:'그랑핸드 종로점', area:'鐘路區', tags:'小眾香氛', type:'shop', desc:'主打自然、麻質標籤與手作現場印字敲印的高質感香氛空間。', recommend:'經典香氛噴霧 Marine'},
+      {name:'Mimi Market', krName:'미미마켓', area:'鐘路區', tags:'古董選物', type:'shop', desc:'店主從歐洲親自帶回的早期玻璃器皿、限量海報與藝術擺飾。', recommend:'復古雕花玻璃餐具'},
+      {name:'Lululemon 鐘路概念店', krName:'룰루레몬 종로점', area:'鐘路區', tags:'健康美學', type:'shop', desc:'空間明亮大器，除了商品外，常舉辦城市運動美學工作坊。', recommend:'都會剪裁修身運動褲'},
+      {name:'Ofr. Seoul', krName:'오에프알 서울', area:'西村周邊', tags:'巴黎獨立書選', type:'shop', desc:'來自巴黎的獨立藝術書店首爾分店，充滿當代攝影集與帆布袋。', recommend:'巴黎限定經典字樣帆布袋'},
+      {name:'Ibaen Studio', krName:'이밴스튜디오', area:'鐘路', tags:'手工西服配件', type:'shop', desc:'展售大師現場手工縫製的高級領帶、黃銅袖扣與精緻正裝。', recommend:'純銅工藝雕刻袖扣'},
+      {name:'Tamburins 三清洞店', krName:'탬버린즈 삼청 플래그십스토어', area:'三清洞', tags:'香氛藝術', type:'shop', desc:'整棟純白建築搭配巨型寫實現代人偶裝置藝術，美感驚人。', recommend:'經典香氛護手霜'},
+      {name:'Gentle Monster 鐘路', krName:'젠틀몬스터 신세계백화점 본점', area:'鐘路區', tags:'前衛墨鏡', type:'shop', desc:'前衛墨鏡鼻祖，一樓通常有巨大的擬真仿生機械裝置藝術。', recommend:'現代全金屬細框眼鏡'},
+      {name:'Minhwa Studio', krName:'민화스튜디오', area:'鐘路', tags:'民畫藝術', type:'shop', desc:'當代插畫家將傳統線條重新解構翻玩後的韓式藝術掛軸。', recommend:'翻玩設計款民畫明信片'},
+      {name:'Sloane Seoul', krName:'슬론 서울', area:'鐘路', tags:'皮革植鞣', type:'shop', desc:'主打全手工植鞣皮革、越用越有光澤的極簡幾何皮件。', recommend:'極簡幾何線條皮夾'},
+      {name:'仁川機場 樂天免稅總店', krName:'롯데면세점 인천공항점', area:'仁川機場', tags:'免稅終點站', type:'shop', desc:'離開前最後的國際精品、一線高端保養品與伴手禮打包核心。', recommend:'機場限定頂級紅蔘高'}
     ]
   }
 ];
@@ -555,7 +555,7 @@ const PHRASES_DATA = [
   { tag: '交通問路', tw: '請問到這裡要走多久？', ja: '여기까지 걸어서 얼마나 걸려요?', romaji: 'Yeo-gi-kkal-ji geol-eo-seo ol-ma-na geol-ryeo-yo?', speak: '여기까지 걸어서 얼마나 걸려요' },
   { tag: '交通問路', tw: '請問可以在這裡下車嗎？', ja: '여기서 내려주세요.', romaji: 'Yeo-gi-seo nae-ryeo-ju-se-yo.', speak: '여기서 내려주세요' },
   { tag: '交通問路', tw: '請問票在哪裡買？', ja: '표는 어디서 사요?', romaji: 'Pyo-neun eo-di-seo sa-yo?', speak: '표는 어디서 사요' },
-  { tag: '交通問路', tw: '請問這班車有到弘大嗎？', ja: '이 차 홍대 가나요?', romaji: 'I cha hong-dae ga-na-yo?', speak: '이 차 홍대 가나요' },
+  { tag: '交通問路', tw: '請問這班車有到弘大嗎？', ja: '이 차 홍대 가나요?', romaji: 'I 차 hong-dae ga-na-yo?', speak: '이 차 홍대 가나요' },
   { tag: '交通問路', tw: '請往右邊轉。', ja: '우회전해 주세요.', romaji: 'U-hoe-jeon-hae ju-se-yo.', speak: '우회전해 주세요' },
   { tag: '交通問路', tw: '請往左邊轉。', ja: '좌회전해 주세요.', romaji: 'Jwa-hoe-jeon-hae ju-se-yo.', speak: '좌회전해 주세요' },
   { tag: '交通問路', tw: '請一直直走。', ja: '쭉 직진해 주세요.', romaji: 'Kkug jik-jin-hae ju-se-yo.', speak: '쭉 직진해 주세요' },
@@ -793,7 +793,7 @@ window.toggleWishlist = (dayId, placeIndex) => {
     state.wishlist.splice(idx, 1);
     showToast(`已移除「${place.name}」`);
   } else {
-    state.wishlist.push({ key, dayId, placeIndex, name: place.name, area: place.area, tags: place.tags, hex: day.hex });
+    state.wishlist.push({ key, dayId, placeIndex, name: place.name, krName: place.krName, area: place.area, tags: place.tags, hex: day.hex });
     showToast(`已成功收藏「${place.name}」❤️`);
   }
   localStorage.setItem('seoul_wishlist_v5', JSON.stringify(state.wishlist));
@@ -806,16 +806,21 @@ function renderWishlist() {
   if(!grid) return;
   if(!state.wishlist.length) { document.getElementById('wishlist-empty').style.display = 'block'; grid.innerHTML = ''; return; }
   document.getElementById('wishlist-empty').style.display = 'none';
-  grid.innerHTML = state.wishlist.map(w => `
+  grid.innerHTML = state.wishlist.map(w => {
+    const navTarget = w.krName ? w.krName : w.name;
+    const gQuery = encodeURIComponent(w.name + (w.krName ? ' ' + w.krName : ''));
+    return `
     <div class="glass-card rounded-3xl p-5 border border-white relative">
       <button onclick="toggleWishlist('${w.dayId}', ${w.placeIndex})" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-coral/10 flex items-center justify-center text-coral shadow-sm"><i class="fas fa-heart text-sm"></i></button>
-      <h4 class="font-heading font-black text-lg text-ink mb-1 pr-8">${w.name}</h4>
+      <h4 class="font-heading font-black text-lg text-ink mb-0.5 pr-8">${w.name}</h4>
+      <div class="text-[11px] font-mono text-ink/40 mb-2 truncate">${w.krName || ''}</div>
       <div class="text-[11px] font-bold text-ink/40 mb-3">${w.area} · ${w.tags}</div>
       <div class="flex gap-2">
-        <a href="https://map.naver.com/v5/search/${encodeURIComponent(w.name)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(w.name)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+        <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${gQuery}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 function renderPhrases() {
@@ -867,23 +872,28 @@ function renderDayView(dayId) {
       <p class="font-serif text-ink/70 text-sm max-w-2xl leading-relaxed">${day.intro}</p>
     </div>`;
 
-  document.getElementById('day-timeline').innerHTML = day.itinerary.map(it => `
+  document.getElementById('day-timeline').innerHTML = day.itinerary.map(it => {
+    const navTarget = it.krName ? it.krName : it.q;
+    const gQuery = encodeURIComponent(it.text + (it.krName ? ' ' + it.krName : ''));
+    return `
     <div class="timeline-item relative pl-12 pb-2">
       <div class="timeline-dot"></div>
       <div class="absolute left-0 top-0 w-9 h-9 bg-white border-2 rounded-full flex items-center justify-center shadow-sm z-10 text-sm" style="border-color:${day.hex}">${it.icon}</div>
       <div class="bg-white/60 border border-white p-4 rounded-2xl shadow-sm hover:bg-white transition duration-300">
         <div class="font-mono font-black text-xs mb-1" style="color:${day.hex}">${it.time}</div>
-        <div class="font-sans font-black text-sm text-ink mb-2">${it.text}</div>
+        <div class="font-sans font-black text-sm text-ink mb-0.5">${it.text}</div>
+        <div class="text-[11px] font-mono font-medium text-ink/40 mb-2 truncate">${it.krName || ''}</div>
         <div class="flex gap-2 mt-2">
-          <a href="https://map.naver.com/v5/search/${encodeURIComponent(it.q)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
+          <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
             <i class="fas fa-map-marked-alt text-[9px]"></i> Naver 導航
           </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.q)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
+          <a href="https://www.google.com/maps/search/?api=1&query=${gQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
             <i class="fab fa-google text-[9px]"></i> Google 備案
           </a>
         </div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
     
   document.getElementById('day-tips').innerHTML = day.tips.map(t => `<div class="flex items-start gap-2.5 bg-white/50 rounded-xl px-4 py-3 text-xs border border-white shadow-inner-light"><i class="fas fa-check-circle text-sand mt-0.5 opacity-70"></i> ${t}</div>`).join('');
   if(document.getElementById('day-note')) document.getElementById('day-note').value = state.dayNotes[dayId] || '';
@@ -902,12 +912,18 @@ function renderPlaces(day) {
     const origIndex = day.places.indexOf(p);
     const key = `${day.id}-${origIndex}`;
     const isWished = state.wishlist.some(w => w.key === key);
+    
+    // 優先採用韓文店名作為 Naver 檢索標的
+    const navTarget = p.krName ? p.krName : p.name;
+    const googleQuery = encodeURIComponent(p.name + (p.krName ? ' ' + p.krName : ''));
+
     return `
       <div class="glass-card rounded-3xl p-5 hover:shadow-float border border-white transition-all duration-300 flex flex-col transform hover:-translate-y-1">
         <div class="flex justify-between items-start mb-3">
           <div class="flex-1 min-w-0 pr-3">
             <div class="text-[9px] font-black uppercase mb-1.5" style="color:${day.hex}"><i class="fas fa-map-pin mr-1"></i>${p.area}</div>
-            <h4 class="font-heading font-black text-base text-ink leading-tight mb-2">${p.name}</h4>
+            <h4 class="font-heading font-black text-base text-ink leading-tight mb-0.5">${p.name}</h4>
+            <div class="text-[11px] font-mono font-medium text-ink/40 mb-2 truncate">${p.krName || ''}</div>
             <span class="inline-block text-[9px] font-black bg-ocean/10 text-ocean px-2 py-1 rounded-md">${p.tags}</span>
           </div>
           <button onclick="toggleWishlist('${day.id}', ${origIndex})" class="w-9 h-9 flex items-center justify-center rounded-full border shadow-sm flex-shrink-0 ${isWished?'text-coral border-coral/30 bg-coral/10':'text-ink/30 bg-white border-white'}">
@@ -920,10 +936,10 @@ function renderPlaces(day) {
           <div>${p.recommend}</div>
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <a href="https://map.naver.com/v5/search/${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-mint text-white text-xs font-bold shadow-md">
+          <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-mint text-white text-xs font-bold shadow-md">
             <i class="fas fa-route"></i> Naver 現地導航
           </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-coral text-white text-xs font-bold shadow-md">
+          <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-coral text-white text-xs font-bold shadow-md">
             <i class="fab fa-google"></i> Google 備用
           </a>
         </div>
@@ -966,21 +982,28 @@ function performSearch(query) {
   const results = [];
   DAYS_DATA.forEach(day => {
     day.places.forEach(p => {
-      if(p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || p.tags.toLowerCase().includes(q)) { results.push({ ...p, dayNum: day.num, hex: day.hex }); }
+      if(p.name.toLowerCase().includes(q) || (p.krName && p.krName.toLowerCase().includes(q)) || p.desc.toLowerCase().includes(q) || p.tags.toLowerCase().includes(q)) { 
+        results.push({ ...p, dayNum: day.num, hex: day.hex }); 
+      }
     });
   });
   
   countDisplay.textContent = `找到 ${results.length} 個與「${query}」高度相關的首爾空間`;
-  container.innerHTML = results.map(p => `
+  container.innerHTML = results.map(p => {
+    const navTarget = p.krName ? p.krName : p.name;
+    const googleQuery = encodeURIComponent(p.name + (p.krName ? ' ' + p.krName : ''));
+    return `
     <div class="glass-card rounded-3xl p-5 border border-white flex flex-col transform transition hover:-translate-y-1">
       <span class="text-[9px] font-black px-2 py-1 rounded-md text-white w-fit mb-2" style="background:${p.hex}">Day ${p.dayNum}</span>
-      <h4 class="font-heading font-black text-base text-ink mb-1">${p.name}</h4>
+      <h4 class="font-heading font-black text-base text-ink mb-0.5">${p.name}</h4>
+      <div class="text-[11px] font-mono text-ink/40 mb-2 truncate">${p.krName || ''}</div>
       <p class="text-xs text-ink/70 flex-1 mb-4 font-serif leading-relaxed">${p.desc || ''}</p>
       <div class="grid grid-cols-2 gap-2 mt-auto">
-        <a href="https://map.naver.com/v5/search/${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+        <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 function showToast(msg) {
