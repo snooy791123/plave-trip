@@ -299,7 +299,7 @@ tailwind.config = {
     </div>
     <div id="wishlist-empty" class="text-center py-20 text-ink/30 glass-card rounded-3xl border border-white">
       <div class="text-6xl mb-4 opacity-50">💌</div>
-      <p class="font-heading font-bold text-lg">還沒有收藏任何地標</p>
+      <p class="font-heading font-bold text-lg">還沒有收藏 any 地標</p>
     </div>
     <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
   </section>
@@ -389,15 +389,22 @@ tailwind.config = {
 </nav>
 
 <script>
-// ===================== DATA (三天每日均配置 20 間專屬店鋪，共計 60 間) =====================
+// ===================== DATA (三天每日均配置 20 間專屬店鋪與 10 條嚴格叮嚀) =====================
 const DAYS_DATA = [
   { id:'day1', num:'01', date:'6月19日', color:'ocean', hex:'#2c5d88',
     title:'踩點 PLAVE 聖地巡禮的一天',
     intro:'降落仁川後迅速啟動 PLAVE 應援踩點行程。從龍山休息室出發，串連傳統平壤冷麵、合井辣炒年糕與重點屋同食等排隊名店。',
     tips:[
-      '🛫 航班 LJ734 預計 05:00 降落首爾，通關後至 T2 接頭機場包車接送。',
-      '🛋️ 龍山休息室記得帶上準備好的台灣小泡芙與零食！',
-      '🚨 屋同食與十咖皆需手動關注 Catch Table 現場候補狀態，請嚴格核對下午 16:00 與 17:00 鬧鐘。'
+      '✈️ 航班資訊：去程搭乘真航空 LJ734，請於前一晚 21:30 前完成行李與護照檢查，準時由南港前往桃機 T1。',
+      '🛂 通關與接送：預計 05:00 降落首爾仁川 T2，出關辦理隨身 SES 自動通關，隨後搭乘已預約的機場包車接送前往市區。',
+      '🛋️ 龍山休息室叮嚀：抵達休息室小憩（07:30-09:30）時，記得發放準備妥當的台灣小泡芙與特色零食給現場接頭人員！',
+      '🛅 行李交寄流程：10:30 退房寄放行李時，必須主動通知並配合「行李特工」，核對姓名、號碼與行李箱數量。',
+      '🍜 乙密台交通動線：冷麵店位於大興站與鹽里洞周邊，建議 Check out 後直接利用 Kakao T 或 Uber 叫車前往效率最高。',
+      '🚇 噗哩咖啡廳轉乘：品嚐完冷麵後前往咖啡廳，由地鐵6號線大興站2號出口進站，搭至上水站1號出口出站步行。',
+      '🍡 辣炒年糕段落：由上水站1號出口搭地鐵 6 號線至合井站 7 號出口。點餐注意包含辣炒年糕、紫菜包飯與魚餅。',
+      '⏰ 屋同食第一鬧鐘：下午 16:00 請務必準時核對屋同食 Catch Table 候補 1 號鬧鐘，手動確認現場排隊順位。',
+      '⏰ 屋同食第二鬧鐘：下午 17:00 請再次核對屋同食 2 號鬧鐘。此時段正在十咖進行 EUNHO 生日與生日月寄信行程。',
+      '🚗 宵夜與歸途動線：在屋同食現場候補享用完豬肉湯飯後，外帶海州坊炸玉米。返回住宿處 Uber 車程約 30 分鐘。'
     ],
     itinerary:[
       {time:'18:00-19:00', text:'公司 - 南港辦事處收拾', icon:'💼', q:'남강', krName:''},
@@ -405,7 +412,7 @@ const DAYS_DATA = [
       {time:'21:00-21:30', text:'起床準備 / 再次確認護照攜帶', icon:'🛂', q:'', krName:''},
       {time:'21:30-23:15', text:'南港 - 桃園機場 (搭乘機場捷運 T1)', icon:'🚇', q:'桃園機場捷運', krName:''},
       {time:'23:30', text:'桃機海關辦理出境', icon:'🛂', q:'', krName:''},
-      {time:'01:25-05:00', text:'台灣 ✈️ 首爾 (LJ734 / 訂單PA5QH2)', icon:'✈️', q:'인천국제공항', krName:'인천국제공항'},
+      {time:'01:25-05:00', text:'台灣 ✈️ 首爾 (LJ734 / 訂單PA5QH2)', icon:'✈️', q:'인천국制공항', krName:'인천국제공항'},
       {time:'05:00-06:00', text:'仁川機場 T2 海關 / SES 自動通關辦理', icon:'🛃', q:'인천국제공항 제2여객터미널', krName:'인천국제공항 제2여객터미널'},
       {time:'06:00-07:30', text:'前往龍山休息室 (機場包車接送約 1.5 小時)', icon:'🚗', q:'용산역', krName:'용산역'},
       {time:'07:30-09:30', text:'龍山休息室小憩 (發放台灣小泡芙+零食)', icon:'🛋️', q:'서울 용산구', krName:'서울 용산구'},
@@ -415,7 +422,7 @@ const DAYS_DATA = [
       {time:'12:00-12:30', text:'前往噗哩咖啡廳 (地鐵6號線：大興站2號 ➔ 上水站1號)', icon:'🚇', q:'상수역', krName:'상수역'},
       {time:'12:30-15:00', text:'噗哩咖啡廳深度踩點應援時間', icon:'☕', q:'마포구 카페', krName:''},
       {time:'15:00-15:30', text:'前往辣炒年糕 (地鐵6號線：上水站1號 ➔ 合井站7號)', icon:'🚇', q:'합정역', krName:'합정역'},
-      {time:'15:30-16:30', text:'品嚐辣炒年糕 / 紫菜包飯 / 魚餅 (16:00 屋同食候補1號鬧鐘)', icon:'🍡', q:'합정역 떡볶이', krName:''},
+      {time:'15:30-16:30', text:'品嚐辣炒年糕 / 紫菜包飯 / 魚餅 (16:00 屋同食候補1號鬧鐘)', icon:'🍡', q:'합정역 떡볶い', krName:''},
       {time:'16:30-17:00', text:'搭乘 Uber 前往十咖 (車程約 30 分鐘)', icon:'🚕', q:'마포구 독막로', krName:''},
       {time:'17:30-19:30', text:'十咖 (EUNHO生日/噗哩生日月寄信 / 17:00 屋同食候補2號鬧鐘)', icon:'✉️', q:'마포구', krName:''},
       {time:'19:30-20:00', text:'搭乘 Uber 前往屋同食 (車程約 15 分鐘)', icon:'🚕', q:'옥동식 서교점', krName:'옥동식 서교점'},
@@ -427,18 +434,18 @@ const DAYS_DATA = [
     places:[
       {name:'乙密台冷麵 本店', krName:'을밀대 본점', area:'大興站/鹽里洞', tags:'傳統美食', type:'food', desc:'首爾具代表性的平壤冷麵老字號，湯頭冰涼清爽，搭配手工現切極具嚼勁的蕎麥麵條，必點酥脆綠豆煎餅。', recommend:'平壤水冷麵、綠豆餅'},
       {name:'屋同食 Okdongsik', krName:'옥동식 서교점', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'連續獲得米其林必比登推薦！採用極其清澈透亮的黑豬肉高湯，搭配切得極薄的細緻豬肉片，風味甘甜純粹。', recommend:'常創豬肉湯飯 (需緊盯 Catch Table 候補狀態)'},
-      {name:'合井辣炒年糕', krName:'합정역 떡볶이', area:'合井站', tags:'街頭小吃', type:'food', desc:'行程指定的傳統辣炒年糕，甜辣醬汁完美附著於軟Q年糕上，搭配紫菜包飯與溫熱魚餅湯。', recommend:'辣炒年糕、紫菜包飯、經典魚餅'},
+      {name:'合井辣炒年糕', krName:'합정역 떡볶い', area:'合井站', tags:'街頭小吃', type:'food', desc:'行程指定的傳統辣炒年糕，甜辣醬汁完美附著於軟Q年糕上，搭配紫菜包飯與溫熱魚餅湯。', recommend:'辣炒年糕、紫菜包飯、經典魚餅'},
       {name:'十咖 (EUNHO/噗哩生日概念空間)', krName:'마포구 독막로 공간', area:'上水/合井', tags:'應援空間', type:'shop', desc:'提供噗哩專屬寄信與特別慶生活動的聚集空間，充滿溫馨的生日月氛圍。', recommend:'EUNHO生日概念紀念卡、應援信件'},
       {name:'海州坊 炸玉米', krName:'해주방 튀김옥수수', area:'弘大商圈', tags:'在地宵夜', type:'food', desc:'行程最後指定外帶的人氣炸玉米粒點心，外皮酥脆內裡多汁，鹹甜調味香氣逼人。', recommend:'招牌外帶炸玉米'},
       {name:'咖啡廳 延南洞 561', krName:'카페연남동561', area:'延南洞', tags:'質感咖啡', type:'food', desc:'老屋改建的工業風咖啡館，手沖單品咖啡層次豐富，非常適合消磨午後時光。', recommend:'衣索比亞手沖、招牌肉桂捲'},
       {name:'小夏鹽田 延南', krName:'소하염전 연남', area:'延南洞', tags:'人氣烘焙', type:'food', desc:'以鹽田為視覺主題的人氣麵包店，空氣中充滿濃郁海鹽與奶油香氣。', recommend:'經典海鹽可頌、松露鹽可頌'},
-      {name:'Flippers 弘大', krName:'플리퍼斯 홍대점', area:'弘大', tags:'舒芙蕾鬆餅', type:'food', desc:'入口即化的人氣舒芙蕾鬆餅，口感蓬鬆濕潤，草莓季更是不容錯過。', recommend:'草莓千層舒芙蕾'},
+      {name:'Flippers 弘大', krName:'플리퍼스 홍대점', area:'弘大', tags:'舒芙蕾鬆餅', type:'food', desc:'入口即化的人氣舒芙蕾鬆餅，口感蓬鬆濕潤，草莓季更是不容錯過。', recommend:'草莓千層舒芙蕾'},
       {name:'申美京辣炒雞排', krName:'신미경홍대닭갈비', area:'弘大', tags:'經典鐵板燒', type:'food', desc:'在巨大鑄鐵盤上大火翻炒的春川辣炒雞排，搭配大量牽絲起司。', recommend:'起司雙重辣炒雞排'},
       {name:'豚壽百 弘大直營店', krName:'돈수백 홍대직영점', area:'弘大', tags:'釜山湯飯', type:'food', desc:'24小時營業的傳統豬肉湯飯，大骨熬煮出的乳白色湯頭極為濃郁。', recommend:'特級豬肉湯飯套餐'},
       {name:'Object 弘大旗艦店', krName:'오브젝트 홍대점', area:'西橋洞', tags:'文創選物', type:'shop', desc:'整棟樓聚集了無數首爾在地獨立插畫家、手工藝創作者的文創天堂。', recommend:'獨立設計手工帆布包'},
-      {name:'ADER error 弘大空間', krName:'아더에러 홍대플러그인스托어', area:'西橋洞', tags:'潮流時裝', type:'shop', desc:'韓國頂級解構主義潮流品牌，其店面陳列本身就是一個前衛藝術展間。', recommend:'解構主義剪裁衛衣'},
+      {name:'ADER error 弘大空間', krName:'아더에러 홍대플러그인스토어', area:'西橋洞', tags:'潮流時裝', type:'shop', desc:'韓國頂級解構主義潮流品牌，其店面陳列本身就是一個前衛藝術展間。', recommend:'解構主義剪裁衛衣'},
       {name:'Musinsa Standard 弘大', krName:'무신사 스탠다드 홍대', area:'弘大', tags:'現代基本款', type:'shop', desc:'大名鼎鼎的服飾電商實體概念店，剪裁俐落、都會風格強烈。', recommend:'修身寬褲、重磅短T'},
-      {name:'Butter 弘大店', krName:'버터숍 홍대점', area:'弘大', tags:'生活雜貨', type:'shop', desc:'色彩繽紛、充滿幽默設計感的小物與生活設計生活雜貨。', recommend:'療癒系角色造型物品'},
+      {name:'Butter 弘大店', krName:'버터샵 홍대점', area:'弘大', tags:'生活雜貨', type:'shop', desc:'生活選物店，色彩繽紛、充滿幽默設計感的小物與生活設計生活雜貨。', recommend:'療癒系角色造型物品'},
       {name:'Retro Kitty 延南', krName:'레트로키티 연남', area:'延南洞', tags:'懷舊古著', type:'shop', desc:'主打歐美與日系美式懷舊風格的古著衣物選品店。', recommend:'復古刺繡夾克'},
       {name:'Visual Aid 選品店', krName:'비주얼에이드', area:'合井', tags:'高端選物', type:'shop', desc:'精選國內外獨立設計師服飾與小眾香氛，陳列極具現代幾何美感。', recommend:'小眾品牌香氛蠟燭'},
       {name:'Teterot Salon', krName:'테테롯살롱', area:'弘大', tags:'改良韓服', type:'shop', desc:'將傳統韓服元素融入現代日常服裝剪裁的品味服飾店。', recommend:'現代改良式亞麻韓服'},
@@ -451,9 +458,16 @@ const DAYS_DATA = [
     title:'聖水洞潮流美學選物與樂天超市採購',
     intro:'深入最核心的工業風設計聚落「聖水洞」，掃貨人氣 STAND OIL 包款與大型生活選物，傍晚轉往首爾站樂天 Outlet 與超市大採購。',
     tips:[
-      '🍜 早上前往黃道蛤蠣刀削麵，地鐵9號線石村站6號出口出來直走左手邊即可看到。',
-      '🚨 樂天超市帶伴手禮請注意：BTS泡麵含有肉類成分「無法帶回台灣」，蛤蠣刀削麵則可以安全過海關！',
-      '💳 超市不需買專用卡，直接享有 Tommy 免費會員卡優惠，且可無痛享有 T-money 功能直接搭車。'
+      '🚇 黃道刀削麵動線：從住宿出發搭地鐵1號線至鷺梁津，換乘地鐵9號線至石村站。',
+      '🍜 石村站出口指引：由地鐵 9 號線石村站 6 號出口出來後直走，店鋪即位於左手邊醒目位置。',
+      '🚇 聖水洞地鐵轉乘：用餐後由石村站搭 8 號線至蠶室站，換乘地鐵 2 號線至聖水站 3 號出口入商圈。',
+      '👜 STAND OIL 採購：進入聖水商圈首站鎖定 STAND OIL 旗艦店，挑選熱門極簡皮革包款與流線斜背包。',
+      '🐰 米飛專賣店時限：米飛 Miffy 限定店雜貨營業至 19:30 截止，請務必拿捏好前半段的逛店節奏。',
+      '🏬 藥妝與選物安排：下午集中在 29HOME 質感生活家居、以及 Olive Young 聖水旗艦店採買基礎護膚品。',
+      '🚇 前往首爾站動線：由地鐵 2 號線聖水站 4 號出口進站，搭至市廳站換乘 1 號線，直達首爾站。',
+      '🛍️ 樂天 Outlet 休息：首爾站 1 號出口手扶梯最上層右轉即達，可在此稍作休息、喝杯咖啡並逛街。',
+      '🚨 樂天超市肉類違禁：大宗伴手禮採購注意「BTS泡麵含有肉類成分，絕對無法帶回台灣」，蛤蠣刀削麵則沒問題！',
+      '💳Tommy免費會員：樂天超市免辦專用卡，直接享有 Tommy 免費會員卡優惠，且該卡附帶 T-money 功能可直接搭車。'
     ],
     itinerary:[
       {time:'08:00-09:00', text:'起床梳洗準備出發', icon:'🚶', q:'', krName:''},
@@ -480,7 +494,7 @@ const DAYS_DATA = [
       {name:'Tamburins 聖水旗艦店', krName:'탬버린즈 성수 플래그십스托어', area:'聖水洞', tags:'小眾香氛', type:'shop', desc:'以清水模與地下展間形式呈現的高端香氛品牌，空間陳列極具視覺張力。', recommend:'貝殼護手霜、經典固體香膏'},
       {name:'LCDC SEOUL', krName:'LCDC 서울', area:'聖水洞', tags:'複合美學', type:'shop', desc:'由多間精緻小眾獨立品牌與設計選物組成的巨型複合式美學園區。', recommend:'獨立品牌文具、設計師服飾'},
       {name:'Fwee Agit 聖水旗艦店', krName:'퓌 아지트 성수', area:'聖水洞', tags:'潮流彩妝', type:'shop', desc:'在社群爆紅的彩妝體驗空間，設有獨特的色彩調配體驗吧與高顏值包裝。', recommend:'布丁唇頰兩用膏'},
-      {name:'Matin Kim 聖水概念店', krName:'마틴김 성수', area:'聖水洞', tags:'潮流時裝', type:'shop', desc:'將前衛街頭元素與日常穿搭完美融合的韓國本土高人氣街頭服飾品牌。', recommend:'經典金屬鐵牌錢包、印花衛衣'},
+      {name:'Matin Kim 聖水概念店', krName:'마틴김 성수', area:'聖水洞', tags:'潮流時裝', type:'shop', desc:'將前前衛街頭元素與日常穿搭完美融合的韓國本土高人氣街頭服飾品牌。', recommend:'經典金屬鐵牌錢包、印花衛衣'},
       {name:'Point of View', krName:'포인트오브뷰 서울', area:'聖水洞', tags:'文具工藝', type:'shop', desc:'三層樓空間主打歐洲學者的奢華書房風，販售工藝級的高質感精品文具。', recommend:'復古刻印黃銅書籤'},
       {name:'Amuse 聖水展示店', krName:'어뮤즈 쇼룸 성수', area:'聖水洞', tags:'純素彩妝', type:'shop', desc:'主打純素與環保美學的透明感彩妝品牌，空間視覺清新通透。', recommend:'果凍果凍水光唇釉'},
       {name:'Empty Seoul', krName:'엠프티 서울', area:'聖水洞', tags:'先鋒時裝', type:'shop', desc:'佔地廣闊的先鋒服飾買手空間，收集全球實驗性獨立設計師品牌。', recommend:'實驗性剪裁連帽衫'},
@@ -497,25 +511,32 @@ const DAYS_DATA = [
     title:'弘大銀飾鞋履挖寶與紫色年糕店澎湃午餐',
     intro:'最後一日鎖定弘大核心商圈。入手高質感設計銀飾、百搭高CP值流行鞋履，再以經典春川鐵板起司辣炒雞排與大創高樓層巡禮完美收尾。',
     tips:[
-      '🧳 10:00 準時辦理退房，並通知行李特工接頭，核對姓名、號碼與行李數量。',
-      '🥘 紫色年糕店的韓式起司辣炒雞排分量十足（內含兩人份雞肉+炒飯+泡麵），飲品推薦搭配 Cass 或 Kelly 啤酒。',
-      '🏪 弘大大創2號店高達七層樓，強烈建議直接搭乘電梯直達7樓，採取一路向1樓向下逛的高效率逛法！'
+      '🧳 退房特工交寄：10:00 準時 Check out，與行李特工交寄行李時，務必嚴格核對並清點姓名、電話、號碼與行李數量。',
+      '💍 SCUDO銀飾選購：由飯店搭 Uber 前往第一站 SCUDO 專門挑選前衛中性設計純銀配件，為必訪的手鍊與配支配飾重點。',
+      '🚇 弘大入口站轉乘：搭地鐵 3 號線由鐘路3街（7號出口）至乙支路3街，轉 2 號線至弘大入口站 8 號出口出站。',
+      '💊 弘益藥局定位：位於弘大 8 號出口週邊，就在 Olive Young 旗艦店的正對面，營業時間一直持續到深夜 23:30。',
+      ' lions 角色文創：順路逛入 Kakao Friends 旗艦店採集最新原創設計周邊與高人氣春植配件。',
+      '💵 Ready Young藥局：位於 9 號出口出來不遠處，內部提供自動換錢機、便利的自助退稅功能，且中文友善溝通無礙。',
+      '👟 EPT與流行女鞋：下午排定步行參觀精品 EPT 潮流網球鞋、以及大熱平價高 CP 值的 CHAAKAN 鞋店試穿。',
+      '🥘 紫色年糕店份量：經典鐵板起司辣炒雞排份量極大（一份即含兩人份雞肉+香濃炒飯+Q彈泡麵），推薦點 Cass 啤酒搭配。',
+      '🏬 大創七層樓大搜羅：弘大 2 號店（4號出口旁）高達七層樓，強烈建議直接坐電梯上 7 樓，再一路往 1 樓向下逛最省體力。',
+      '🛅 機場接頭與IT603：最晚 19:30 離開大創搭 Uber 前往仁川 T1，20:30 與行李特工接頭拿行李，辦理 IT603 航班託運返台。'
     ],
     itinerary:[
       {time:'08:00-09:00', text:'起床享用飯店早餐', icon:'☕', q:'', krName:''},
       {time:'09:00-10:00', text:'最後行李收納整理', icon:'🧳', q:'', krName:''},
       {time:'10:00-10:30', text:'Check out 並交寄行李給行李特工 (確認數量)', icon:'🛅', q:'', krName:''},
-      {time:'10:30-11:00', text:'搭乘 Uber 前往手工銀飾店', icon:'🚕', q:'스쿠도', krName:'스쿠度'},
-      {time:'11:00-11:30', text:'SCUDO 手鍊 (挑選前衛中性純銀配飾)', icon:'💍', q:'스쿠도', krName:'스쿠도'},
+      {time:'10:30-11:00', text:'搭乘 Uber 前往手工銀飾店', icon:'🚕', q:'스쿠도', krName:'스쿠도'},
+      {time:'11:00-11:30', text:'SCUDO 手鍊 (挑選前衛中性純銀配飾)', icon:'💍', q:'스쿠도', krName:'스쿠度'},
       {time:'11:30-12:00', text:'前往弘大商圈 (地鐵3號線鐘路3街 ➔ 乙支路3街 ➔ 2號線弘大入口站8號出口)', icon:'🚇', q:'홍대입구역', krName:'홍대입구역'},
       {time:'12:00-12:30', text:'弘益藥局 (Olive Young旗艦店正對面，營業至23:30)', icon:'💊', q:'홍익약국', krName:'홍익약국'},
-      {time:'12:30-13:00', text:'Kakao Friends 弘大旗艦店 (巨型人氣角色空間)', icon:'🦁', q:'카카오프렌즈 홍대플래그십스토어', krName:'카카오프렌즈 홍대플래그십스托어'},
+      {time:'12:30-13:00', text:'Kakao Friends 弘大旗艦店 (巨型人氣角色空間)', icon:'🦁', q:'카카오프렌즈 홍대플래그십스托어', krName:'카카오프렌즈 홍대플래그십스토어'},
       {time:'13:00-13:30', text:'Ready Young 藥局 (9號出口旁，備有換錢機、自助退稅、中文友善)', icon:'💵', q:'레디영약국', krName:''},
       {time:'13:30-14:00', text:'觀賞弘大街頭路演街頭秀 (第一次路演預留時間)', icon:'🎸', q:'홍대거리', krName:'홍대거리'},
       {time:'14:00-14:30', text:'商圈步行時間與街景拍照預留', icon:'🚶', q:'', krName:''},
       {time:'14:30-15:00', text:'EPT 潮流鞋履概念店巡禮', icon:'👟', q:'EPT 홍대', krName:''},
       {time:'15:00-16:30', text:'紫色年糕店午餐 (經典起司辣炒雞+炸醬泡麵+炒飯)', icon:'🥘', q:'홍대 닭갈비', krName:''},
-      {time:'16:30-17:00', text:'CHAAKAN 鞋店 (試穿高CP值平價俐落鞋履)', icon:'👠', q:'착한구두 홍대店', krName:'착한구두 홍대점'},
+      {time:'16:30-17:00', text:'CHAAKAN 鞋店 (試穿高CP值平價俐落鞋履)', icon:'👠', q:'착한구두 홍대점', krName:'착한구두 홍대점'},
       {time:'17:00-17:30', text:'DUCKY WORLD (動漫懷舊周邊、拍立得卡夾挖寶)', icon:'🧸', q:'더키월드', krName:'더키월드'},
       {time:'17:30-18:00', text:'步行往地鐵2號線出口預留時間', icon:'🚶', q:'', krName:''},
       {time:'18:00-19:30', text:'大創 弘大2號店 (4號出口7層樓旗艦店，最晚19:30離場)', icon:'🏬', q:'다이소 홍대2호점', krName:'다이소 홍대2호점'},
@@ -534,8 +555,8 @@ const DAYS_DATA = [
       {name:'DUCKY WORLD', krName:'더키월드', area:'弘大商圈', tags:'動漫基地', type:'shop', desc:'專營美式復古懷舊動漫角色、小眾IP周邊以及時下最熱門的 Y2K 拍立得小卡夾與相簿，極度適合噗哩收藏。', recommend:'相卡保護套、復古拍立得卡夾相簿'},
       {name:'大創 弘大2號店', krName:'다이소 홍대2호점', area:'弘大入口站4號出口', tags:'生活百貨', type:'shop', desc:'首爾核心商圈最龐大的生活百貨基地，共計七層樓。請務必直接搭電梯到7樓再一路往下逛。', recommend:'韓系高CP值美妝小物、旅行收納耗材'},
       {name:'Tinto 選物店', krName:'틴토', area:'延南洞', tags:'器皿雜貨', type:'shop', desc:'小巧精緻的設計師獨立工作室，專門收集歐洲復古精緻玻璃杯與手作陶瓷。', recommend:'手工潑墨馬克杯'},
-      {name:'Kakao Friends 弘大店', krName:'카카오프렌즈 홍대플래그십스토어', area:'弘大站', tags:'巨型IP空間', type:'shop', desc:'高達三層樓的標誌性角色文創空間，頂樓附設景觀主題應援咖啡。', recommend:'春植造型實用周邊'},
-      {name:'Chuu 弘大旗艦店', krName:'츄 홍대플래그십스토어', area:'弘大', tags:'潮流服飾', type:'shop', desc:'主打繽紛多色、 Y2K 視覺張力極強的少女俏皮設計感服飾店。', recommend:'招牌-5公斤視覺修身褲'},
+      {name:'Kakao Friends 弘大店', krName:'카카오프렌즈 홍대플래그십스托어', area:'弘大站', tags:'巨型IP空間', type:'shop', desc:'高達三層樓的標誌性角色文創空間，頂樓附設景觀主題應援咖啡。', recommend:'春植造型實用周邊'},
+      {name:'Chuu 弘大旗艦店', krName:'츄 홍대플래그십스托어', area:'弘大', tags:'潮流服飾', type:'shop', desc:'主打繽紛多色、 Y2K 視覺張力極強的少女俏皮設計感服飾店。', recommend:'招牌-5公斤視覺修身褲'},
       {name:'ALAND 弘大總店', krName:'에이랜드 홍대본점', area:'弘大', tags:'潮流買手店', type:'shop', desc:'韓國大名鼎鼎的服飾買手店，集結數百個本土新銳街頭服飾設計師品牌。', recommend:'設計師印花衛衣、小眾帆布包'},
       {name:'Wonder Place 弘大', krName:'원더플레이스 홍대점', area:'弘大', tags:'街頭時裝', type:'shop', desc:'主打街頭、滑板文化與美式休閒混搭的正韓服飾與生活選品空間。', recommend:'工裝風防風外套'},
       {name:'Swoon 延南', krName:'스운 연남', area:'延南洞', tags:'法式復古', type:'shop', desc:'溫柔都會風精緻服飾店，色調以溫潤莫蘭迪色為主，面料親膚。', recommend:'優雅針織鏤空上衣'},
@@ -796,7 +817,7 @@ function renderWishlist() {
       <div class="text-[11px] font-bold text-ink/40 mb-3">${w.area} · ${w.tags}</div>
       <div class="flex gap-2">
         <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=${gQuery}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+        <a href="https://maps.google.com{gQuery}" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
       </div>
     </div>`;
   }).join('');
@@ -866,7 +887,7 @@ function renderDayView(dayId) {
           <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
             <i class="fas fa-map-marked-alt text-[9px]"></i> Naver 導航
           </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=${gQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
+          <a href="https://maps.google.com{gQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
             <i class="fab fa-google text-[9px]"></i> Google 備案
           </a>
         </div>
@@ -917,7 +938,7 @@ function renderPlaces(day) {
           <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-mint text-white text-xs font-bold shadow-md">
             <i class="fas fa-route"></i> Naver 現地導航
           </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-coral text-white text-xs font-bold shadow-md">
+          <a href="https://maps.google.com{googleQuery}" target="_blank" class="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-coral text-white text-xs font-bold shadow-md">
             <i class="fab fa-google"></i> Google 備用
           </a>
         </div>
@@ -978,7 +999,7 @@ function performSearch(query) {
       <p class="text-xs text-ink/70 flex-1 mb-4 font-serif leading-relaxed">${p.desc || ''}</p>
       <div class="grid grid-cols-2 gap-2 mt-auto">
         <a href="https://map.naver.com/v5/search/${encodeURIComponent(navTarget)}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-mint text-white text-xs font-bold shadow-sm">Naver</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
+        <a href="https://maps.google.com{googleQuery}" target="_blank" class="flex items-center justify-center py-2 rounded-xl bg-coral text-white text-xs font-bold shadow-sm">Google</a>
       </div>
     </div>`;
   }).join('');
