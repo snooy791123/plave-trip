@@ -279,12 +279,12 @@ tailwind.config = {
           <div class="bg-white/50 rounded-xl px-4 py-3 relative border border-white">
             <div class="font-black text-ink text-sm">龍山休息室 (Transit Lounge)</div>
             <div class="text-ink/60 text-xs mt-1 font-mono">서울 용산구 새창로 154 대동빌딩 6층</div>
-            <button onclick="copyText('서울특별시 用山區 새창로 154 대동빌딩 6층')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
+            <button onclick="copyText('서울특별시 용산구 새창로 154 대동빌딩 6층')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
           </div>
           <div class="bg-white/50 rounded-xl px-4 py-3 relative border border-white">
             <div class="font-black text-ink text-sm">鐘路飯店 (Nouvelle Hotel)</div>
             <div class="text-ink/60 text-xs mt-1 font-mono">서울 종로구 율곡로10길 27-16</div>
-            <button onclick="copyText('서울특별시 鐘路區 율곡로10길 27-16')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
+            <button onclick="copyText('서울특별시 종로구 율곡로10길 27-16')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
           </div>
         </div>
       </div>
@@ -397,11 +397,16 @@ const DAYS_DATA = [
     title:'踩點 PLAVE 聖地巡禮的一天',
     intro:'降落仁川後迅速啟動 PLAVE 應援踩點行程。從龍山休息室出發，串連傳統平壤冷麵、合井辣炒年糕與重點屋同食等排隊名店。',
     tips:[
-      '✈️ 航班資訊：去程搭乘真航空 LJ734，請於前一晚 21:30 前完成行李與護照檢查，準時由南港前往桃機 T1。',
-      '🛂 通關與接送：預計 05:00 降落首爾仁川 T2，出關辦理隨身 SES 自動通關，隨後搭乘已預約的機場包車接送前往市區。',
-      '🛋️ 龍山休息室註記：位於大東大樓6F，抵達小憩（07:30-09:30）時，記得發放準備妥當的台灣小泡芙與特色零食！',
-      '🛅 行李交寄流程：10:30 退房寄放行李時，必須主動通知並配合「行李特工」，核對姓名、號碼與行李箱數量。',
-      '⏰ 屋同食 Catch Table 候補機制：下午 16:00 及 17:00 分別設有鬧鐘，請務必手動確認現場候補排隊順位。'
+      '去程航班：搭乘真航空 LJ734，請於出發前一晚 21:30 前完成行李與護照檢查，準時由南港前往桃機 T1。',
+      '快速通關：預計 05:00 降落首爾仁川 T2，出關請直接申辦與使用 SES 自動通關，提升現地動線效率。',
+      '機場包車：已預約機場專屬包車接送前往市區，車程預計 1 至 1.5 小時，可於車上短暫補眠。',
+      '龍山休息室：位於大東大樓 6 樓（07:30-09:30），進入時記得將準備好的台灣小泡芙與特色零食發給現場接頭人員！',
+      '行李特工交接：10:30 退房交寄行李時，必須主動通知並嚴格配合「行李特工」，核對姓名、號碼與行李箱數量。',
+      '乙密台冷麵：11:00 準時開始營業，建議 Check out 後直接利用 Kakao T 或 Uber 叫車前往效率最高。',
+      '地鐵動線：冷麵結束後由 6 號線大興站 2 號出口進站，搭至上水站 1 號出口前往噗哩友善咖啡店。',
+      '辣炒年糕段落：由上水站搭乘地鐵 6 號線至合井站 7 號出口（或由36號直達），點餐注意包含年糕、紫菜包飯與魚餅。',
+      '屋同食第一鬧鐘：下午 16:00 請務必準時確認屋同食 Catch Table 候補 1 號鬧鐘，手動核對現場排隊順位。',
+      '屋同食第二鬧鐘：下午 17:00 再次確認屋同食 2 號鬧鐘。此時段正在 ASTERUM 433-10 進行 EUNHO 生日寄信行程。'
     ],
     itinerary:[
       {time:'18:00-19:00', text:'公司 - 南港辦事處收拾', icon:'💼', addr:'台北市南港區'},
@@ -411,16 +416,16 @@ const DAYS_DATA = [
       {time:'11:00-12:00', text:'乙密台冷麵 (品嚐平壤冷麵 / 綠豆餅)', icon:'🍜', addr:'서울 마포구 숭문길 24'},
       {time:'12:30-15:00', text:'噗哩友善咖啡店 (클럽 바리스터)', icon:'☕', addr:'서울 마포구 독막로 83'},
       {time:'15:30-16:30', text:'合井合意辣炒年糕 (16:00 屋同食候補1號鬧鐘)', icon:'🍡', addr:'서울 마포구 양화로 36 102호'},
-      {time:'17:30-19:30', text:'十咖 ASTERUM 433-10 (17:00 屋同食候補2號鬧鐘)', icon:'✉️', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼特연희 A동'},
+      {time:'17:30-19:30', text:'十咖 ASTERUM 433-10 (17:00 屋同食候補2號鬧鐘)', icon:'✉️', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼트연희 A동'},
       {time:'20:00-21:30', text:'屋同食 (現場候補品嚐米其林豬肉湯飯)', icon:'🍲', addr:'서울 마포구 양화로7길 44-10'},
-      {time:'21:30-22:00', text:'海州坊 炸玉米 (外帶美味點心)', icon:'🌽', addr:'서울 마포구 월드컵로10길 27 1층 101호'},
-      {time:'22:30-', text:'返回溫暖的家休息 (Nouvelle Hotel)', icon:'🏨', addr:'서울 종로구 율곡로10길 27-16'}
+      {time:'21:30-22:00', text:'海州坊 炸玉米 (外帶美味點心)', icon:'🌽', addr:'서울 마포구 各국로10길 27 1층 101호'},
+      {time:'22:30-', text:'返回溫慢的住宿處休息 (Nouvelle Hotel)', icon:'🏨', addr:'서울 종로구 율곡로10길 27-16'}
     ],
     places:[
-      {name:'乙密台冷麵', krName:'을밀대 平양냉면', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾最著名的平壤冷麵老字號之一，湯頭清澈純粹，蕎麥麵條口感紮實有咬勁。', addr:'서울 마포구 숭문길 24', recommend:'平壤水冷麵、綠豆煎餅'},
+      {name:'乙密台冷麵', krName:'을밀대 평양냉면', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾最著名的平壤冷麵老字號之一，湯頭清澈純粹，蕎麥麵條口感紮實有咬勁。', addr:'서울 마포구 숭문길 24', recommend:'平壤水冷麵、綠豆煎餅'},
       {name:'噗哩友善咖啡店', krName:'클럽 바리스터', area:'麻浦區', tags:'應援踩點', type:'shop', desc:'噗哩專屬友善應援咖啡店，店內滿滿主題佈置。', addr:'서울 마포구 독막로 83', recommend:'主題限定特調'},
-      {name:'合井辣炒年糕', krName:'합정조이떡볶이', area:'合井站', tags:'街頭小吃', type:'food', desc:'醬汁甜辣濃郁的傳統年糕，搭配現炸魚餅與紫菜包飯非常過癮。', addr:'서울 마포구 양화로 36 102호', recommend:'辣炒年糕、魚餅湯'},
-      {name:'十咖 ASTERUM 433-10', krName:'ASTERUM 433-10', area:'延禧洞', tags:'概念空間', type:'shop', desc:'EUNHO生日與噗哩生日月概念限定空間，可在此寄送心意信件。', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼트연희 A동', recommend:'生日限定應援物'},
+      {name:'合井辣炒年糕', krName:'합정조이떡볶이', area:'合井站', tags:'街頭小吃', type:'food', desc:'醬汁甜辣濃郁的傳統年糕，搭配現炸魚餅與紫菜包飯非常過癮。', addr:'서울 마포구 양化로 36 102호', recommend:'辣炒年糕、魚餅湯'},
+      {name:'十咖 ASTERUM 433-10', krName:'ASTERUM 433-10', area:'延禧洞', tags:'概念空間', type:'shop', desc:'EUNHO生日與噗哩生日月概念限定空間，可在此寄送心意信件。', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼特연희 A동', recommend:'生日限定應援物'},
       {name:'屋同食', krName:'옥동식', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'連續多年榮獲米其林必比登推薦，清澈如茶的黑豬肉湯頭極致鮮甜。', addr:'서울 마포구 양화로7길 44-10', recommend:'豬肉湯飯 (需搭配 Catch Table 候補)'},
       {name:'海州坊 炸玉米', krName:'해주방', area:'麻浦區', tags:'特色宵夜', type:'food', desc:'外脆內多汁的特色炸玉米粒，調味鹹甜適中，是極受歡迎的外帶宵夜。', addr:'서울 마포구 월드컵로10길 27 1층 101호', recommend:'外帶炸玉米'}
     ]
@@ -429,16 +434,24 @@ const DAYS_DATA = [
     title:'聖水洞潮流美學選物與樂天超市採購',
     intro:'深入工業風設計聚落「聖水洞」，掃貨人氣品牌與大型選物空間，傍晚轉往首爾站樂天大採購。',
     tips:[
-      '🍜 刀削麵指引：石村站 6 號出口出來直走左手邊。蛤蠣非常鮮美，大宗採購注意肉類成分泡麵不可攜帶入境台灣。',
-      '💳 Tommy 會員卡：樂天超市免辦卡無痛享有專屬優惠，附帶 T-money 功能可用於便利商店與乘車。'
+      '刀削麵動線：早上由地鐵 1 號線鐘路 5 街站出發搭至鷺梁津站，轉乘 9 號線至石村站下車。',
+      '石村站出口：由地鐵 9 號線石村站 6 號出口出來後直走，黃道蛤蠣刀削麵即位於左手邊醒目位置。',
+      '聖水轉乘動線：用餐後由石村站搭 8 號線至蠶室站，換乘地鐵 2 號線，由聖水站 3 號出口進入商圈。',
+      '包款品牌鎖定：聖水首站鎖定 STAND OIL 旗艦店，挑選熱門極簡幾何皮革腋下包與流線斜背包。',
+      '米飛店營業時間：米飛 Miffy 限定文創雜貨專賣店營業至 19:30 截止，請拿捏前半段逛街節奏。',
+      '精選家居家具：下午安排 29HOME 質感家居，以及 Olive Young 聖水店採購男士與基礎護膚防曬用品。',
+      '前往首爾站動線：由地鐵 2 號線聖水站 4 號出口進站，搭至市廳站換乘 1 號線，直達首爾站。',
+      '樂天 Outlet 休息點：抵達首爾站後由 1 號出口手扶梯最上層右轉即達，可在此稍作休息、喝杯咖啡。',
+      '海關違禁品注意：伴手禮採購注意「BTS 泡麵含有肉類成分，絕對無法攜帶回台」，蛤蠣刀削麵則沒問題！',
+      '超市專屬優惠：樂天超市大宗採購免辦卡，直接享有 Tommy 免費會員卡優惠，且該卡附帶 T-money 功能可直接搭車。'
     ],
     itinerary:[
       {time:'10:00-11:30', text:'黃道蛤蠣刀削麵 (鮮甜大盆蛤蠣)', icon:'🍜', addr:'서울 송파구 백제고분로 358'},
       {time:'12:00-13:00', text:'STAND OIL 包包聖水旗艦店', icon:'👜', addr:'서울 성동구 연무장11길 19'},
       {time:'13:00-14:00', text:'米飛專賣店 (限定文創生活雜貨)', icon:'🐰', addr:'서울 성동구 연무장13길 5'},
-      {time:'14:00-15:00', text:'聖水洞娃娃倉庫 (毛絨掛件挖寶)', icon:'🧸', addr:'서울 성동구 성수동2가 273-26'},
+      {time:'14:00-15:00', text:'聖水洞娃娃倉庫 (毛絨掛件挖寶)', icon:'🧸', addr:'서울 성동구  성수동2가 273-26'},
       {time:'15:00-16:00', text:'29HOME (高質感美學生活選物)', icon:'🏡', addr:'서울 성동구 성수동2가 315-10'},
-      {time:'16:00-18:00', text:'年輕橄欖 Olive Young N 聖水旗艦店', icon:'🧴', addr:'서울 성동구 연무장7길 13 팩토리얼 성수'},
+      {time:'16:00-18:00', text:'年輕橄欖 Olive Young N 聖水旗艦店', icon:'🧴', addr:'서울 성동구 연무장7길 13 팩토리얼  성수'},
       {time:'19:00-21:00', text:'首爾站 樂天超市 (伴手禮採購)', icon:'🛒', addr:'서울 중구 한강대로 405 , 2층'}
     ],
     places:[
@@ -446,7 +459,7 @@ const DAYS_DATA = [
       {name:'STAND OIL 聖水旗艦店', krName:'스탠드오일 성수 플래그십 스토어', area:'聖水洞', tags:'潮流女包', type:'shop', desc:'韓國時下最具指標性的極簡設計師皮革包款品牌。', addr:'서울 성동구 연무장11길 19', recommend:'微光澤腋下斜背包'},
       {name:'米飛專賣店', krName:'미피스토어 서울', area:'聖水洞', tags:'限定文創', type:'shop', desc:'雲集大量米飛兔周邊與韓國限定聯名的可愛風格空間，營業至 19:30。', addr:'서울 성동구 연무장13길 5', recommend:'造型相片夾、聯名文具'},
       {name:'聖水洞娃娃倉庫', krName:'플레이엑스스튜디오', area:'聖水洞', tags:'療癒選物', type:'shop', desc:'精選眾多時下流行 Y2K 風格動物毛絨玩偶與精緻包包掛件。', addr:'서울 성동구 성수동2가 273-26', recommend:'毛絨小熊掛件'},
-      {name:'29HOME', krName:'이구홈 성수', area:'聖水洞', tags:'品味家居', type:'shop', desc:'線上美學平台 29CM 的實體家具家居選物空間，陳列極具設計質感。', addr:'서울 성동구 성수동2가 315-10', recommend:'獨立品牌香氛、設計餐具'},
+      {name:'29HOME', krName:'이구홈 성수', area:'聖水洞', tags:'品味家居', type:'shop', desc:'線上美學平台 29CM 的實體家具家居選物空間，陳列極具設計質感。', addr:'서울 성동구  성수동2가 315-10', recommend:'獨立品牌香氛、設計餐具'},
       {name:'年輕橄欖 聖水旗艦店', krName:'올리브영N 성수', area:'聖水洞', tags:'美妝聖地', type:'shop', desc:'全首爾品項最新、最齊全的 Olive Young 超大型概念店。', addr:'서울 성동구 연무장7길 13 팩토리얼 성수', recommend:'高保濕醫美安瓶精華'},
       {name:'首爾站 樂天超市', krName:'롯데마트 제타플렉스 서울역점', area:'首爾站', tags:'大型超市', type:'food', desc:'大宗糖果伴手禮採購聖地，注意肉類成分泡麵不可攜帶回台。', addr:'서울 중구 한강대로 405 , 2층', recommend:'海苔酥、零糖巧克力'}
     ]
@@ -455,31 +468,39 @@ const DAYS_DATA = [
     title:'弘大銀飾鞋履挖寶與紫色年糕店澎湃午餐',
     intro:'最後一日鎖定弘大核心商圈。入手高質感設計銀飾、百搭鞋履，再以經典鐵板起司辣炒雞排與大創高樓層巡禮完美收尾。',
     tips:[
-      '🧳 特工交寄：10:00 退房時務必嚴格核對並清點交寄給「行李特工」的行李箱數量、姓名與電話。',
-      '🏬 大創逛街技巧：弘大2號店高達七層樓，建議直接搭乘電梯至7樓，再一路向下逛出最省力動線。'
+      '退房特工交寄：10:00 準時 Check out，與行李特工交寄時，務必嚴格核對並清點姓名、電話、號碼與行李箱數量。',
+      'SCUDO銀飾選購：由飯店搭 Uber 前往第一站 SCUDO（鐘路店/율곡로）專門挑選前衛中性設計純銀手鍊配飾。',
+      '弘大入口站動線：搭地鐵 3 號線由鐘路 3 街站（7號出口）至乙支路 3 街站，轉 2 號線至弘大入口站 8 號出口出站。',
+      '弘益藥局定位：位於弘大 8 號出口週邊，就在 Olive Young 旗艦店的正對面，營業時間一直持續到深夜 23:30。',
+      'Kakao 旗艦空間：順路逛入 Kakao Friends 採集最新設計周邊，頂樓更設有主題應援景觀咖啡廳。',
+      'Ready Young藥局：位於 9 號出口出來不遠處，內部提供自動換錢機、自助退稅功能，且中文溝通無礙。',
+      '鞋履與服飾採購：下午排定步行試穿潮流網球鞋 EPT、平價高 CP 值的 CHAAKAN 鞋店，並保留步行與拍照時間。',
+      '起司辣炒雞份量：新美京紫色年糕店鐵板起司辣炒雞排份量極大（含兩人份雞肉+炒飯+泡麵），推薦點 Cass 啤酒搭配。',
+      '大創高樓層巡禮：弘大 2 號店高達七層樓，強烈建議直接坐電梯上 7 樓，再一路往 1 樓向下逛最省體力。',
+      '機場回程手續：19:30 前搭 Uber 前往仁川 T1，20:30 與行李特工領行李，辦理虎航 IT603 (訂單J9G9NT) 託運返台。'
     ],
     itinerary:[
-      {time:'11:00-11:30', text:'SCUDO 鐘路店 (前衛中性純銀手鍊配飾)', icon:'💍', addr:'서울특별시 종路구 율곡로10길 27-16'},
-      {time:'12:00-12:30', text:'弘益藥局 (Olive Young 正對面 / 營業至23:30)', icon:'💊', addr:'서울 마포구 양화로18길 7 1층'},
+      {time:'11:00-11:30', text:'SCUDO 鐘路店 (前衛中性純銀手鍊配飾)', icon:'💍', addr:'서울특별시 종로구 율곡로10길 27-16'},
+      {time:'12:00-12:30', text:'弘益藥局 (Olive Young 正對面 / 營業至23:30)', icon:'💊', addr:'서울 마포구  양화로18길 7 1運行'},
       {time:'12:30-13:00', text:'Kakao Friends 弘大旗艦店', icon:'🦁', addr:'서울 마포구 양화로 162 좋은사람들빌딩 1~3층'},
       {time:'13:00-13:30', text:'Ready Young 藥局 (換錢/退稅/中文OK)', icon:'💵', addr:'서울 마포구 홍익로6길 8 1층'},
       {time:'14:30-15:00', text:'EPT 潮流復古網球鞋履概念店', icon:'👟', addr:'서울 마포구 독막로7길 62'},
       {time:'15:00-16:30', text:'紫色年糕店 (新美京起司辣炒雞排午餐)', icon:'🥘', addr:'서울 마포구 와우산로21길 31-10 1층'},
       {time:'16:30-17:00', text:'CHAAKAN 流行鞋店旗艦店', icon:'👠', addr:'서울 마포구 와우산로29바길 25 1층'},
       {time:'17:00-17:30', text:'DUCKY WORLD (動漫 Y2K 相卡卡夾)', icon:'🧸', addr:'서울 마포구 와우산로29길 60 1층'},
-      {time:'18:00-19:30', text:'大創 弘大2號店 (最晚19:30出發機場)', icon:'🏬', addr:'서울 마포구 양화로 182'},
+      {time:'18:00-19:30', text:'大創 弘大2號店 (最晚19:30出發機場)', icon:'🏬', addr:'서울 마포구  양화로 182'},
       {time:'20:30-21:00', text:'抵達仁川 T1 與行李特工接頭領取行李', icon:'🛅', addr:'인천국제공항 제1여객터미널'}
     ],
     places:[
       {name:'SCUDO 鐘路店', krName:'스쿠도', area:'鐘路區', tags:'高質感配飾', type:'shop', desc:'主打俐落硬朗與幾何結構線條的設計師純銀飾品名店，需注意預約狀態。', addr:'서울특별시 종로구 율곡로10길 27-16', recommend:'工業風純銀手鍊'},
-      {name:'弘益藥局', krName:'홍익약국', area:'弘大商圈', tags:'在地藥局', type:'shop', desc:'位於弘大8號出口對面醒目位置，販售各式熱門保健品與韓系常備藥，營業至23:30。', addr:'서울 마포구 양화로18길 7 1층', recommend:'急救維他命、旅行常備藥'},
-      {name:'Kakao Friends', krName:'카카오프렌즈 홍대플래그십스토어', area:'弘大商圈', tags:'巨型角色旗艦店', type:'shop', desc:'多層樓的大型人氣 IP 旗艦空間，富含各式最新原創文創生活雜貨。', addr:'서울 마포구 양화로 162 좋은사람들빌딩 1~3층', recommend:'春植造型生活小物'},
+      {name:'弘益藥局', krName:'홍익약국', area:'弘大商圈', tags:'在地藥局', type:'shop', desc:'位於弘大8號出口對面醒目位置，販售各式熱門保健品與韓系常備藥，營業至23:30。', addr:'서울 마포구  양화로18길 7 1층', recommend:'急救維他命、旅行常備藥'},
+      {name:'Kakao Friends', krName:'카카오프렌즈 홍대플래그십스托어', area:'弘大商圈', tags:'巨型角色旗艦店', type:'shop', desc:'多層樓的大型人氣 IP 旗艦空間，富含各式最新原創文創生活雜貨。', addr:'서울 마포구 양화로 162 좋은사람들빌딩 1~3층', recommend:'春植造型生活小物'},
       {name:'Ready Young 藥局', krName:'레디영약국', area:'弘大商圈', tags:'智慧退稅藥局', type:'shop', desc:'九號出口旁，設有換錢機與即時自助退稅機器，中文友善度高。', addr:'서울 마포구 홍익로6길 8 1층', recommend:'即時退稅服務'},
       {name:'EPT 弘大店', krName:'이피티 홍대점', area:'弘大商圈', tags:'人氣網球鞋', type:'shop', desc:'在韓國大熱的當代復古休閒鞋履品牌，中底厚實柔軟，日常逛街首選。', addr:'서울 마포구 독막로7길 62', recommend:'經典德訓鞋、復古帆布鞋'},
       {name:'紫色年糕店', krName:'신미경홍대닭갈비', area:'弘大商圈', tags:'豐盛鐵板料理', type:'food', desc:'大鐵盤現點現炒的春川辣炒雞排，鋪上滿滿雙色瀑布起司，麵條非常吸附醬汁。', addr:'서울 마포구 와우산로21길 31-10 1층', recommend:'起司雙重辣炒雞排搭 Cass 啤酒'},
-      {name:'CHAAKAN 鞋店', krName:'착한구두 홍대  플래그쉽 스托어', area:'弘大商圈', tags:'高CP值女鞋', type:'shop', desc:'以皮革面料細緻、腳感輕盈著稱的超平價正韓流行女鞋名店。', addr:'서울 마포구 와우산로29바길 25 1층', recommend:'韓系軟皮樂福鞋'},
+      {name:'CHAAKAN 鞋店', krName:'착한구두 홍대 플래그쉽 스토어', area:'弘大商圈', tags:'高CP值女鞋', type:'shop', desc:'以皮革面料細緻、腳感輕盈著稱的超平價正韓流行女鞋名店。', addr:'서울 마포구  와우산로29바길 25 1층', recommend:'韓系軟皮樂福鞋'},
       {name:'DUCKY WORLD', krName:'더키월드', area:'弘大商圈', tags:'應援周邊', type:'shop', desc:'主打 Y2K 風格相卡卡夾、拍立得保護套與經典動漫插畫周邊。', addr:'서울 마포구 와우산로29길 60 1층', recommend:'相卡收納冊、拍立得掛件'},
-      {name:'大創 弘大2號店', krName:'다이소 홍대2호점', area:'弘大商圈', tags:'大型百貨', type:'shop', desc:'高達七層樓的綜合生活採購基地，各類旅行收納小物一應俱全。', addr:'서울 마포구 양화로 182', recommend:'正韓美妝小耗材、旅行壓縮袋'}
+      {name:'大創 弘大2號店', krName:'다이소 홍대2호점', area:'弘大商圈', tags:'大型百貨', type:'shop', desc:'高達七層樓的綜合生活採購基地，各類旅行收納小物一應俱全。', addr:'서울 마포구  양화로 182', recommend:'正韓美妝小耗材、旅行壓縮袋'}
     ]
   }
 ];
@@ -503,7 +524,7 @@ const PHRASES_DATA = [
   { tag: '飯店住宿', tw: '可以先寄放行李嗎？', ja: '짐을 먼저 맡길 수 있을까요?', romaji: 'Jim-eul meon-jeo mat-gil su is-seul-kka-yo?', speak: '짐을 먼저 맡길 수 있을까요' },
   { tag: '餐廳點餐', tw: '請推薦招牌菜。', ja: '가장 인기 있는 메뉴 추천해 주세요.', romaji: 'Ga-jang in-gi in-neun me-nyu chu-cheon-hae ju-se-yo.', speak: '가장 인기 있는 메뉴 추천해 주세요' },
   { tag: '餐廳點餐', tw: '請幫我做得不要太辣。', ja: '덜 맵게 해주세요.', romaji: 'Deol maeb-ge hae-ju-se-yo.', speak: '덜 맵게 해주세요' },
-  { tag: '購物退稅', tw: '請問可以當場退稅嗎？', ja: '바로 택斯프리 되나요?', romaji: 'Ba-ro taek-seu-peu-ri doe-na-yo?', speak: '바로 택스프리 되나요' },
+  { tag: '購物退稅', tw: '請問可以當場退稅嗎？', ja: '바로 택스프리 되나요?', romaji: 'Ba-ro taek-seu-peu-ri doe-na-yo?', speak: '바로 택스프리 되나요' },
   { tag: '購物退稅', tw: '可以用信用卡付款嗎？', ja: '신용카드 쓸 수 있어요?', romaji: 'Sin-yong-ka-deu sseul su is-seo-yo?', speak: '신용카드 쓸 수 있어요' }
 ];
 
