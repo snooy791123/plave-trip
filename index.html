@@ -220,7 +220,7 @@ tailwind.config = {
             🗺️ <strong>現地首選 Naver Map</strong>：在韓國最精準的找路工具，本程式已整合精確韓文地址，點擊直達現地導航。
           </div>
           <div class="p-3 bg-white/40 rounded-xl border border-white/50 leading-relaxed">
-            🌍 <strong>事前備用 Google Map</strong>：已全面修復原版網址 404 錯誤，精準串接國際通用地理座標查詢 API 作為完美防線。
+            🌍 <strong>事前備用 Google Map</strong>：已全面修復跳轉格式，精準串接標準地理座標查詢，提供最完美的雙圖防線。
           </div>
         </div>
       </div>
@@ -279,12 +279,12 @@ tailwind.config = {
           <div class="bg-white/50 rounded-xl px-4 py-3 relative border border-white">
             <div class="font-black text-ink text-sm">龍山休息室 (Transit Lounge)</div>
             <div class="text-ink/60 text-xs mt-1 font-mono">서울 용산구 새창로 154 대동빌딩 6층</div>
-            <button onclick="copyText('서울특별시 용산구 새창로 154 대동빌딩 6층')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
+            <button onclick="copyText('서울특별시 用山區 새창로 154 대동빌딩 6층')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
           </div>
           <div class="bg-white/50 rounded-xl px-4 py-3 relative border border-white">
             <div class="font-black text-ink text-sm">鐘路飯店 (Nouvelle Hotel)</div>
             <div class="text-ink/60 text-xs mt-1 font-mono">서울 종로구 율곡로10길 27-16</div>
-            <button onclick="copyText('서울특별시 종로구 율곡로10길 27-16')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
+            <button onclick="copyText('서울특별시 鐘路區 율곡로10길 27-16')" class="absolute top-3 right-3 text-xs w-7 h-7 flex items-center justify-center rounded-lg bg-white text-ocean hover:bg-ocean hover:text-white transition shadow-sm border border-ocean/10"><i class="fas fa-copy"></i></button>
           </div>
         </div>
       </div>
@@ -311,12 +311,12 @@ tailwind.config = {
       <h2 class="font-heading font-black text-4xl text-ink mb-2 tracking-tight">急救韓文小卡 🗣️</h2>
       <p class="text-ink/60 font-medium mb-4">精選實用自由行對話。點擊右上方喇叭，手機自動為你朗讀標準韓語發音！</p>
       <div class="flex gap-2 overflow-x-auto no-scroll mb-6 pb-2 px-1" id="phrase-category-filters">
-        <button onclick="filterPhrases('all')" class="phrase-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部句型</button>
-        <button onclick="filterPhrases('日常問候')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">日常問候</button>
-        <button onclick="filterPhrases('交通問路')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">交通問路</button>
-        <button onclick="filterPhrases('飯店住宿')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">飯店住宿</button>
-        <button onclick="filterPhrases('餐廳點餐')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">餐廳點餐</button>
-        <button onclick="filterPhrases('購物退稅')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">購物退稅</button>
+        <button onclick="filterPhrases(this, 'all')" class="phrase-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部句型</button>
+        <button onclick="filterPhrases(this, '日常問候')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">日常問候</button>
+        <button onclick="filterPhrases(this, '交通問路')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">交通問路</button>
+        <button onclick="filterPhrases(this, '飯店住宿')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">飯店住宿</button>
+        <button onclick="filterPhrases(this, '餐廳點餐')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">餐廳點餐</button>
+        <button onclick="filterPhrases(this, '購物退稅')" class="phrase-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">購物退稅</button>
       </div>
     </div>
     <div id="phrases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
@@ -351,9 +351,9 @@ tailwind.config = {
 
     <div id="day-tab-places" class="hidden">
       <div class="flex gap-2 mb-6 px-1">
-        <button onclick="setPlaceTypeFilter('all')" class="place-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部型態</button>
-        <button onclick="setPlaceTypeFilter('food')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🍜 質感美食</button>
-        <button onclick="setPlaceTypeFilter('shop')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🛍️ 潮流選物</button>
+        <button onclick="setPlaceTypeFilter(this, 'all')" class="place-filter-btn filter-active px-4 py-2 rounded-full text-xs font-bold border border-ink/10 transition shadow-sm">全部型態</button>
+        <button onclick="setPlaceTypeFilter(this, 'food')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🍜 質感美食</button>
+        <button onclick="setPlaceTypeFilter(this, 'shop')" class="place-filter-btn bg-white/60 text-ink/60 px-4 py-2 rounded-full text-xs font-bold border border-white hover:bg-white transition shadow-sm">🛍️ 潮流選物</button>
       </div>
       <div id="day-places" class="grid grid-cols-1 sm:grid-cols-2 gap-5"></div>
     </div>
@@ -391,7 +391,7 @@ tailwind.config = {
 </nav>
 
 <script>
-// ===================== DATA (整合完整精確韓文地址與座標參數) =====================
+// ===================== DATA =====================
 const DAYS_DATA = [
   { id:'day1', num:'01', date:'6月19日', color:'ocean', hex:'#2c5d88',
     title:'踩點 PLAVE 聖地巡禮的一天',
@@ -407,18 +407,18 @@ const DAYS_DATA = [
       {time:'18:00-19:00', text:'公司 - 南港辦事處收拾', icon:'💼', addr:'台北市南港區'},
       {time:'21:30-23:15', text:'南港 - 桃園機場 (搭乘機場捷運 T1)', icon:'🚇', addr:'桃園國際機場第一航廈'},
       {time:'01:25-05:00', text:'台灣 ✈️ 首爾 (LJ734 / 訂單PA5QH2)', icon:'✈️', addr:'인천국제공항 제2여객터미널'},
-      {time:'07:30-09:30', text:'龍山休息室小憩 (發放台灣小泡芙+零食)', icon:'🛋️', addr:'서울 용산구 새창로 154 대동빌ディング 6층'},
+      {time:'07:30-09:30', text:'龍山休息室小憩 (發放台灣小泡芙+零食)', icon:'🛋️', addr:'서울 용산구 새창로 154 대동빌딩 6층'},
       {time:'11:00-12:00', text:'乙密台冷麵 (品嚐平壤冷麵 / 綠豆餅)', icon:'🍜', addr:'서울 마포구 숭문길 24'},
       {time:'12:30-15:00', text:'噗哩友善咖啡店 (클럽 바리스터)', icon:'☕', addr:'서울 마포구 독막로 83'},
       {time:'15:30-16:30', text:'合井合意辣炒年糕 (16:00 屋同食候補1號鬧鐘)', icon:'🍡', addr:'서울 마포구 양화로 36 102호'},
-      {time:'17:30-19:30', text:'十咖 ASTERUM 433-10 (17:00 屋同食候補2號鬧鐘)', icon:'✉️', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼트연희 A동'},
+      {time:'17:30-19:30', text:'十咖 ASTERUM 433-10 (17:00 屋同食候補2號鬧鐘)', icon:'✉️', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼特연희 A동'},
       {time:'20:00-21:30', text:'屋同食 (現場候補品嚐米其林豬肉湯飯)', icon:'🍲', addr:'서울 마포구 양화로7길 44-10'},
-      {time:'21:30-22:00', text:'海州坊 炸玉米 (外帶美味點心)', icon:'🌽', addr:'서울 마포구 컵로10길 27 1층 101호'},
+      {time:'21:30-22:00', text:'海州坊 炸玉米 (外帶美味點心)', icon:'🌽', addr:'서울 마포구 월드컵로10길 27 1층 101호'},
       {time:'22:30-', text:'返回溫暖的家休息 (Nouvelle Hotel)', icon:'🏨', addr:'서울 종로구 율곡로10길 27-16'}
     ],
     places:[
-      {name:'乙密台冷麵', krName:'을밀대 평양냉면', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾最著名的平壤冷麵老字號之一，湯頭清澈純粹，蕎麥麵條口感紮實有咬勁。', addr:'서울 마포구 숭문길 24', recommend:'平壤水冷麵、綠豆煎餅'},
-      {name:'噗哩友善咖啡店', krName:'클럽 바리스ター', area:'麻浦區', tags:'應援踩點', type:'shop', desc:'噗哩專屬友善應援咖啡店，店內滿滿主題佈置。', addr:'서울 마포구 독막로 83', recommend:'主題限定特調'},
+      {name:'乙密台冷麵', krName:'을밀대 平양냉면', area:'麻浦區', tags:'傳統美食', type:'food', desc:'首爾最著名的平壤冷麵老字號之一，湯頭清澈純粹，蕎麥麵條口感紮實有咬勁。', addr:'서울 마포구 숭문길 24', recommend:'平壤水冷麵、綠豆煎餅'},
+      {name:'噗哩友善咖啡店', krName:'클럽 바리스터', area:'麻浦區', tags:'應援踩點', type:'shop', desc:'噗哩專屬友善應援咖啡店，店內滿滿主題佈置。', addr:'서울 마포구 독막로 83', recommend:'主題限定特調'},
       {name:'合井辣炒年糕', krName:'합정조이떡볶이', area:'合井站', tags:'街頭小吃', type:'food', desc:'醬汁甜辣濃郁的傳統年糕，搭配現炸魚餅與紫菜包飯非常過癮。', addr:'서울 마포구 양화로 36 102호', recommend:'辣炒年糕、魚餅湯'},
       {name:'十咖 ASTERUM 433-10', krName:'ASTERUM 433-10', area:'延禧洞', tags:'概念空間', type:'shop', desc:'EUNHO生日與噗哩生日月概念限定空間，可在此寄送心意信件。', addr:'서울특별시 서대문구 연희로11가길 48-23 파크먼트연희 A동', recommend:'生日限定應援物'},
       {name:'屋同食', krName:'옥동식', area:'西橋洞', tags:'米其林推薦', type:'food', desc:'連續多年榮獲米其林必比登推薦，清澈如茶的黑豬肉湯頭極致鮮甜。', addr:'서울 마포구 양화로7길 44-10', recommend:'豬肉湯飯 (需搭配 Catch Table 候補)'},
@@ -439,12 +439,12 @@ const DAYS_DATA = [
       {time:'14:00-15:00', text:'聖水洞娃娃倉庫 (毛絨掛件挖寶)', icon:'🧸', addr:'서울 성동구 성수동2가 273-26'},
       {time:'15:00-16:00', text:'29HOME (高質感美學生活選物)', icon:'🏡', addr:'서울 성동구 성수동2가 315-10'},
       {time:'16:00-18:00', text:'年輕橄欖 Olive Young N 聖水旗艦店', icon:'🧴', addr:'서울 성동구 연무장7길 13 팩토리얼 성수'},
-      {time:'19:00-21:00', text:'首爾站 樂天超市 (伴手禮採購)', icon:'🛒', addr:'서울 中구 한강대로 405 , 2층'}
+      {time:'19:00-21:00', text:'首爾站 樂天超市 (伴手禮採購)', icon:'🛒', addr:'서울 중구 한강대로 405 , 2층'}
     ],
     places:[
-      {name:'黃道蛤蠣刀削麵', krName:'황도바지락칼국수', area:'石村站', tags:'人氣排隊麵店', type:'food', desc:'鋪滿飽滿蛤蠣的手工刀削麵，高湯充斥鮮甜海鮮香氣。', addr:'서울 송파구 백제고分로 358', recommend:'蛤蠣刀削麵'},
+      {name:'黃道蛤蠣刀削麵', krName:'황도바지락칼국수', area:'石村站', tags:'人氣排隊麵店', type:'food', desc:'鋪滿飽滿蛤蠣的手工刀削麵，高湯充斥鮮甜海鮮香氣。', addr:'서울 송파구 백제고분로 358', recommend:'蛤蠣刀削麵'},
       {name:'STAND OIL 聖水旗艦店', krName:'스탠드오일 성수 플래그십 스토어', area:'聖水洞', tags:'潮流女包', type:'shop', desc:'韓國時下最具指標性的極簡設計師皮革包款品牌。', addr:'서울 성동구 연무장11길 19', recommend:'微光澤腋下斜背包'},
-      {name:'米飛專專賣店', krName:'미피스토어 서울', area:'聖水洞', tags:'限定文創', type:'shop', desc:'雲集大量米飛兔周邊與韓國限定聯名的可愛風格空間，營業至 19:30。', addr:'서울 성동구 연무장13길 5', recommend:'造型相片夾、聯名文具'},
+      {name:'米飛專賣店', krName:'미피스토어 서울', area:'聖水洞', tags:'限定文創', type:'shop', desc:'雲集大量米飛兔周邊與韓國限定聯名的可愛風格空間，營業至 19:30。', addr:'서울 성동구 연무장13길 5', recommend:'造型相片夾、聯名文具'},
       {name:'聖水洞娃娃倉庫', krName:'플레이엑스스튜디오', area:'聖水洞', tags:'療癒選物', type:'shop', desc:'精選眾多時下流行 Y2K 風格動物毛絨玩偶與精緻包包掛件。', addr:'서울 성동구 성수동2가 273-26', recommend:'毛絨小熊掛件'},
       {name:'29HOME', krName:'이구홈 성수', area:'聖水洞', tags:'品味家居', type:'shop', desc:'線上美學平台 29CM 的實體家具家居選物空間，陳列極具設計質感。', addr:'서울 성동구 성수동2가 315-10', recommend:'獨立品牌香氛、設計餐具'},
       {name:'年輕橄欖 聖水旗艦店', krName:'올리브영N 성수', area:'聖水洞', tags:'美妝聖地', type:'shop', desc:'全首爾品項最新、最齊全的 Olive Young 超大型概念店。', addr:'서울 성동구 연무장7길 13 팩토리얼 성수', recommend:'高保濕醫美安瓶精華'},
@@ -459,7 +459,7 @@ const DAYS_DATA = [
       '🏬 大創逛街技巧：弘大2號店高達七層樓，建議直接搭乘電梯至7樓，再一路向下逛出最省力動線。'
     ],
     itinerary:[
-      {time:'11:00-11:30', text:'SCUDO 鐘路店 (前衛中性純銀手鍊配飾)', icon:'💍', addr:'서울특별시  종로구 율곡로10길 27-16'},
+      {time:'11:00-11:30', text:'SCUDO 鐘路店 (前衛中性純銀手鍊配飾)', icon:'💍', addr:'서울특별시 종路구 율곡로10길 27-16'},
       {time:'12:00-12:30', text:'弘益藥局 (Olive Young 正對面 / 營業至23:30)', icon:'💊', addr:'서울 마포구 양화로18길 7 1층'},
       {time:'12:30-13:00', text:'Kakao Friends 弘大旗艦店', icon:'🦁', addr:'서울 마포구 양화로 162 좋은사람들빌딩 1~3층'},
       {time:'13:00-13:30', text:'Ready Young 藥局 (換錢/退稅/中文OK)', icon:'💵', addr:'서울 마포구 홍익로6길 8 1층'},
@@ -477,7 +477,7 @@ const DAYS_DATA = [
       {name:'Ready Young 藥局', krName:'레디영약국', area:'弘大商圈', tags:'智慧退稅藥局', type:'shop', desc:'九號出口旁，設有換錢機與即時自助退稅機器，中文友善度高。', addr:'서울 마포구 홍익로6길 8 1층', recommend:'即時退稅服務'},
       {name:'EPT 弘大店', krName:'이피티 홍대점', area:'弘大商圈', tags:'人氣網球鞋', type:'shop', desc:'在韓國大熱的當代復古休閒鞋履品牌，中底厚實柔軟，日常逛街首選。', addr:'서울 마포구 독막로7길 62', recommend:'經典德訓鞋、復古帆布鞋'},
       {name:'紫色年糕店', krName:'신미경홍대닭갈비', area:'弘大商圈', tags:'豐盛鐵板料理', type:'food', desc:'大鐵盤現點現炒的春川辣炒雞排，鋪上滿滿雙色瀑布起司，麵條非常吸附醬汁。', addr:'서울 마포구 와우산로21길 31-10 1층', recommend:'起司雙重辣炒雞排搭 Cass 啤酒'},
-      {name:'CHAAKAN 鞋店', krName:'착한구두 홍대 플래그쉽 스토어', area:'弘大商圈', tags:'高CP值女鞋', type:'shop', desc:'以皮革面料細緻、腳感輕盈著稱的超平價正韓流行女鞋名店。', addr:'서울 마포구 와우산로29바길 25 1층', recommend:'韓系軟皮樂福鞋'},
+      {name:'CHAAKAN 鞋店', krName:'착한구두 홍대  플래그쉽 스托어', area:'弘大商圈', tags:'高CP值女鞋', type:'shop', desc:'以皮革面料細緻、腳感輕盈著稱的超平價正韓流行女鞋名店。', addr:'서울 마포구 와우산로29바길 25 1층', recommend:'韓系軟皮樂福鞋'},
       {name:'DUCKY WORLD', krName:'더키월드', area:'弘大商圈', tags:'應援周邊', type:'shop', desc:'主打 Y2K 風格相卡卡夾、拍立得保護套與經典動漫插畫周邊。', addr:'서울 마포구 와우산로29길 60 1층', recommend:'相卡收納冊、拍立得掛件'},
       {name:'大創 弘大2號店', krName:'다이소 홍대2호점', area:'弘大商圈', tags:'大型百貨', type:'shop', desc:'高達七層樓的綜合生活採購基地，各類旅行收納小物一應俱全。', addr:'서울 마포구 양화로 182', recommend:'正韓美妝小耗材、旅行壓縮袋'}
     ]
@@ -503,7 +503,7 @@ const PHRASES_DATA = [
   { tag: '飯店住宿', tw: '可以先寄放行李嗎？', ja: '짐을 먼저 맡길 수 있을까요?', romaji: 'Jim-eul meon-jeo mat-gil su is-seul-kka-yo?', speak: '짐을 먼저 맡길 수 있을까요' },
   { tag: '餐廳點餐', tw: '請推薦招牌菜。', ja: '가장 인기 있는 메뉴 추천해 주세요.', romaji: 'Ga-jang in-gi in-neun me-nyu chu-cheon-hae ju-se-yo.', speak: '가장 인기 있는 메뉴 추천해 주세요' },
   { tag: '餐廳點餐', tw: '請幫我做得不要太辣。', ja: '덜 맵게 해주세요.', romaji: 'Deol maeb-ge hae-ju-se-yo.', speak: '덜 맵게 해주세요' },
-  { tag: '購物退稅', tw: '請問可以當場退稅嗎？', ja: '바로 택스프리 되나요?', romaji: 'Ba-ro taek-seu-peu-ri doe-na-yo?', speak: '바로 택스프리 되나요' },
+  { tag: '購物退稅', tw: '請問可以當場退稅嗎？', ja: '바로 택斯프리 되나요?', romaji: 'Ba-ro taek-seu-peu-ri doe-na-yo?', speak: '바로 택스프리 되나요' },
   { tag: '購物退稅', tw: '可以用信用卡付款嗎？', ja: '신용카드 쓸 수 있어요?', romaji: 'Sin-yong-ka-deu sseul su is-seo-yo?', speak: '신용카드 쓸 수 있어요' }
 ];
 
@@ -751,12 +751,12 @@ function renderPhrases() {
     </div>`).join('');
 }
 
-window.filterPhrases = (cat) => {
+window.filterPhrases = (btnEl, cat) => {
   state.phraseCategoryFilter = cat;
   document.querySelectorAll('.phrase-filter-btn').forEach(btn => { btn.classList.remove('filter-active'); btn.classList.add('bg-white/60', 'text-ink/60'); });
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add('filter-active');
-    event.currentTarget.classList.remove('bg-white/60', 'text-ink/60');
+  if (btnEl) {
+    btnEl.classList.add('filter-active');
+    btnEl.classList.remove('bg-white/60', 'text-ink/60');
   }
   renderPhrases();
 };
@@ -786,8 +786,23 @@ function renderDayView(dayId) {
     </div>`;
 
   document.getElementById('day-timeline').innerHTML = day.itinerary.map(it => {
+    const isTaiwan = !it.addr || it.addr.includes('台北') || it.addr.includes('桃園');
     const navQuery = encodeURIComponent(it.addr || it.text);
     const googleQuery = encodeURIComponent(it.text + " " + (it.addr || ''));
+    
+    let buttonsHtml = '';
+    if (!isTaiwan) {
+      buttonsHtml = `
+        <div class="flex gap-2 mt-2">
+          <a href="https://map.naver.com/v5/search/${navQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
+            <i class="fas fa-map-marked-alt text-[9px]"></i> Naver 導航
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
+            <i class="fab fa-google text-[9px]"></i> Google 備用
+          </a>
+        </div>`;
+    }
+
     return `
     <div class="timeline-item relative pl-12 pb-2">
       <div class="timeline-dot"></div>
@@ -796,14 +811,7 @@ function renderDayView(dayId) {
         <div class="font-mono font-black text-xs mb-1" style="color:${day.hex}">${it.time}</div>
         <div class="font-sans font-black text-sm text-ink mb-0.5">${it.text}</div>
         <div class="text-[11px] font-mono font-medium text-ink/50 mb-2">${it.addr || ''}</div>
-        <div class="flex gap-2 mt-2">
-          <a href="https://map.naver.com/v5/search/${navQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-mint px-2.5 py-1 rounded-lg">
-            <i class="fas fa-map-marked-alt text-[9px]"></i> Naver 導航
-          </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=${googleQuery}" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-coral px-2.5 py-1 rounded-lg">
-            <i class="fab fa-google text-[9px]"></i> Google 備用
-          </a>
-        </div>
+        ${buttonsHtml}
       </div>
     </div>`;
   }).join('');
@@ -867,12 +875,12 @@ window.switchDayTab = (tab) => {
   document.getElementById('tab-places').classList.toggle('bg-white', tab==='places');
 };
 
-window.setPlaceTypeFilter = (type) => {
+window.setPlaceTypeFilter = (btnEl, type) => {
   state.placeTypeFilter = type;
   document.querySelectorAll('#view-day .place-filter-btn').forEach(btn => { btn.classList.remove('filter-active'); btn.classList.add('bg-white/60', 'text-ink/60'); });
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add('filter-active');
-    event.currentTarget.classList.remove('bg-white/60', 'text-ink/60');
+  if (btnEl) {
+    btnEl.classList.add('filter-active');
+    btnEl.classList.remove('bg-white/60', 'text-ink/60');
   }
   const day = DAYS_DATA.find(d => d.id === state.currentDayId);
   if(day) renderPlaces(day);
